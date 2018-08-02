@@ -1,0 +1,32 @@
+今天自己在做一个IO读取员工管理系统中，发现每次输出的行数据都不对劲，但是逻辑语法又没有问题，后来用Debug一步步调试出来，大家有兴趣，可以去看看我的员工管理系统（三），那里面我也会提到，这里我举个例子。
+[java] view plain copy
+private static void test1() throws FileNotFoundException, IOException {
+        FileReader fr=new FileReader("E:/test.txt");
+        BufferedReader br=new BufferedReader(fr);
+        String ch=null;
+        int i=0;
+        int k=2;
+        while((ch=br.readLine())!=null){
+            i++;
+            if(i==k){
+            （1）System.out.println(ch);//ch=br.readLine的，这里我输出俩遍让大家看清楚，我原先天真的俩者相等，输出应该是没有问题的，但是如果我只输出第二句话的话，其实实在ch的基础上又跳到了下一句，图1中是我test.txt文件中的数据，他就会输出
+[java] view plain copy
+haha....
+3rfg
+cbgf....
+ghju....
+[java] view plain copy
+大家可以很清楚看到2消失了！这里的代码还是简单小型的，如果多了的话，就更想不到哪里出错，所以一定要小心，我总结出来的方法是，你如果前面用到了变量指向这个<pre name="code" class="java">br.readLine()，就全称用这个变量，不要在换变量或者直接用<span style="font-family: Arial, Helvetica, sans-serif;">br.readLine()！</span>
+[java] view plain copy
+    （2）System.out.println(br.readLine());
+    }
+    else
+        System.out.println(ch+"....");
+}
+
+[html] view plain copy
+haha
+2                                     图1
+3rfg
+cbgf
+ghju

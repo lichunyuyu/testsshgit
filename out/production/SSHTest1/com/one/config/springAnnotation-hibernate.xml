@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 注意下面配置中的spring-*.xsd的版本号要与使用的jar包匹配 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+        <!--<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" -->
+                <!--"http://www.springframework.org/dtd/spring-beans-2.0.dtd" [-->
+                <!--<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">-->
+                <!--]>-->
+
+<!--<!DOCTYPE hibernate-configuration PUBLIC-->
+        <!--"-//Hibernate/Hibernate Configuration DTD 3.0//EN"-->
+        <!--"http://www.springframework.org/dtd/spring-beans-2.0.dtd"-->
+        <!--"http://www.hibernate.org/xsd/hibernate-configuration-3.0.dtd" >-->
+
+
+    <!-- 只解析除controller之外的注解(即解析service、dao), 避免重复加载导致事务失效  -->
+    <context:component-scan base-package="com.one">
+        <!-- annotation为spting-mvc中解析的内容 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+
+
+    <!-- 配置hibernate相关数据库的操作 -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!--&lt;!&ndash; 数据库的驱动 &ndash;&gt;-->
+        <!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>-->
+        <!--&lt;!&ndash; 数据库的Id,用户名与密码 &ndash;&gt;-->
+        <!--<property name="url" value="jdbc:oracle:thin:@192.168.24.248:1521:ORCL"/>-->
+        <!--<property name="username" value="lishehe"/>-->
+        <!--<property name="password" value="lishehe"/>-->
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/attendance" />
+        <property name="username" value="root" />
+        <property name="password" value="123" />
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:com/one/config/hibernate.cfg.xml"></property>
+
+        <!-- 12-11 packagesToScan 扫描包所在路径（name中的内容其实是个关键字，可以扫描一整个包）多个对象 时  可以com.one.entity -->
+        <!--<property name="packagesToScan" value="com.one.hibernate">-->
+
+        <property name="packagesToScan" >
+            <list>
+                <!-- 此处可添加多个entity -->
+                <value>com.one.entity</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- 定义事务管理器（声明式的事务） -->
+    <!-- sessionFactory 为自己配置 sessionFactory 的 bean-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <!-- 事务控制   -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--<bean id="transactionBese" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="true" abstract="true">-->
+        <!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
+        <!--<property name="transactionManager" ref="transactionManager"></property>-->
+        <!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
+        <!--<property name="transactionAttributes">-->
+            <!--<props>-->
+                <!--&lt;!&ndash; 下面就开始配置各个模块所必须的部分，在各自的applicationContext-XXX-beans.xml配置的对于事务管理的详细信息。-->
+            <!--首先就是配置事务的传播特性，如下： &ndash;&gt;-->
+                <!--&lt;!&ndash;  配置事务传播特性 &ndash;&gt;-->
+                <!--<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>-->
+                <!--<prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>-->
+                <!--<prop key="insert*">PROPAGATION_REQUIRED,-Exception</prop>-->
+                <!--<prop key="modify*">PROPAGATION_REQUIRED,-Exception</prop>-->
+                <!--<prop key="delete*">PROPAGATION_REQUIRED,-Exception</prop>-->
+                <!--<prop key="get*">PROPAGATION_NEVER</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!-- 添加一个通知取别名，然后决定管理哪一个事务管理器,***只是查询的话用不到事物 -->
+    <!-- 拦截器方式配置事物 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!--原来的 只有查询-->
+            <!--<tx:method name="get*" read-only="true" />-->
+            <!--<tx:method name="*" />-->
+
+            <!-- 拦截的是下段配置aop里设置的路径，即txPointcut中配置的路径 -->
+            <!-- 具体的propagation含义请自查 -->
+            <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="create*" propagation="REQUIRED" />
+            <tx:method name="insert*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="merge*" propagation="REQUIRED" />
+            <tx:method name="del*" propagation="REQUIRED" />
+            <tx:method name="remove*" propagation="REQUIRED" />
+            <tx:method name="put*" propagation="REQUIRED" />
+            <tx:method name="use*" propagation="REQUIRED" />
+            <!--hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->
+            <tx:method name="get*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="count*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="find*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="list*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+    <!--    Spring aop事务管理 -->
+    <aop:config>
+        <!-- 只对业务逻辑层（service层）实施事务 -->
+        <!-- execution(public * *.*.*..*.*(..)) 为自己项目中操作数据库中的方法 -->
+        <aop:pointcut expression="execution(* com.one.service.*.*(..))"
+                      id="txPointcut" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+    </aop:config>
+    <!--后加的-->
+    <!-- 配置事务异常封装 -->
+    <bean id="persistenceExceptionTranslationPostProcessor" class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate"
+          p:sessionFactory-ref="sessionFactory"/>
+    <bean id="jdbcTemplate"   class="org.springframework.jdbc.core.JdbcTemplate"  p:dataSource-ref="dataSource"/>
+    <bean id="namedParamJdbcTemplate"  class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+
+    <!--配置另一个数据库 testfirst-->
+    <bean id="dataSourceTwo" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/testfirst" />
+        <property name="username" value="root" />
+        <property name="password" value="123" />
+    </bean>
+
+    <bean id="sessionFactoryTwo" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceTwo"/>
+        <property name="configLocation" value="classpath:com/one/config/hibernate.cfg.xml"></property>
+
+        <!--<property name="packagesToScan" >-->
+            <!--<list>-->
+                <!--&lt;!&ndash; 此处可添加多个entity &ndash;&gt;-->
+                <!--<value>com.one.entity</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    </bean>
+
+    <bean id="hibernateTemplateTwo" class="org.springframework.orm.hibernate5.HibernateTemplate"
+          p:sessionFactory-ref="sessionFactoryTwo"/>
+    <bean id="jdbcTemplateTwo"   class="org.springframework.jdbc.core.JdbcTemplate"  p:dataSource-ref="dataSourceTwo"/>
+    <!--<bean id="dbServiceTwo"     class="com.ts.core.db.support.HibernateServiceSupport"  >-->
+    <bean id="dbServiceTwo"     class="com.one.dao.HibernateTwo.HibernateServiceSupport"  >
+        <!--HibernateServiceSupport 添加 get  set 方法-->
+        <property name="hibernateTemplate" ref="hibernateTemplateTwo" />
+        <!--<property name="jdbcTemplate" ref="jdbcTemplateTwo" />-->
+    </bean>
+
+    <!-- 定义事务管理器（声明式的事务） -->
+    <!-- sessionFactory 为自己配置 sessionFactory 的 bean-->
+    <bean id="transactionManagerTwo" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactoryTwo"></property>
+    </bean>
+
+    <!-- 添加一个通知取别名，然后决定管理哪一个事务管理器,***只是查询的话用不到事物 -->
+    <!-- 拦截器方式配置事物 -->
+    <tx:advice id="txAdviceTwo" transaction-manager="transactionManagerTwo">
+        <tx:attributes>
+            <!-- 拦截的是下段配置aop里设置的路径，即txPointcut中配置的路径 -->
+            <!-- 具体的propagation含义请自查 -->
+            <tx:method name="save*" propagation="REQUIRED" />
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="create*" propagation="REQUIRED" />
+            <tx:method name="insert*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="merge*" propagation="REQUIRED" />
+            <tx:method name="del*" propagation="REQUIRED" />
+            <tx:method name="remove*" propagation="REQUIRED" />
+            <tx:method name="put*" propagation="REQUIRED" />
+            <tx:method name="use*" propagation="REQUIRED" />
+            <!--hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 -->
+            <tx:method name="get*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="count*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="find*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="list*" propagation="REQUIRED" read-only="true" />
+            <tx:method name="*" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+    <!--    Spring aop事务管理 -->
+    <aop:config>
+        <!-- 只对业务逻辑层（service层）实施事务 -->
+        <!-- execution(public * *.*.*..*.*(..)) 为自己项目中操作数据库中的方法 expression="execution(* com.ts..*U8*ServiceImpl.*(..))" -->
+        <!--<aop:pointcut expression="execution(* com.one.service.*Two*.*(..))"-->     <!--会报错，service层-->
+        <aop:pointcut expression="execution(* com.one.service.*.*(..))"
+                      id="txPointcutTwo" />
+        <aop:advisor advice-ref="txAdviceTwo" pointcut-ref="txPointcutTwo" />
+    </aop:config>
+
+</beans>

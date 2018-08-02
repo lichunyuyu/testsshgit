@@ -1,0 +1,43 @@
+使用readLine()方法遇到的坑
+原创 2016年12月17日 14:38:13 标签：readLine /Java 7223
+下午玩 TCP/IP 的 Socket 通信时，使用 BufferedReader 的 readLine() 遇到了一个坑，现在终于解决了，特此记录下来。
+程序很简单，客户段从控制台读取用户输入，然后发送至服务器端，主要代码如下
+
+客户端：
+[java] view plain copy
+Socket s = new Socket("192.168.0.4", 20022);
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));//用户获取用户输入
+
+OutputStream os = s.getOutputStream();//用于向服务器输出
+System.out.println("请输入要发送的文字：");
+String input;
+while ((input= reader.readLine()) != null) {
+os.write(input.getBytes("utf-8"));
+}
+
+服务器端：
+[java] view plain copy
+BuffedReader reader = new BufferedReader(new InputStreamReader(s.getInputStream(),"utf-8"));
+String content;
+while((content = reader.readLine() )!=null){
+            System.out.println("客户端数据："+content);
+}
+
+结果运行的时候，在客户端输入数据并按下回车后，服务器端并没有读取到数据。
+发现只有在客户端执行os.write()方法后，加上 os.close() 方法，服务器才能收到数据，但是这样会同时关闭客户端的 Socket ，所以只能传送一次，显然不是程序想要达到的目的。
+在网上一番搜索，看到了这篇文章：被readLine()折腾了一把 ，豁然开朗。
+原来readLine()方法在进行读取一行时，只有遇到回车(\r)或者换行符(\n)才会返回读取结果，这就是“读取一行的意思”，重要的是readLine()返回的读取内容中并不包含换行符或者回车符；
+并且，当realLine()读取到的内容为空时，并不会返回 null，而是会一直阻塞，只有当读取的输入流发生错误或者被关闭时，readLine()方法才会返回null。
+
+所以我的程序出现问题的原因找到了：
+由于在客户端使用的readLine()来读取用户输入，所以当用户按下回车键是，readLine() 返回读取内容，
+但此时返回的内容并不包含换行符，而当在服务器端用readLine()再次读取时，由于读取的内容没有换行符，所以readLine()方法会一直阻塞等待换行符，这就是服务器端没有输出的原因。
+解决方法：在客户端每次输入回车后，手动给输入内容加入"\n"或"\r"，再写入服务器；
+[java] view plain copy
+while ((input = reader.readLine()) != null) {
+               input = input+"\n";//手动加上回车
+               os.write(input.getBytes("utf-8"));
+           }
+或者在服务器端使用read()方法进行读取。
+
+非常感谢 swingline 的文章：点击打开链接

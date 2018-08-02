@@ -1,0 +1,6 @@
+i=我
+love=爱
+china=中国
+input=输入
+source=源
+file=文件

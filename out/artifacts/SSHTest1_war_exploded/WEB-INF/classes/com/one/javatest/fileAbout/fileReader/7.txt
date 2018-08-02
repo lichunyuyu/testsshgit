@@ -1,0 +1,153 @@
+java中的 FileWriter类 和 FileReader类的一些基本用法
+原创 2012年12月10日 00:41:06 115620
+java中的 FileWriter类 和 FileReader类的一些基本用法
+
+1，FileWriter类(字符输出流类)
+
+构造方法：FileWriter fw = new FileWriter(String fileName);//创建字符输出流类对象和已存在的文件相关联。文件不存在的话，并创建。
+                                             如：FileWriter fw = new FileWriter("C:\\demo.txt");
+                  FileWriter fw = new FileWriter(String fileName,boolean append);//创建字符输出流类对象和已存在的文件相关联,并设置该该流对文件的操作是否为续写。
+                                          
+   如：FileWriter fw = new FileWriter("C:\\demo.txt",ture); //表示在fw对文件再次写入时，会在该文件的结尾续写，并不会覆盖掉。
+主要方法： void write(String str)   //写入字符串。当执行完此方法后，字符数据还并没有写入到目的文件中去。此时字符数据会保存在缓冲区中。
+                                                        此时在使用刷新方法就可以使数据保存到目的文件中去。
+                  viod flush()                //刷新该流中的缓冲。将缓冲区中的字符数据保存到目的文件中去。
+                  viod close()               //关闭此流。在关闭前会先刷新此流的缓冲区。在关闭后，再写入或者刷新的话，会抛IOException异常。
+[java] view plain copy
+package filewriter;  
+  
+import java.io.FileWriter;  
+import java.io.IOException;  
+  
+public class Filewriter {  
+  
+    private static final String LINE_SEPARATOR = System.getProperty("line.separator");  
+  
+    /** 
+     *  
+     * @param args 
+     * @throws IOException  
+     */  
+    public static void main(String[] args) throws IOException {  
+        /** 
+         * 创建一个可以往文件中写入字符数据的字符流输出流对象 
+         * 创建时必须明确文件的目的地 
+         * 如果文件不存在，这回自动创建。如果文件存在，则会覆盖。 
+         * 当路径错误时会抛异常 
+         *  
+         * 当在创建时加入true参数，回实现对文件的续写。 
+         */  
+        FileWriter fw = new FileWriter("C:\\demo1.txt",false);  
+        /** 
+         * 调用该对象的write方法，向文件写入字符。 
+         *  
+         * 其实写入到了临时存储缓冲区中 
+         */  
+//      fw.write("hello \r\nworld!");//windows中的换行为\r\n    unix下为\r。  
+        fw.write("aello"+LINE_SEPARATOR+"world!");  
+        fw.write("hahaha");  
+        /** 
+         * 进行刷新，将字符写到目的地中。 
+         */  
+//      fw.flush();  
+        /** 
+         * 关闭流，关闭资源。在关闭前会调用flush方法 刷新缓冲区。关闭后在写的话，会抛IOException 
+         */  
+        fw.close();  
+          
+  
+    }  
+  
+}  
+关于FileWriter的的异常处理。
+[java] view plain copy
+package filewriter;  
+  
+import java.io.FileWriter;  
+import java.io.IOException;  
+  
+public class IOExceptionDemo {  
+  
+    private static final String LINE_SEPARATOR = System.getProperty("line.separator");  
+    public static void main(String[] args) {  
+  
+        FileWriter fw = null;  
+        try {  
+            fw = new FileWriter("k:\\Demo.txt", true);  
+            fw.write("hello" + LINE_SEPARATOR + "world!");  
+        } catch (Exception e) {  
+            System.out.println(e.toString());  
+        } finally {  
+            if (fw != null)  
+                try {  
+                    fw.close();  
+                } catch (IOException e) {  
+                    throw new RuntimeException("关闭失败！");  
+                }  
+        }  
+    }  
+}  
+2，FileReader类
+
+1，构造方法
+FileReader fr = new FileReader(String fileName);//使用带有指定文件的String参数的构造方法。创建该输入流对象。并关联源文件。
+2，主要方法
+int read(); // 读取单个字符。返回作为整数读取的字符，如果已达到流末尾，则返回 -1。
+int read(char []cbuf);//将字符读入数组。返回读取的字符数。如果已经到达尾部，则返回-1。
+void close();//关闭此流对象。释放与之关联的所有资源。
+[java] view plain copy
+package Filereader;  
+  
+import java.io.FileReader;  
+import java.io.IOException;  
+  
+public class FileReaderDemo {  
+  
+    public static void main(String[] args) throws IOException {  
+        /** 
+         * 创建读取字符数据的流对象。 
+         * 读取路径不正确时会抛 IOException 
+         * 用以个读取流对象关联一个已存在文件。 
+         */  
+        FileReader fr = new FileReader("demo.txt");  
+        /** 
+         * 用Reader中的read方法读取字符。 
+         */  
+        /*int ch = fr.read(); 
+        System.out.print((char)ch); 
+        int ch1 = fr.read(); 
+        System.out.print((char)ch1); 
+        int ch2 = fr.read(); 
+        System.out.print((char)ch2);*/  
+        int ch = 0;  
+        while((ch = fr.read()) != -1){  
+            System.out.print((char)ch);  
+        }  
+        fr.close();  
+        }  
+}  
+
+ 
+用FileReader  和 FileWriter 写的复制文本文件的小程序。
+[java] view plain copy
+package IOtest;  
+  
+import java.io.FileNotFoundException;  
+import java.io.FileReader;  
+import java.io.FileWriter;  
+import java.io.IOException;  
+  
+public class TxtCopy {  
+  
+    /** 
+     * 将C：\\的myHeart.txt copy 到 D:\\下 
+     *  
+     * 首先创建Reader读取数据数据的 读取流对象。 
+     *  
+     * @throws FileNotFoundException 
+     */  
+    public static void main(String[] args) {  
+        FileReader fr = null;  
+        FileWriter fw = null;  
+        try {  
+            fr = new FileReader("C:\\my.txt");  

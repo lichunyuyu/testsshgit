@@ -1,0 +1,1688 @@
+
+var editIndex = undefined;
+var globalcontacts=null;
+var globalprovices=null;
+function numformatter(value){
+    if($.ts.Utils.isEmpty(value)) return "";
+    var  str=$.ts.Format.formatNumber(value,"#.##");
+    //alert(str);
+    return str;
+}
+function OmOrderScript( ){
+    this.contextPath="";
+    this.appKey="";
+    this.opts=null;
+}
+
+function dely(data) {
+    var obj = $(data).parent().parent();
+    obj.remove();
+
+}
+
+OmOrderScript.prototype={
+    initPage:function(option){
+        this.opts= $.extend({},option);
+        if(  "1"!=option.status)
+            this.setEmployeeGrid();
+    },
+    setEmployeeGrid:function(){
+        var returnNode=$('#bean\\.employee\\.name').combogrid({
+            panelWidth:450,
+            idField:'id',
+            customBindObj:$('#bean\\.employee\\.name'),
+            textField:'name',
+            mode: 'remote',
+            fitColumns: true,
+            striped: true,
+            rownumbers: true,           //序号
+            collapsible: false,         //是否可折叠的
+            //url:tsContextPath+'/core/reportResolver/queryReportResult.do?moduleFileName=CustomerSerivceReport&openQueryResult=1',
+            columns:[[
+                {field:'id',title:'id',hidden:true},
+                {field:'number',title:'员工号',width:100},
+                {field:'name',title:'姓名',width:120},
+                {field:'departmentname',title:'部门',width:100},
+                {field:'deptId',title:'deptId',hidden:true}
+            ]],
+            keyHandler: {
+                up: function() {
+                    //取得选中行
+                    var grid=$('#bean\\.employee\\.name').combogrid('grid');
+                    var selected =grid.datagrid('getSelected');
+                    if (selected) {
+                        //取得选中行的rowIndex
+                        var index = grid.datagrid('getRowIndex', selected);
+                        //向上移动到第一行为止
+                        if (index > 0) {
+                            grid.datagrid('selectRow', index - 1);
+                        }
+                    } else {
+                        var rows =grid.datagrid('getRows');
+                        grid.datagrid('selectRow', rows.length - 1);
+                    }
+                },
+                down: function() {
+                    var grid=$('#bean\\.employee\\.name').combogrid('grid');
+                    var selected = grid.datagrid('getSelected');
+                    if (selected) {
+                        //取得选中行的rowIndex
+                        var index =grid.datagrid('getRowIndex', selected);
+                        //向下移动到当页最后一行为止
+                        if (index < grid.datagrid('getData').rows.length - 1) {
+                            grid.datagrid('selectRow', index + 1);
+                        }
+                    } else {
+                        grid.datagrid('selectRow', 0);
+                    }
+                },
+                enter: function(q) {
+                    var data=$(this).combogrid("getText");//q['data'];,当前输入值
+                    var str=$(this).combogrid("getText");
+                    if($.ts.Utils.isEmpty(str)) return;
+                    $(this).combogrid("grid").datagrid('options').url=tsContextPath+'/core/reportResolver/json/returnDatagrid.do?moduleFileName=ChoseEmployeesSerivceReport&openQueryResult=1&blurQuery=1';
+                    $(this).combogrid("grid").datagrid("reload", { 'name': str });
+                    $(this).combogrid("setValue", str);
+                },
+                query: function(q) { //动态搜索，q表示输入的内容
+                    $("#bean\\.employee\\.id").val("");
+                }
+            },
+            onSelect: function (q) {
+                var seleRow=returnNode.combogrid('grid').datagrid('getSelected');
+                $("#bean\\.employee\\.id").val(seleRow.id);
+                $("#bean\\.deptId").val(seleRow.deptId);
+                $("#bean\\.customField4").val(seleRow.customField1);//5-10  部门编号
+                //7-25
+                var customField1=seleRow.customField1;
+                if(customField1==23)
+                {
+                    $("#bean\\.saleType").combo('setValue','02');
+                    $("#bean\\.saleType").combobox('setValue','02');//7-25
+                    $("#bean\\.saleType").val('02');//8-9
+
+                    $("#saleTypeName").val('保健类');//7-25
+                }
+                else if(customField1==22) // 22营养
+                {
+                    $("#bean\\.saleType").combo('setValue','01');
+                    $("#bean\\.saleType").combobox('setValue','01');
+                    $("#bean\\.saleType").val('01');//8-9
+                    $("#saleTypeName").val('营养类');//7-25
+                }
+                else
+                {
+                    $("#bean\\.saleType").combo('setValue','03');
+                    $("#bean\\.saleType").combobox('setValue','03');
+                    $("#bean\\.saleType").val('03');//8-9
+                    $("#saleTypeName").val('其他类');//7-25
+                }
+
+            }
+        });
+    },
+
+    setEmployeeGrids:function(){
+        var urlJson={moduleFileName:"ChoseEmployeeCombogridReport",operatePattern:"chooseRow" };
+        var gridJq=$("#bean\\.employee\\.name");
+        var that=this;
+        var queryUrlJson={moduleFileName:"ChoseEmployeeCombogridReport",operatePattern:"chooseRow",openQueryResult:"1",
+            blurQuery:"1",urlType:"returnDatagrid" };
+        var queryUrl=$.ts.Utils.toUrlParam(queryUrlJson);
+        $.ts.EasyUI.loadReportGrid(urlJson,gridJq,
+            { keyHandler: {
+                enter: function(q) {
+                    var str=gridJq.combogrid("getText")  ;
+                    if($.ts.Utils.isEmpty(str)) return;
+                    gridJq.combogrid('showPanel');
+                    gridJq.combogrid("grid").datagrid('options').url=queryUrl;
+                    gridJq.combogrid("grid").datagrid("reload", { 'name': str });
+                    gridJq.combogrid("setValue", str);
+                },
+                query: function(q) { //动态搜索，q表示输入的内容
+                    $("#bean\\.employee\\.id").val("");
+                    // gridJq.combogrid('grid').datagrid("options").onSelect(0,new Object());
+                }
+            },
+                onSelect: function (rowIndex,seleRow) {
+                    $("#bean\\.employee\\.id").val(seleRow.id);
+                    $("#bean\\.deptId").val(seleRow.deptId);
+                }}
+        );
+    },
+    //Enter 键触发搜索
+    setCustomerGrid: function (){
+        //alert("11"+$('#contactname1').attr("value"));
+
+        var that=this;
+        var returnNode=$('#bean\\.customer\\.name').combogrid({
+            panelWidth:450,
+            idField:'id',
+            customBindObj:$('#bean\\.customer\\.name'),
+            textField:'custName',
+            mode: 'remote',
+            fitColumns: true,
+            striped: true,
+            rownumbers: true,           //序号
+            collapsible: false,         //是否可折叠的
+            //url:tsContextPath+'/core/reportResolver/queryReportResult.do?moduleFileName=CustomerSerivceReport&openQueryResult=1',
+            columns:[[
+                {field:'id',title:'id',hidden:true},
+                {field:'number',title:'编号',width:100},
+                {field:'custName',title:'姓名',width:120},
+                {field:'headMobile',title:'联系电话',width:100},
+                {field:'headName',title:'联系人',width:100},
+                {field:'name',title:'业务员',width:100},
+                {field:'address',title:'地址',width:100},
+                {field:'saleId',title:'saleId',hidden:true},
+                {field:'fax',title:'传真',width:100}
+            ]],
+            keyHandler: {
+                up: function() {
+                    //取得选中行
+                    var grid=$('#bean\\.customer\\.name').combogrid('grid');
+                    var selected =grid.datagrid('getSelected');
+                    if (selected) {
+                        //取得选中行的rowIndex
+                        var index = grid.datagrid('getRowIndex', selected);
+                        //向上移动到第一行为止
+                        if (index > 0) {
+                            grid.datagrid('selectRow', index - 1);
+                        }
+                    } else {
+                        var rows =grid.datagrid('getRows');
+                        grid.datagrid('selectRow', rows.length - 1);
+                    }
+                },
+                down: function() {
+                    var grid=$('#bean\\.customer\\.name').combogrid('grid');
+                    var selected = grid.datagrid('getSelected');
+                    if (selected) {
+                        //取得选中行的rowIndex
+                        var index =grid.datagrid('getRowIndex', selected);
+                        //向下移动到当页最后一行为止
+                        if (index < grid.datagrid('getData').rows.length - 1) {
+                            grid.datagrid('selectRow', index + 1);
+                        }
+                    } else {
+                        grid.datagrid('selectRow', 0);
+                    }
+                },
+                enter: function(q) {
+                    //alert(($(q['target']).parent().parent())[0].outerHTML);
+                    var data=$(this).combogrid("getText");//q['data'];,当前输入值
+                    //alert(data);
+                    /** for(key in data){
+								 alert(key+"="+data[key]);
+								} **/
+                    var str=$(this).combogrid("getText")  ;
+                    var salId=$("#bean\\.employee\\.id").val();//8-11添加业务员筛选 CustomerSerivceReport--isQueryCondition="1"
+                    if($.ts.Utils.isEmpty(str)) return;
+                    $(this).combogrid("grid").datagrid('options').url=tsContextPath+'/core/reportResolver/json/returnDatagrid.do?moduleFileName=CustomerSerivceReport&openQueryResult=1&blurQuery=1';
+                    $(this).combogrid("grid").datagrid("reload", { 'custName': str,'saleId':salId });
+                    $(this).combogrid("setValue", str);
+                },
+                query: function(q) { //动态搜索，q表示输入的内容
+                    $("#bean\\.customer\\.id").val("");
+                }
+            },
+            onSelect: function (q) {//q表示选中的行号，如选中第一行q=0
+                // var seleRow=$('#bean\\.customer\\.name').combogrid('grid').datagrid('getSelected');
+                var seleRow=returnNode.combogrid('grid').datagrid('getSelected');
+                //alert($(this)[0].outerHTML);
+                // var seleRow=$(this).combogrid('grid').datagrid('getSelected');
+
+                // alert($(this).datagrid('options').customBindObj.combogrid("getText"));//取得绑定的对象值
+
+                //alert(returnNode.combogrid('textbox').val());//取得绑定对象值
+
+                // alert($(this).datagrid('options').customBindObj.combogrid('textbox'));//取得
+
+                $("#bean\\.customer\\.id").val(seleRow.id);
+                $("#bean\\.custContact").textbox('setValue',seleRow.headName);//7-17
+                $("#bean\\.custContactPhone").textbox('setValue',seleRow.headMobile);
+                $("#bean\\.customer\\.id").val( seleRow.id);
+                $("#bean\\.employee\\.id").val( seleRow.saleId);
+                //$("#bean\\.deptId").val( json.departmentId);
+                $("#bean\\.employee\\.name").textbox('setValue',seleRow.name);
+                $("#bean\\.orderAddress").textbox('setValue',seleRow.address);
+                $("#bean\\.receiver").textbox('setValue',seleRow.receiver);//7-20
+                $("#bean\\.customField7").textbox('setValue',seleRow.address);//8-18  合同地址
+
+                $("#bean\\.customField8").textbox('setValue',seleRow.fax);//9-5   传真
+
+                //8-8  客户税号
+                $("#bean\\.name").textbox('setValue',seleRow.tariff);
+                //8-9  是否质检
+                // $("#bean\\.enName").textbox('setValue',seleRow.customField4);
+                $("#bean\\.enName").val(seleRow.customField4);//8-10  选择按钮
+                var enNames=document.getElementsByName("bean.enName");
+                if("是"==seleRow.customField4){
+                    enNames[0].checked=true;
+                }else{
+                    enNames[1].checked=true;
+                }
+
+                var sendInvoces=document.getElementsByName("bean.sendInvoce");
+                if("是"==seleRow.sendInvoce){
+                    sendInvoces[0].checked=true;
+                } else if("否"==seleRow.sendInvoce){
+                    sendInvoces[1].checked=true;
+                } else {
+                    that.queryCustSendVoice(seleRow.number);
+                }
+                //7-10
+                //$("#bean\\.province").textbox('setValue',seleRow.customField1);//5-10 7-20
+                $("#bean\\.customField3").val(seleRow.headNumber);//5-15 联系人编码
+
+                ajaxgetcontactorder(); //7-17 加联系人下拉
+                // 7-17 待用
+                $('#contactname1').combobox({
+                    data:globalcontacts
+                });
+                if(globalcontacts!=null && globalcontacts.length>0){
+                    // $("#bean\\.custContact").combobox("setValue",globalcontacts[0].name);
+                    $('#contactname1').combobox("setValue",globalcontacts[0].name);
+                    $("#bean\\.customField3").val(globalcontacts[0].number);
+                    //$("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//5-18  联系人id
+                    $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[0].mobile);//加
+                    // $("#bean\\.customField7").textbox('setValue',globalcontacts[0].number);//加8-18  合同地址  又从客户带出来的 我擦
+                    //8-10   显示默认联系人
+                    for(var i=0;i<globalcontacts.length;i++){
+                        //mainstatus 是否是主要联系人0:不是,1:是
+                        var mainstatus=globalcontacts[i].mainstatus;
+                        if(mainstatus=='1'){
+                            // $("#bean\\.custContact").combobox("setValue",globalcontacts[0].name);
+                            $('#contactname1').combobox("setValue",globalcontacts[i].name);
+                            $("#bean\\.customField3").val(globalcontacts[i].number);
+                            //$("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//5-18  联系人id
+                            $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[i].mobile);//加
+                            //$("#bean\\.customField7").textbox('setValue',globalcontacts[i].number);//加8-18  合同地址
+                        }
+                    }
+
+                }
+                if($.ts.Utils.isEmpty(globalcontacts)==false){
+                    //$("#bean\\.custContact").combobox("setValue",globalcontacts[0].name);
+                    // $("#bean\\.custContact").val(globalcontacts[0].name);
+                    $('#contactname1').combobox("setValue",globalcontacts[0].name);
+                    $("#bean\\.customField3").val(globalcontacts[0].number);
+                    //$("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//5-18联系人id
+                    $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[0].mobile);//加
+                    $('#selectcontact').combobox('setText',globalcontacts[0].name);//上到下
+                    $('#selectcontact').combobox('setValue',globalcontacts[0].number);
+                    //$("#bean\\.customField7").textbox('setValue',globalcontacts[0].number);//加8-18  合同地址
+                    //8-10   显示默认联系人
+                    for(var i=0;i<globalcontacts.length;i++){
+                        //mainstatus 是否是主要联系人0:不是,1:是
+                        var mainstatus=globalcontacts[i].mainstatus;
+                        if(mainstatus=='1'){
+                            // $("#bean\\.custContact").combobox("setValue",globalcontacts[0].name);
+                            $('#contactname1').combobox("setValue",globalcontacts[i].name);
+                            $("#bean\\.customField3").val(globalcontacts[i].number);
+                            //$("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//5-18  联系人id
+                            $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[i].mobile);//加
+                            //$("#bean\\.customField7").textbox('setValue',globalcontacts[i].number);//加8-18  合同地址
+                        }
+                    }
+
+                }
+                //7-20 地区列表
+                ajaxgetareaset();
+                $('#beanprovince1').combobox({
+                    data:globalprovices
+                });
+                if(globalprovices!=null && globalprovices.length>0){
+                    $('#beanprovince1').combobox("setValue",globalprovices[0].name);
+                }
+                if($.ts.Utils.isEmpty(globalprovices)==false){
+                    $('#beanprovince1').combobox("setValue",seleRow.customField1);
+                }
+
+                omOrderScript.queryCustDelivery("1");
+            }
+        });
+        //alert(returnNode.combogrid('grid').datagrid("options").customAttBindObj[0].outerHTML);
+    },
+    queryCustSendVoice:function(custNumber ){
+        var sql=" select a.cCusDefine6  from   Customer as a  where a.cCusCode='"+custNumber+"'"  ;
+        var json=[{"keyName":"queryList",sql:sql,"isHql":"0","dbServiceName":"dbServiceU8"}];
+        var callbackEvent=function (handler,resultJson){
+            if($.isArray(resultJson.queryList)==false){
+                resultJson.queryList=new Array();
+            }  else {
+                var row=resultJson.queryList[0];
+                if($.ts.Utils.isEmpty(row.cCusDefine6)  ){
+                    row.cCusDefine6="";
+                    $.messager.alert('提示',"请到ERP系统中设置好该客户的发票是否邮寄内容！请联系客服！");
+                    return ;
+                }
+                var sendInvoces=document.getElementsByName("bean.sendInvoce");
+                if("是"==row.cCusDefine6){
+                    sendInvoces[0].checked=true;
+                } else if("否"==row.cCusDefine6){
+                    sendInvoces[1].checked=true;
+                }
+            }
+        }
+        $.ts.DB.queryMultiDataset(json,null,callbackEvent);
+    },
+    validateCustomer:function(){
+        if($.trim($("#bean\\.customer\\.id").val())=="" || $.trim($("#bean\\.customer\\.id").val())=="0"){
+            $.messager.alert('提示',"请先选择"+$($.find("label[for='bean.customer.name']")[0]).text()+"！");
+            return false;
+        }
+        return true;
+    },
+    getChoseMaterialUrl:function(){
+        var custId=$("#bean\\.customer\\.id").val();
+        var mtlNameSql=" (select a.productname from OM_DeclarationProducts as a inner join OM_DeclarationInfo as b ";
+        mtlNameSql+=" on b.id=a.declarationInfoId  where b.customerId="+custId+")";
+        var sql="";
+        var filterSql="";
+        if(userLevel!="1"){
+            if($("#bean\\.saleType").val()=='02'){//动物保健事业部
+                //7-14保健部  只用保健产成品
+                // filterSql="{ and (  ( a.custId="+custId+" or   a.name in "+mtlNameSql+") ";
+                // filterSql=filterSql+" or (    a.thirdMtlKind in ('18')"+")) }";
+                filterSql=filterSql+" and    a.thirdMtlKind in ('18')"+" }";
+            } else {//动物营养事业部
+
+                filterSql="{ and (  ( a.custId="+custId+" or   a.name in "+mtlNameSql+") ";
+                //filterSql=filterSql+" or (   a.thirdMtlKind in ('01','03')"+")) }";
+                filterSql=filterSql+" or (a.carrierstatus='0' and a.accessoriesstatus='0' and a.thirdMtlKind in('03') and a.customField4='S' or a.thirdMtlKind in('01') or isnull(a.customField4,a.customField4)!='S' and (isnull(a.custId, 0) =("+custId+") or isnull(a.customField2, 0) like '%"+custId+"%')"+")) }";
+
+            }
+        }
+
+        var urlJson={urlType:"returnDatagrid",  moduleFileName:"ChoseMaterialServiceReportDialog",openQueryResult:"1",
+            blurQuery:"1",tsFilterSql:filterSql};
+        var url=$.ts.Utils.toUrlParam(urlJson);
+        return url;
+    },
+    setMaterialNumberGrid: function (materialObj){
+        var that=this;
+        var combogridNode=materialObj.combogrid({
+            panelWidth:450,
+            customBindObj:materialObj,
+            idField:'id',
+            //numberField:'number',//7-20
+            textField:'number',
+            mode: 'remote',
+            fitColumns: true,
+            striped: true,
+            rownumbers: true,           //序号
+            collapsible: false,         //是否可折叠的
+            columns:[[
+                {field:'id',title:'id',hidden:true},
+                {field:'number',title:'编号',width:100},
+                {field:'name',title:'名称',width:120},
+                {field:'specname',title:'规格',width:100},
+                {field:'price',title:'价格',width:100},
+                {field:'limitPriceRate',title:'saleId',hidden:true}
+            ]],
+            keyHandler: {
+                up: function() {
+                    //取得选中行
+                    var grid=combogridNode.combogrid('grid');
+                    var selected =grid.datagrid('getSelected');
+                    if (selected) {
+                        //取得选中行的rowIndex
+                        var index = grid.datagrid('getRowIndex', selected);
+                        //向上移动到第一行为止
+                        if (index > 0) {
+                            grid.datagrid('selectRow', index - 1);
+                        }
+                    } else {
+                        var rows =grid.datagrid('getRows');
+                        grid.datagrid('selectRow', rows.length - 1);
+                    }
+                },
+                down: function() {
+                    var grid=combogridNode.combogrid('grid');
+                    var selected = grid.datagrid('getSelected');
+                    if (selected) {
+                        //取得选中行的rowIndex
+                        var index =grid.datagrid('getRowIndex', selected);
+                        //向下移动到当页最后一行为止
+                        if (index < grid.datagrid('getData').rows.length - 1) {
+                            grid.datagrid('selectRow', index + 1);
+                        }
+                    } else {
+                        grid.datagrid('selectRow', 0);
+                    }
+                },
+                enter: function(q) {
+                    if(that.validateCustomer()==false) return;
+                    var str=$(this).combogrid("getText")  ;
+                    if($.ts.Utils.isEmpty(str)) return;
+                    $(this).combogrid("grid").datagrid('options').url=that.getChoseMaterialUrl();
+                    $(this).combogrid("grid").datagrid("reload", { 'number': str });
+                    $(this).combogrid("setValue", str);
+                },
+                query: function(q) { //动态搜索，q表示输入的内容
+                    var customBindObj=$(this).datagrid('options').customBindObj;
+                    var currentRow=customBindObj.parent().parent().parent();
+                    var mtlIdNode=currentRow.find("input[name='dtlList.material.id']");
+                    var mtlNumberNode=currentRow.find("input[name='dtlList.material.number']") ;//7-20
+                    mtlIdNode.val("");
+                    mtlNumberNode.val("");
+                    var mtlNameNode=currentRow.find("#dtlList\\.material\\.name']")
+                    mtlNameNode.textbox('setValue',"");
+
+                }
+            },
+            onSelect: function (jq) {
+                var selectedRow=combogridNode.combogrid('grid').datagrid('getSelected');
+                var customBindObj=$(this).datagrid('options').customBindObj;
+                var currentRow=customBindObj.parent().parent().parent();
+                var mtlIdNode=currentRow.find("input[name='dtlList.material.id']")
+                var mtlNumberNode=currentRow.find("input[name='dtlList.material.number']")//7-20
+                var selectedRow=combogridNode.combogrid('grid').datagrid('getSelected');
+                mtlIdNode.val(selectedRow.id);
+                mtlNumberNode.val(selectedRow.number);//7-10
+                var mtlNameNode=currentRow.find("#dtlList\\.mtlName");
+                mtlNameNode.textbox('setValue',selectedRow.name);
+                var limitPriceRateNode=currentRow.find("#dtlList\\.limitPriceRate");
+                limitPriceRateNode.val(selectedRow.limitPriceRate);
+                var orderKind=$("#bean\\.orderKind").combobox("getValue");
+                if(orderKind=="1"){
+                    currentRow.find("#dtlList\\.price").numberbox('setValue',"0");
+                } else {
+                    currentRow.find("#dtlList\\.standardPrice").val( selectedRow.price);
+                    //currentRow.find("#dtlList\\.standardPrice").val( selectedRow.mprice);//7-13 物料价格（计算指导价的，（原料）看客户要求）
+                    // currentRow.find("#dtlList\\.price").numberbox('setValue',selectedRow.price);
+                    //var basprice=;
+                    currentRow.find("#dtlList\\.basePrice").numberbox('setValue',selectedRow.price);//5-10取出来 用于计算
+                    //7-12动保，营养产成品
+                    //alert(selectedRow.thirdMtlKind);
+                    if(selectedRow.thirdMtlKind=="保健产成品"){
+                        currentRow.find("#dtlList\\.standardPrice").val( selectedRow.areaprice);
+                        currentRow.find("#dtlList\\.basePrice").numberbox('setValue',selectedRow.areaprice);//5-10取出来 用于计算
+                    }
+                    if(selectedRow.thirdMtlKind=="营养产成品"){
+                        //alert(selectedRow.areaprice);
+                        // if(selectedRow.areaprice==null){
+                        //    $.messager.alert('提示',"该产品未审核");
+                        //    return ;
+                        // }
+                        currentRow.find("#dtlList\\.standardPrice").val( selectedRow.areaprice);
+                        currentRow.find("#dtlList\\.basePrice").numberbox('setValue',selectedRow.areaprice);//5-10取出来 用于计算
+                    }
+
+                    that.queryCustProductPrice(selectedRow.id,currentRow);
+                }
+                //7-10  产品规格specname
+                currentRow.find("#dtlList\\.customField4").val(selectedRow.specname);
+                currentRow.find("#dtlList\\.customField4").textbox('setValue',selectedRow.specname);//8-23
+                currentRow.find("#dtlList\\.material\\.number").val(selectedRow.number);
+            }
+        });
+    },
+    initCustDeliveryGrid:function(){
+        var urlJson={moduleFileName:"CustDeliveryReport" };
+        $.ts.EasyUI.loadReportGrid(urlJson,$("#bean\\.orderAddress"),
+            {onClickRow:function(rowIndex,rowData){
+
+                $("#bean\\.receiverPhone").textbox("setValue",(rowData==null?"":rowData.receiverPhone));
+                $("#bean\\.receiver").textbox("setValue",(rowData==null?"":rowData.receiver));
+                $("#bean\\.customField6").textbox("setValue",(rowData==null?"":rowData.customField1));//8-9   发货单位
+            }}
+        );
+    },
+    queryCustDelivery:function(isSelectRow){
+        var custId=$("#bean\\.customer\\.id").val();
+        var grid=$("#bean\\.orderAddress");
+        var urlJson={ moduleFileName:"CustDeliveryReport", tsFilterSql:"{ and a.hdrId="+custId+" }"};
+        $.ts.EasyUI.queryReportResult(urlJson,grid,function( ){
+            var g = grid.combogrid('grid');
+            var data=g.datagrid('getData');
+            var rowIndex=0;
+            // console.log(data.rows);
+            // console.log("length="+data.rows.length);
+            //8-15默认收货地址
+            //for(var i=0;i<data.length;i++){
+            for(var i=0;i<data.rows.length;i++){
+                if(data.rows[i].defaultValue=="1"){
+                    rowIndex=i;
+                    //7-10
+                    // $("#bean\\.receiverPhone").textbox("setValue",data[rowIndex].receiverPhone);
+                    // $("#bean\\.receiver").textbox("setValue",data[rowIndex].receiver);
+
+                    break;
+                }
+            }
+            var row=null;
+            try {
+                g.datagrid("selectRow",rowIndex);
+                row=g.datagrid('getSelected');
+            } catch (e){}
+            if("0"!=isSelectRow)
+                grid.combogrid("options").onClickRow(rowIndex,row);
+        });
+
+    },
+    queryCustDelivery2:function(){
+        var custId=$("#bean\\.customer\\.id").val();
+        var json=[{"keyName":"queryList",sql:" select a.address,a.receiver,a.receiverPhone from CRM_CustomerDelivery as a where a.hdrId="+custId,"isHql":"0"}];
+        var grid=$("#bean\\.orderAddress");
+
+        var callbackEvent=function (handler,resultJson){
+            if($.isArray(resultJson.queryList)==false){
+                resultJson.queryList=new Array();
+            }
+            grid.combogrid({data:resultJson.queryList,
+                onClickRow:function(rowIndex,rowData){
+                    $("#bean\\.receiverPhone").textbox("setValue",rowData.receiverPhone);
+                    $("#bean\\.receiver").textbox("setValue",rowData.receiver);
+
+                    /**var datagrid=$('#bean\\.orderAddress').combogrid('grid');
+                     var r =datagrid.datagrid('getSelected');
+                     var datagrid=grid.combogrid('grid');
+                     **/
+
+                }
+            });
+        }
+        $.ts.DB.queryMultiDataset(json,null,callbackEvent);
+    },
+    uploadFile:function(obj){
+        var backcallEvent=function(row,rowData){
+            var file=$(row).find("[type='file']");
+            file.click();
+            //alert(file.val());
+            $(row).find("#fieldName").append(file.val());
+        };
+        $.ts.EasyUI.copyTableRow(obj,{callbackEvent:backcallEvent})
+    },
+    fileOnChange:function(obj){
+        var file=$(obj);
+        file.parent().find("#fieldName").append(file.val());
+    },
+    cloneOmOrderDtls:function(){
+        var operateBut=document.getElementById("insertOmOrderDtlRowId");
+        //6-7
+        //8-23  初始化第一行
+        //for(var i=0;i<1;i++){
+        this.insertDatagridRow(operateBut);
+        //}
+    },
+    integerInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        return  "<input type='text' name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:100%'  class='easyui-numberbox'/>";
+    },
+    numericInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        return  "<input type='text' name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:100%'   class='easyui-numberbox' data-options=\"precision:2,onChange:omOrderScript.amountcChange\"/>";
+    },
+    textInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        return  "<input type='text' name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:100%'   class='easyui-numberbox' data-options=\"onChange:omOrderScript.amountcChange\"/>";
+    },
+    amountcChange:function(n,o){
+        var amountNodes=$("input[name='dtlList.amount']");
+        var totalAmount=$.ts.Number("0");
+        var saltype= $("#bean\\.saleType").val();//8-15  保健部不判断输入数量
+
+        $.each(amountNodes, function(i,node){
+            var row=$(node).parent().parent().parent().parent();
+
+            var priceJq=row.find("#dtlList\\.price");
+            var qtyJq=row.find("#dtlList\\.qty");
+            var amountJq=row.find("#dtlList\\.amount");
+            var price=$.ts.Number(priceJq.numberbox("getValue"));
+            var qty=$.ts.Number(qtyJq.numberbox("getValue"));
+
+            //6-28 客户id  判断非标准产品 （数量不可小于300）
+            var flag=ajaxgetcustomization(row);
+
+            if(qty!=0){
+                //8-15 保健产品数量不判断
+                if(saltype!='02'){
+                    //isInteger(3.3) // false　
+                    //var flagnumb=isInteger(qty) // true
+                    //7-3  产品规格
+                    var str=row.find("#dtlList\\.customField4").val();
+                    //取产品编号 material.number
+                    var pronumber=row.find("#dtlList\\.material\\.number").val();
+                    pronumber=pronumber.substring(pronumber.length-1,pronumber.length);
+
+                    if(pronumber=='n'){
+                        str="20";
+                    } else if(pronumber=='x' || pronumber=='y'){
+                        str="5";
+                    } else if(pronumber=='c' || pronumber=='g' || pronumber=='r'){
+                        str="1";
+                    } else if(pronumber=='d' || pronumber=='h' || pronumber=='k'){
+                        str="0.5";
+                    } else if(pronumber=='t' || pronumber=='i'){
+                        str="25";
+                    } else if(pronumber=='f'){
+                        str="500";
+                    }else if(pronumber=='a'){
+                        str="10";
+                    }else if(pronumber=='e' || pronumber=='m'){
+                        str="0.25";
+                    }else if(pronumber=='o'){
+                        //str="0.1";
+                        str="1";
+                    }
+                    else{
+                        str=str;
+                    }
+//小数点后 4 位用二进制数表示的数值范围是 0.0000~0.1111，因此，这只能表示 0.5、0.25、0.125、0.0625 这四个十进制数以及小数点后面的位权组合(相加)而成的小数：
+                    var bbb=str;
+                    if(str.indexOf(".")!=-1){
+                    }
+                    // else if(str.indexOf("/")!=-1){
+                    //    bbb=str.match(/\d{1,}/);
+                    // }
+                    else{
+                        bbb=str.match(/\d{1,}/);
+                    }
+                    //正则表达取
+                    // var bbb=str.match(/\d{1,}/);
+
+                    //9-7 整除判断 暂时 注释掉 （正常） -------------------------------------------
+                    // var flagnumb=isInteger(qty,bbb) // true
+                    // if(flagnumb==false){
+                    //    $.messager.alert('提示',"产品数量不能被整除，请重新输入！");
+                    //    return ;
+                    // }
+                    //------------------------------------------------------------------------
+                    if(flag.equals("1")){
+                        var numb=300;
+                        if(qty<300){
+                            $.messager.alert('提示',"非标准产品数量不能少于300！");
+                            return ; // 没用？
+                        }
+                    }
+
+                }
+
+            }
+
+
+            omOrderScript.changeDtlTaxtRate(row);
+            var amount=qty.multiply(price);
+            if(amount!=0){
+                amountJq.textbox("setValue",amount);
+                totalAmount=totalAmount.add(amount);
+            }
+
+            var priceJq=row.find("#dtlList\\.price");
+            var qtyJq=row.find("#dtlList\\.qty");
+            var amountJq=row.find("#dtlList\\.amount");
+            var price=$.ts.Number(priceJq.numberbox("getValue"));
+            //8-16 是赠品含税单价和低价改为0
+            var send=row.find("#dtlList\\.customField1").textbox('getValue');
+            //console.log(send);
+            if (send=='是'){
+                row.find("#dtlList\\.basePrice") .textbox("setValue",0);
+                row.find("#dtlList\\.price") .textbox("setValue",0);
+            }
+            //5-12
+            var orderKind=$("#bean\\.orderKind").combobox("getValue");
+            //var standardPrice=$("#dtlList\\.standardPrice").val();//7-21  一直取第一个
+            var standardPrice=row.find("#dtlList\\.basePrice");
+            standardPrice=standardPrice.numberbox("getValue");
+            standardPrice=new $.ts.Number(standardPrice);
+            var limitPriceRate=$("#dtlList\\.limitPriceRate").val();//物料限价比率
+            limitPriceRate=new $.ts.Number(limitPriceRate);
+            var Hundred=100; //5-10
+            var one=1;
+            //7-4   推广费
+            // var description=$("#dtlList\\.description").val();//7-22
+            // description=new $.ts.Number(description);
+            var description=row.find("#dtlList\\.description");//7-22
+            description=description.numberbox("getValue");
+            description=new $.ts.Number(description);
+            if(limitPriceRate>=0 && standardPrice>0 && price.subtract(description)<standardPrice.multiply(one.add(limitPriceRate.divide(Hundred))) ) {
+
+                row.find("#dtlList\\.customField3") .textbox("setValue","交易价低于限价");
+            }
+            else if(orderKind=="1"){
+                row.find("#dtlList\\.customField3") .textbox("setValue","");
+            }
+            else{
+                row.find("#dtlList\\.customField3") .textbox("setValue","");
+            }
+            //5-15  无税单价  Math
+            var taxRate=$("#dtlList\\.taxRate").val();
+            if(taxRate==null){
+                taxRate=20;
+            }
+            taxRate=new $.ts.Number(taxRate);
+            //  var chushu=one.add(taxRate.divide(Hundred));
+            // var customField2=price.divide((one.add(taxRate.divide(Hundred))).multiply(Hundred)).divide(Hundred).toFixed(5);
+            price=new $.ts.Number(price);
+            var chushu=one.add(taxRate.divide(Hundred));
+            var customField2=price.divide(chushu).toFixed(5);
+            row.find("#dtlList\\.customField2") .textbox("setValue",customField2);
+
+        });
+        var chinessStr=$.ts.Format.numMoneyToChinese(totalAmount);
+        $("#chinessTotalAmount").val(chinessStr);
+        $("#bean\\.totalAmount").val(totalAmount);
+
+
+    },
+    textInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+
+        return  "<input   name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:100%'  class='easyui-textbox'/>";
+    },
+    textChangeInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+
+        return  "<input   name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:100%'  class='easyui-textbox' data-options='onChange:omOrderScript.changeProductTaxRate'/>";
+    },
+    //8-2   发货备注customField2 与 发货日期deliveryDate 拼接
+//     changecustomField2:function(row){
+// //2017\08\02
+// 		var j=1;
+// 		for(var i=0;i<j;i++){
+//             var deliveryDate=$("#bean\\.deliveryDate").val();
+//             var dateaa=deliveryDate.split("-");//2017,08,05
+//             //console.log(dateaa);//["2017", "08", "05"]
+//             var datadeli=dateaa[0]+"\\"+dateaa[1]+"\\"+dateaa[2];//2017\08\05   转义符号
+//             var customField2=$("#bean\\.customField2").textbox("getValue");
+//            var aaa= customField2=datadeli+customField2;  //2017\08\05ui
+//            // $("#bean\\.customField2").val(aaa);
+//             return $("#bean\\.customField2").textbox("setValue",aaa);
+// 		}
+// 	},
+
+    changeDtlTaxtRate:function(row){
+        var newValue=$(row).find("[id='dtlList.taxRate']").textbox("getValue");
+        var taxAmountJq=$(row).find("[id='dtlList.taxAmount']");
+        var amount=$(row).find("[id='dtlList.amount']").numberbox("getValue");
+        var price=new $.ts.Number($(row).find("[id='dtlList.price']").numberbox("getValue"));
+        var qty=new $.ts.Number($(row).find("[id='dtlList.qty']").numberbox("getValue"));
+        if(price<=0.000001 || qty<=0.0001 ){
+            taxAmountJq.textbox("setValue","");
+            return;
+        }
+        var newRate=new $.ts.Number(newValue).multiply(new $.ts.Number("0.01"));
+        var taxAmount=((price*newRate).divide(1+newRate)).multiply(qty);
+        taxAmount=$.ts.Format.formatNumber(taxAmount,"#.###");
+        taxAmountJq.textbox("setValue",taxAmount);
+    },
+    changeProductTaxRate:function(newValue,oldValue){
+        var row=$(this).parent().parent().parent();
+        var taxAmountJq=$(row).find("[id='dtlList.taxAmount']");
+        var amount=$(row).find("[id='dtlList.amount']").numberbox("getValue");
+        var price=new $.ts.Number($(row).find("[id='dtlList.price']").numberbox("getValue"));
+        var qty=new $.ts.Number($(row).find("[id='dtlList.qty']").numberbox("getValue"));
+        if(price<=0.000001 || qty<=0.0001 ){
+            taxAmountJq.textbox("setValue","");
+            return;
+        }
+        var newRate=new $.ts.Number(newValue).multiply(new $.ts.Number("0.01"));
+        var taxAmount=((price*newRate).divide(1+newRate)).multiply(qty);
+        taxAmount=$.ts.Format.formatNumber(taxAmount,"#.###");
+        taxAmountJq.textbox("setValue",taxAmount);
+    },
+    changeTaxRate:function(newValue,oldValue){
+        var formId="#"+omOrderScript.opts.appKey+"Form";
+        var taxRates=$(formId).find("[id='dtlList.taxRate']");
+        taxRates.textbox("setValue",newValue);
+        omOrderScript.changeAllRefQty();
+
+    },
+    changeAllRefQty:function( ){
+        var amountNodes=$("input[name='dtlList.amount']");
+        var totalAmount=$.ts.Number("0");
+        $.each(amountNodes, function(i,node){
+            var row=$(node).parent().parent().parent().parent();
+
+            var priceJq=row.find("#dtlList\\.price");
+            var qtyJq=row.find("#dtlList\\.qty");
+            var amountJq=row.find("#dtlList\\.amount");
+            var price=$.ts.Number(priceJq.numberbox("getValue"));
+            var qty=$.ts.Number(qtyJq.numberbox("getValue"));
+
+
+            omOrderScript.changeDtlTaxtRate(row);
+            var amount=qty.multiply(price);
+            if(amount!=0){
+                amountJq.textbox("setValue",amount);
+                totalAmount=totalAmount.add(amount);
+            }
+
+            //5-12
+            var orderKind=$("#bean\\.orderKind").combobox("getValue");
+
+            // var standardPriceJq=row.find("#dtlList\\.standardPrice");
+            // var standardPrice=$.ts.Number(standardPriceJq.numberbox("getValue"));
+            // alert("1standardPrice="+standardPrice);
+            // var limitPriceRateJq=row.find("#dtlList\\.limitPriceRate");
+            // var limitPriceRate=$.ts.Number(limitPriceRateJq.numberbox("getValue"));
+            // alert("1limit"+limitPriceRate);
+
+
+            // var pricesta2=$("#dtlList\\.standardPrice").numberbox();//object  不行
+            // alert("1pricesta2="+pricesta2);
+            // var pricelimi2=$("#dtlList\\.limitPriceRate").numberbox();//object  不行
+            // alert("1pricesta="+pricelimi2);
+
+            // var standardPrice=$("#dtlList\\.standardPrice").val();  //存放的是 底价 7-21
+            // //standardPrice=new $.ts.Number(standardPrice.value);//  NaN
+            //var standardPrice=$("#dtlList\\.standardPrice").val();//7-21  一直取第一个
+            var standardPrice=row.find("#dtlList\\.basePrice");
+            standardPrice=standardPrice.numberbox("getValue");
+            standardPrice=new $.ts.Number(standardPrice);
+            var limitPriceRate=$("#dtlList\\.limitPriceRate").val();
+            // limitPriceRate=$.ts.Number(limitPriceRate.value);//NaN
+            limitPriceRate=new $.ts.Number(limitPriceRate);
+            var Hundred=100; //5-10
+            var one=1;
+            //7-4   推广费
+            // var description=$("#dtlList\\.description").val();//7-22
+            //  description=new $.ts.Number(description);
+            var description=row.find("#dtlList\\.description");//7-22
+            description=description.numberbox("getValue");
+            description=new $.ts.Number(description);
+
+            if(limitPriceRate>=0 && standardPrice>0 && price.subtract(description)<standardPrice.multiply(one.add(limitPriceRate.divide(Hundred))) ) {
+                // document.getElementsByName("dtlList.customField3").values("交易价低于限价");
+                row.find("#dtlList\\.customField3") .textbox("setValue","交易价低于限价");
+                //row.find("#dtlList\\.customField3").val("交易价低于限价");//不行
+            }
+            else if(orderKind=="1"){
+                row.find("#dtlList\\.customField3") .textbox("setValue","");
+            }
+            else{
+                //row.find("#dtlList\\.customField3").val("");//不行
+                row.find("#dtlList\\.customField3") .textbox("setValue","");
+            }
+
+            //5-15  无税单价  Math
+            var taxRate=$("#dtlList\\.taxRate").val();
+            if(taxRate==null){
+                taxRate=20;
+            }
+            taxRate=new $.ts.Number(taxRate);
+            price=new $.ts.Number(price);
+            var customField2=(price.divide((one.add(taxRate.divide(Hundred))))).toFixed(5);
+            row.find("#dtlList\\.customField2") .textbox("setValue",customField2);
+
+        });
+        var chinessStr=$.ts.Format.numMoneyToChinese(totalAmount);
+        $("#chinessTotalAmount").val(chinessStr);
+        $("#bean\\.totalAmount").val(totalAmount);
+
+    },
+    textInputReadonlyFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+
+        return  "<input   name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  readonly style='width:100%'  class='easyui-textbox'/>";
+    },
+    textAndSearchInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        var fieldPath=new $.ts.String(fieldName).replaceAll(".","");
+        return  "<input  name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:75%'  class='easyui-combogrid' /><a href='javascript:void(0)' class='easyui-linkbutton' id="+fieldPath+"LinkButton  plain='true' iconCls='icon-search' onClick='return omOrderScript.chooseProduct(this);'></a>";
+    },
+    dateInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        return  "<input   name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:100%'  class='easyui-my97' onfocus=\"WdatePicker({dateFmt:'yyyy-MM-dd'})\"  ></input>";
+    },
+    textAreaInputFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        return  "<input  name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'  style='width:100%'  class='easyui-textbox'/>";
+    },
+    fileFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        return  "<input type='file' name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' style='width:100%'   />";
+    },
+    hiddenColumnFormat:function(val, row, index) {
+        if(val == undefined)	val = "";
+        var fieldName=$(this).attr("field");
+        return  "<input type='hidden' name='dtlList."+fieldName+"' id='dtlList."+fieldName+"' value='" + val + "'   />";
+    },
+    removeRowFormat:function(val, row, index) {
+        // 8-23
+        // 第一行数据不显示删除按钮
+        if(index === 0) {
+            return ""
+        }
+        if(val == undefined)	val = "";
+        var  text='<a href="javascript:void(0)" class="easyui-linkbutton" plain="true" iconCls="icon-cancel"  onClick="$.ts.EasyUI.deleteTableRow(this)"></a>';
+        return  text;
+    },
+    queryCustProductPrice:function(materialId,node){
+        var custId=$("#bean\\.customer\\.id").val();
+        var sql=" select b.priceratio  from   CRM_AreaSet as b ";
+        //sql=sql+" inner join CRM_Customer as a on a.provinceId =b.id    where a.id="+custId  ;
+        sql=sql+" inner join CRM_Customer as a on a.customField1 =b.name    where a.id="+custId  ;//5-10
+        var json=[{"keyName":"queryList",sql:sql,"isHql":"0"}];
+        var callbackEvent=function (handler,resultJson){
+            if($.isArray(resultJson.queryList)==false){
+                resultJson.queryList=new Array();
+            }  else {
+                var row=resultJson.queryList[0];
+                if($.ts.Utils.isEmpty(row.priceratio) || row.priceratio==0){
+                    row.priceratio="1";
+                }
+                var price=new $.ts.Number(node.find("#dtlList\\.basePrice").numberbox('getValue'));//5-10  price--basePrice
+
+                // alert("price="+price);
+
+                price=price.multiply(new $.ts.Number(row.priceratio));
+                //node.find("#dtlList\\.price").numberbox('setValue',price);//5-10 注 (price 是含税单价（售价）--手动输入)
+                // node.find("#dtlList\\.basePrice").numberbox('setValue',price);//5-10
+                // $(node.find("#dtlList\\.basePrice")).numberspinner({
+                //     min: 10,
+                //     max: 100,
+                //     editable: false
+                // });
+
+                // Number.prototype.toFixed = function (s) {  //在Number的原型上重写toFixed方法
+                //     var changenum = (parseInt(this * Math.pow(10, s) + 0.5) / Math.pow(10,s)).toString();
+                //     var index = changenum.indexOf(".");
+                //     if (index < 0 && s > 0) {
+                //         changenum = changenum + ".";
+                //         for (i = 0; i < s; i++) {
+                //             changenum = changenum + "0";
+                //         }
+                //     } else {
+                //         index = changenum.length - index;
+                //         for (i = 0; i < (s - index) + 1; i++) {
+                //             changenum = changenum + "0";
+                //         }
+                //     }
+                //     return changenum;
+                // }
+                //6-6
+                $(node.find("#dtlList\\.basePrice")).numberbox({
+                    precision:0
+                });
+                node.find("#dtlList\\.basePrice").numberbox('setValue',price);//5-10
+
+                node.find("#dtlList\\.standardPrice").val( price);
+
+            }
+        }
+        $.ts.DB.queryMultiDataset(json,null,callbackEvent);
+    },
+    changeDeliveryDate:function(obj){
+        var str=obj.value;
+        var curDate=new $.ts.Date();
+        var days=3;//7-21
+        //8-4 保健部无需顺延
+        if( $("#bean\\.saleType").val()=='02'){
+            days=0;
+        }
+        curDate=curDate.dateAdd("d",days);//7-21
+        var dateStr=curDate.format("yyyy-MM-dd");
+        if(str<dateStr){
+            $.messager.alert('提示',"发货日期需顺延3天(动保不能小于当天日期)！");
+            obj.value="";
+            return false;
+        }
+
+        if(str<dateStr){
+            $.messager.alert('提示',"发货日期不能小于当天日期！");
+            obj.value="";
+            return false;
+        }
+        curDate=new  $.ts.Date(str);
+        var week=curDate.datePart("w");
+        if(week=="六" || week=="日"){
+            $.messager.alert('提示',"发货日期不能为周末！");
+            obj.value="";
+            return false;
+        }
+    },
+    setDefaultDeliveryDate:function(){
+        var curDate=new $.ts.Date();
+        var week=curDate.datePart("w");
+        //var days=1;
+        var days=3;//7-21
+        //8-4 保健部无需顺延
+        if( $("#bean\\.saleType").val()=='02'){
+            days=0;
+            if(week=="六"){
+                days=2;
+            }
+        }
+        if(week=="六"){
+            //days=2;
+            days=days+1;
+        } else if(week=="日"){
+            //days=1;
+            days=days;
+        }
+        curDate=curDate.dateAdd("d",days);
+        $("#bean\\.deliveryDate").val(curDate.format("yyyy-MM-dd"));
+    },
+    chooseProduct:function(obj){
+        if($.trim($("#bean\\.customer\\.id").val())=="" || $.trim($("#bean\\.customer\\.id").val())=="0"){
+            $.messager.alert('提示',"请先选择"+$($.find("label[for='bean.customer.name']")[0]).text()+"！");
+            return false;
+        }
+        var custId=$("#bean\\.customer\\.id").val();
+        var row=$(obj).parent().parent().parent();
+        //$(row.find("input[name='dtlList.material.number']")[0]).textbox("setValue","f");
+        var mtlNameSql=" (select a.productname from OM_DeclarationProducts as a inner join OM_DeclarationInfo as b ";
+        mtlNameSql+=" on b.id=a.declarationInfoId  where b.customerId="+custId+")";
+        var sql="";
+        var filterSql="";
+        if(userLevel!="1"){
+
+            //if(divisionKind_dept=="1"){//动物保健事业部
+            //$("#bean\\.saleType").val()=='01'
+            if($("#bean\\.saleType").val()=='02'){
+                //7-14 保健部 不考虑    ，只要保健产成品
+                // filterSql="{ and (  ( a.custId="+custId+" or   a.name in "+mtlNameSql+") ";
+
+                // filterSql=filterSql+" or (    a.thirdMtlKind in ('18')"+")) }";
+                filterSql=filterSql+"{ and  a.thirdMtlKind in ('18')"+" }"; //少一个 {
+
+            } else {//动物营养事业部
+                filterSql="{ and (  ( a.custId="+custId+" or   a.name in "+mtlNameSql+") ";
+                //filterSql=filterSql+" or (   a.thirdMtlKind in ( '20','01','03')"+")) }";
+                filterSql=filterSql+" or (a.carrierstatus='0' and a.accessoriesstatus='0' and a.thirdMtlKind in('03') and a.customField4='S' or a.thirdMtlKind in('01') or isnull(a.customField4,a.customField4)!='S' and (isnull(a.custId, 0) =("+custId+")  or isnull(a.customField2, 0) like '%"+custId+"%')"+")) }";
+                //carrierstatus='0' and accessoriesstatus='0' and thirdMtlKind in('03') and customField4='S' or isnull(customField4,customField4)!='S' and isnull(custId, 0) =("+custId+")
+            }
+        }
+
+        var urlJson={urlType:"chooseRow",  moduleFileName:"ChoseMaterialServiceReportDialog",openQueryResult:"1",
+            tsFilterSql:filterSql};
+        var url=$.ts.Utils.toUrlParam(urlJson);
+        // alert(url)
+        var that=this;
+        var handler=$.ts.EasyUI.frameDialog( {
+                title:"选择产品",
+                href : url
+            } , function(json){
+                try{
+                    if(json!=null){
+                        var row=$(obj).parent().parent().parent();
+                        row.find("#dtlList\\.mtlName").textbox('setValue',json.name);
+                        row.find("#dtlList\\.material\\.number").textbox('setValue',json.number);
+                        var orderKind=$("#bean\\.orderKind").combobox("getValue");
+                        row.find("#dtlList\\.material\\.id").val(json.id);
+                        row.find("#dtlList\\.limitPriceRate").val(json.limitPriceRate);
+                        //7-3  产品规格specname
+                        row.find("#dtlList\\.customField4").val(json.specname);
+                        row.find("#dtlList\\.customField4").textbox('setValue',json.specname);//8-23
+                        if(orderKind=="1"){     //赠品订单
+                            row.find("#dtlList\\.price").numberbox('setValue',"0");
+                            //row.find("#dtlList\\.basePrice").numberbox('setValue',"0");//5-10
+                        } else {
+                            row.find("#dtlList\\.standardPrice").val( json.price);
+                            //row.find("#dtlList\\.standardPrice").val( json.mprice);//7-13 物料价格（计算指导价的，（原料）看客户要求）
+                            // row.find("#dtlList\\.price").numberbox('setValue',json.price);//5-10
+                            row.find("#dtlList\\.basePrice").numberbox('setValue',json.price);//5-10取出来 用于计算
+                            //7-12 保健产成品
+                            //alert("thirdking="+json.thirdMtlKind);
+                            if(json.thirdMtlKind=="保健产成品"){
+                                row.find("#dtlList\\.standardPrice").val(json.areaprice);
+                                row.find("#dtlList\\.basePrice").numberbox('setValue',json.areaprice);//5-10取出来 用于计算
+                            }
+                            if(json.thirdMtlKind=="营养产成品"){
+                                //不用mprice  （物料价格，因为是已经核算好的。可以直接用areaprice）
+                                // row.find("#dtlList\\.standardPrice").val( json.mprice);
+                                // row.find("#dtlList\\.basePrice").numberbox('setValue',json.mprice);//5-10取出来 用于计算
+                                row.find("#dtlList\\.standardPrice").val(json.areaprice);
+                                row.find("#dtlList\\.basePrice").numberbox('setValue',json.areaprice);//5-10取出来 用于计算
+                            }
+                            that.queryCustProductPrice(json.id,row);
+                        }
+
+                    }
+                } catch(e){
+                    ///$.messager.alert('Hint', e);
+                }
+            }
+        );
+    },
+    chooseEmployee:function(obj){
+        //3-27选择员工与客户对应
+        var custname=$("#bean\\.customer\\.name").combo();
+        if(custname!=null)
+        {
+            custname.combo('setValue',null);
+        }
+
+        var filterSql=" { a.isSaler='true'}";
+        var urlJson={urlType:"chooseRow",  moduleFileName:"ChoseEmployeesSerivceReport",openQueryResult:"1", tsFilterSql:filterSql};
+        var url=$.ts.Utils.toUrlParam(urlJson);
+
+        var handler=$.ts.EasyUI.frameDialog( {
+                title:"选择员工",
+                href : url
+            } , function(json){
+                try{
+                    if(json!=null){
+                        //console.log(json);//7-12
+                        $("#bean\\.employee\\.name").textbox('setValue',json.name);
+                        $("#bean\\.employee\\.id").val(json.id);
+                        $("#bean\\.deptId").val(json.deptId);
+
+                        $("#bean\\.customField4").val(json.customField1);//5-10  部门编号
+                        //销售类型根据业务员部门选择
+                        //var deptId=json.deptId;
+                        // var departmentId=json.departmentId;//22营养  1 保健  deptId的parentId
+                        //var parentId=json.parentDeptId;//9总经理 //22营养  1 保健
+                        //alert(deptId+"par="+parentId+"depts="+json.deptIds+"departmentid="+json.departmentId);
+                        var customField1=json.customField1;
+                        //if(deptId==1 ||departmentId==1 || parentId==1)// 1 保健
+                        if(customField1==23)
+                        {
+                            $("#bean\\.saleType").combo('setValue','02');
+                            $("#bean\\.saleType").combobox('setValue','02');//7-25
+                            $("#bean\\.saleType").val('02');//8-9
+                            // $("#saleTypeName").textbox('setValue','保健类');
+                            $("#saleTypeName").val('保健类');//7-25
+
+                        }
+                        else if(customField1==22) // 22营养
+                        {
+                            $("#bean\\.saleType").combo('setValue','01');
+                            $("#bean\\.saleType").combobox('setValue','01');
+                            $("#bean\\.saleType").val('01');
+                            // $("#saleTypeName").textbox('setValue','营养类');
+                            $("#saleTypeName").val('营养类');//7-25
+                        }
+                        else
+                        {
+                            $("#bean\\.saleType").combo('setValue','03');
+                            $("#bean\\.saleType").combobox('setValue','03');
+                            $("#bean\\.saleType").val('03');
+                            // $("#saleTypeName").textbox('setValue','其他类');
+                            $("#saleTypeName").val('其他类');//7-25
+                        }
+
+                    }
+                } catch(e){
+                    //$.messager.alert('Hint', e);
+                }
+            }
+        );
+    },
+    chooseCust:function(obj){
+
+        var companyCust="";
+        var orderKind=$("#bean\\.orderKind").combobox("getValue");
+        if(orderKind=="2"){
+            companyCust=" and a.companyCust='1' ";
+        }
+        var employeeId=$("#bean\\.employee\\.id").val();
+        companyCust=" and c.employeeId="+employeeId;
+        var urlJson={urlType:"chooseRow",  moduleFileName:"CustomerSerivceReport",openQueryResult:"1",
+            tsFilterSql:"{ and a.auditStatus='1'  "+companyCust+"}"};
+        var url=$.ts.Utils.toUrlParam(urlJson);
+
+        //alert("url="+url);
+        var that=this;
+        var handler=$.ts.EasyUI.frameDialog( {
+                title:"选择客户",
+                href : url
+            } , function(json){
+                try{
+                    if(json!=null){
+                        $('#bean\\.customer\\.name').combogrid("setText",json.custName);
+                        // $("#bean\\.customer\\.name").textbox('setValue',json.custName);
+                        $("#bean\\.customer\\.id").val(json.id);
+                        // $("#bean\\.customer\\.id").textbox('setValue',json.id);
+                        $("#bean\\.custContact").textbox('setValue',json.headName);//7-16
+                        $("#bean\\.custContactPhone").textbox('setValue',json.headMobile);  //7-16
+                        var sendInvoces=document.getElementsByName("bean.sendInvoce");
+                        $("#bean\\.customField7").textbox('setValue',json.address);//8-18  合同地址
+
+                        $("#bean\\.customField8").textbox('setValue',json.fax);//9-5 传真
+
+                        //8-8  客户税号
+                        $("#bean\\.name").textbox('setValue',json.tariff);
+                        //8-9  是否质检
+                        //$("#bean\\.enName").textbox('setValue',json.customField4);
+                        $("#bean\\.enName").val(json.customField4);//8-10  选择按钮
+                        //$("#bean\\.customField6").textbox('setValue',json.customField1);//8-9不确定发货单位
+                        var enNames=document.getElementsByName("bean.enName");
+                        if("是"==json.customField4){
+                            enNames[0].checked=true;
+                        }else{
+                            enNames[1].checked=true;
+                        }
+
+
+                        if("是"==json.sendInvoce){
+                            sendInvoces[0].checked=true;
+                        } else if("否"==json.sendInvoce){
+                            sendInvoces[1].checked=true;
+                        } else {
+                            that.queryCustSendVoice(json.number);
+                        }
+                        $("#bean\\.employee\\.id").val( json.saleId);
+                        //$("#bean\\.deptId").val( json.departmentId);
+                        $("#bean\\.employee\\.name").textbox('setValue',json.name);
+                        $("#bean\\.orderAddress").textbox('setValue',json.address);//7-16
+                        //客户地区
+                        //$("#bean\\.province").textbox('setValue',json.customField1);//5-10 7-20
+                        //$("#bean\\.customField3").textbox('setValue',json.headNumber);//5-15 联系人编码
+                        $("#bean\\.customField3").val(json.headNumber);//7-16
+
+                        ajaxgetcontactorder(); //7-14 加联系人下拉
+                        // 7-14 待用
+                        $('#contactname1').combobox({
+                            data:globalcontacts
+                        });
+                        if(globalcontacts!=null && globalcontacts.length>0){
+                            $('#contactname1').combobox("setValue",globalcontacts[0].name);
+                            $("#bean\\.customField3").val(globalcontacts[0].number);//7-19
+                            //$("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//7-18  联系人id
+                            $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[0].mobile);//加
+                            //$("#bean\\.customField7").textbox('setValue',globalcontacts[0].number);//加8-18  合同地址
+                            //8-10   显示默认联系人
+                            for(var i=0;i<globalcontacts.length;i++){
+                                //mainstatus 是否是主要联系人0:不是,1:是
+                                var mainstatus=globalcontacts[i].mainstatus;
+                                if(mainstatus=='1'){
+                                    // $("#bean\\.custContact").combobox("setValue",globalcontacts[0].name);
+                                    $('#contactname1').combobox("setValue",globalcontacts[i].name);
+                                    $("#bean\\.customField3").val(globalcontacts[i].number);
+                                    //$("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//5-18  联系人id
+                                    $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[i].mobile);//加
+                                    //$("#bean\\.customField7").textbox('setValue',globalcontacts[i].number);//加8-18  合同地址
+                                }
+                            }
+                        }
+                        if($.ts.Utils.isEmpty(globalcontacts)==false){
+                            $('#contactname1').combobox("setValue",globalcontacts[0].name);
+                            $("#bean\\.customField3").val(globalcontacts[0].number);//7-18
+                            // $("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//7-18联系人number
+                            $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[0].mobile);//加
+                            $('#setcustcontact').combobox('setText',globalcontacts[0].name);//上到下
+                            $('#setcustcontact').combobox('setValue',globalcontacts[0].number);
+                            //$("#bean\\.customField7").textbox('setValue',globalcontacts[0].number);//加8-18  合同地址
+                            //8-10   显示默认联系人
+                            for(var i=0;i<globalcontacts.length;i++){
+                                //mainstatus 是否是主要联系人0:不是,1:是
+                                var mainstatus=globalcontacts[i].mainstatus;
+                                if(mainstatus=='1'){
+                                    // $("#bean\\.custContact").combobox("setValue",globalcontacts[0].name);
+                                    $('#contactname1').combobox("setValue",globalcontacts[i].name);
+                                    $("#bean\\.customField3").val(globalcontacts[i].number);
+                                    //$("#bean\\.customField3").textbox('setValue',globalcontacts[0].number);//5-18  联系人id
+                                    $("#bean\\.custContactPhone").textbox('setValue',globalcontacts[i].mobile);//加
+                                    // $("#bean\\.customField7").textbox('setValue',globalcontacts[i].number);//加8-18  合同地址
+                                }
+                            }
+
+                        }
+                        //7-20 地区列表
+                        ajaxgetareaset();
+                        $('#beanprovince1').combobox({
+                            data:globalprovices
+                        });
+                        if(globalprovices!=null && globalprovices.length>0){
+                            $('#beanprovince1').combobox("setValue",globalprovices[0].name);
+                        }
+                        if($.ts.Utils.isEmpty(globalprovices)==false){
+                            $('#beanprovince1').combobox("setValue",json.customField1);//默认带出的
+                        }
+
+                        that.queryCustDelivery("1");
+                        //7-10
+                        //  选择客户 输入  模糊搜索 加上客户text值无that.setCustomerGrid()
+                    }
+                } catch(e){
+                    //$.messager.alert('Hint', e);
+                }
+            }
+        );
+
+
+
+    },
+    onClickRow:function(index){
+        //debugger
+        if (editIndex != index){
+
+            if (1==1){
+                $('#omOrderDtlListGrid').datagrid('selectRow', index)
+                    .datagrid('beginEdit', index);
+                editIndex = index;
+            } else {
+                $('#omOrderDtlListGrid').datagrid('selectRow', editIndex);
+            }
+        }
+    },
+    insertDatagridRow:function(rowBean){
+
+        var rowOpt={};
+
+        if($.ts.Utils.isEmpty(rowBean)==false){
+
+            rowOpt=rowBean;
+        }
+        var table=$('#omOrderDtlListGrid');
+        var taxs=document.getElementsByName("bean.taxRate");//8-16默认税率
+        //table.datagrid('appendRow',{"basePrice":0});
+        table.datagrid('appendRow',{"description":0.00,"taxRate":$(taxs).val(),"customField1":"否"});//5-10  推广费默认值 0    //6-2  "taxRate":0.00
+        //8-2 是否赠品 默认值  customField1
+
+        var ids=document.getElementsByName("dtlList.id");
+        var  row=$(ids[ids.length-1]).parent().parent().parent() ;
+        $.parser.parse(row);
+        var amountJq=row.find("#dtlList\\.amount");
+        amountJq.textbox('readonly',true);
+
+        //8-9 全部都可以输入
+// //8-2   保健部 才可填写 是否赠品订单
+//         if($("#bean\\.saleType").val()=='02'){
+//             $(row.find("#dtlList\\.customField1")).textbox({
+//                 readonly:false, //ok
+//             });
+//         }
+//         //8-3  保健部 不可以输入 推广费
+//         if($("#bean\\.saleType").val()=='02'){
+//             $(row.find("#dtlList\\.description")).textbox({
+//                 readonly:true, //ok
+//             });
+//         }
+
+        var mtlNumberJq=row.find("#dtlList\\.material\\.number");
+        if(  "1"!=this.opts.status)
+            this.setMaterialNumberGrid(mtlNumberJq);
+
+        return row;
+    },
+    validateForm:function(){
+        //8-2 死循环  后台处理
+        // if($.trim($("#bean\\.customField2").val())==""){
+        //     var deliveryDate=$("#bean\\.deliveryDate").val();
+        //     var dateaa=deliveryDate.split("-");//2017,08,05
+        //     var datadeli=dateaa[0]+"\\"+dateaa[1]+"\\"+dateaa[2];
+        //     var customField2=$("#bean\\.customField2").textbox("getValue");
+        //    var aaa=datadeli+customField2;  //2017\08\05ui
+        //    var j=1;
+        //    for(var i=0;i<j;i++){
+        //         $("#bean\\.customField2").textbox("setValue",aaa);
+        //    }
+        //     $.messager.alert('提示',$($.find("label[for='bean.customer.name']")[0]).text()+"不能为空！");
+        //     return false;
+        // }
+
+        if($.trim($("#bean\\.customer\\.id").val())==""   || $.trim($("#bean\\.customer\\.id").val())=="0"){
+            $.messager.alert('提示',$($.find("label[for='bean.customer.name']")[0]).text()+"不能为空！");
+            return false;
+        }
+        if($.trim($("#bean\\.employee\\.id").val())==""  || $.trim($("#bean\\.employee\\.id").val())=="0"  ){
+            $.messager.alert('提示',$($.find("label[for='bean.employeeName']")[0]).text()+"不能为空！");
+            return false;
+        }
+        if($.trim($("#bean\\.orderDate").val())=="" ){
+            $.messager.alert('提示',$($.find("label[for='bean.orderDate']")[0]).text()+"不能为空！");
+            return false;
+        }
+        if($.trim($("#bean\\.balanceKindId").combobox("getValue"))=="" ){
+            $.messager.alert('提示',$($.find("label[for='bean.balanceKindId']")[0]).text()+"不能为空！");
+            return false;
+        }
+        if($.trim($("#bean\\.saleType").combobox("getValue"))=="" ){
+            $.messager.alert('提示',$($.find("label[for='bean.saleType']")[0]).text()+"不能为空！");
+            return false;
+        }
+        var sendInvoces=document.getElementsByName("bean.sendInvoce");
+        if(sendInvoces[0].checked==false && sendInvoces[1].checked==false){
+            $.messager.alert('提示', "请选择发票是否邮寄！");
+            return false;
+        }
+        if($.trim($("#bean\\.agreementNo").combobox("getValue"))=="" ){
+            $.messager.alert('提示',$($.find("label[for='bean.agreementNo']")[0]).text()+"不能为空！");
+            return false;
+        }
+        // //if($.trim($("#bean\\.province").textbox("getValue"))=="" ){
+        if($.trim($("#beanprovince1").combobox("getValue"))=="" ){
+            $.messager.alert('提示',$($.find("label[for='bean.province']")[0]).text()+"不能为空！");
+            return false;
+        }
+        if($.trim($("#bean\\.deliveryDate").my97("getValue"))==""){
+            $.messager.alert('提示',$($.find("label[for='bean.deliveryDate']")[0]).text()+"不能为空！");
+            return false;
+        }
+
+        omOrderScript.amountcChange();
+        //7-21
+        var curDate=new $.ts.Date();
+        var days=3;
+        //8-4 保健部发货日期不用顺延
+        if($("#bean\\.saleType").combobox("getValue")=='02'){
+            days=0;
+        }
+        curDate=curDate.dateAdd("d",days);//7-21
+        var dateStr=curDate.format("yyyy-MM-dd");
+        if( $.trim($("#bean\\.deliveryDate").my97("getValue"))<dateStr){
+            $.messager.alert('提示',$($.find("label[for='bean.deliveryDate']")[0]).text()+"需顺延3天(动保不能小于当天日期)！");
+            return false;
+        }
+        curDate=new  $.ts.Date($.trim($("#bean\\.deliveryDate").my97("getValue")));
+        var week=curDate.datePart("w");
+        if(week=="六" || week=="日"){
+            $.messager.alert('提示',$($.find("label[for='bean.deliveryDate']")[0]).text()+"不能为周末！");
+            return false;
+        }
+
+        //var standardPrices=document.getElementsByName("dtlList.basePrice");//8-12 xiaoxubo  是否低于底价直接用卖出的价格和客服更改后的价格对比
+        var standardPrices=document.getElementsByName("dtlList.standardPrice");
+        var prices=document.getElementsByName("dtlList.price");
+        var limitPriceRates=document.getElementsByName("dtlList.limitPriceRate");
+        var orderKind=$("#bean\\.orderKind").combobox("getValue");
+        var promotionFees=document.getElementsByName("dtlList.description");
+        var basePrices=document.getElementsByName("dtlList.basePrice");
+        var mtlIds=document.getElementsByName("dtlList.material.id");
+        //6-29
+        var amounts=document.getElementsByName("dtlList.amount");
+        //7-21 根据推广费  修改判断 改写 字段customField3交易价
+        var customField3s=document.getElementsByName("dtlList.customField3");
+        //8-2 是否是赠品 只能输入 是/否
+        var customField1s=document.getElementsByName("dtlList.customField1");
+
+
+        if(orderKind!="1"){
+            for(var i=0;i<prices.length;i++){
+
+                // console.log($(customField1s[i]).attr("value"));//否
+                // console.log("1="+$(customField1s[i]).val());//否
+                var customField1=customField1s[i].value;
+                if(customField1!='否' && customField1!='是'){
+                    $.messager.alert('提示',"是否是赠品只能输入“是/否”！");
+                    return false;
+                }
+
+
+                var row=$(prices[i]).parent().parent().parent();
+                if(row.is(":hidden")) continue;
+                var mtlId=mtlIds[i].value;
+                if(mtlId=="" || mtlId=="0") continue;
+                //alert(prices[i]+"--"+standardPrices[i]+"---"+limitPriceRates[i]);
+                var price=new $.ts.Number(prices[i].value);
+
+
+                var amount=new $.ts.Number(amounts[i].value);//6-29
+
+                if(customField1 === '否'){   //8-14  非赠品订单判断
+                    if(amount<=0){
+                        $.messager.alert('提示',"金额不能小于等于0！");
+                        return false;
+                    }
+
+                    if(price<=0.00001){
+                        $.messager.alert('提示',"价格不能小于等于0！");
+                        return false;
+                    }
+
+                }
+                if(promotionFees[i].value==""){
+                    $.messager.alert('提示',"推广价不能为空！");
+                    return false;
+                }
+                var basePrice=new $.ts.Number(basePrices[i].value);
+                if(customField1!='是'){
+                    if(basePrice<=-0.00001 || basePrices[i].value==""){
+                        $.messager.alert('提示',"底价不能小于0！");
+                        return false;
+                    }
+                }
+
+                //var standardPrice=new $.ts.Number(standardPrices[i].value);
+                var standardPrice=new $.ts.Number(basePrices[i].value);//8-14改为取 输入的底价
+                var limitPriceRate=new $.ts.Number(limitPriceRates[i].value);
+                var Hundred=100; //5-10
+                var one=1;
+                //7-3  含税单价--推广价-->  指导价
+                // if(price.subtract(promotionFees[i].value)<standardPrice.multiply(one.add(limitPriceRate.divide(Hundred)))){
+                //     $.messager.alert('提示',"含税单价减去推广费不能低于最低限价！");
+                //     return false;
+                // }
+
+                // alert("Hundred="+Hundred+"最低"+standardPrice.multiply(one.subtract(limitPriceRate.divide(Hundred))));
+                //if(limitPriceRate>0 && standardPrice>0 && price<standardPrice.subtract(limitPriceRate) ){
+                // if(limitPriceRate>0 && standardPrice>0 && price<standardPrice.multiply(one.add(limitPriceRate.divide(Hundred))) ){  //6-20
+                if(limitPriceRate>=0 && standardPrice>0 && price.subtract(promotionFees[i].value)<standardPrice.multiply(one.add(limitPriceRate.divide(Hundred))) ){  //7-4
+                    $(customField3s[i]).val("交易价低于限价");//7-21
+
+                    if(i+1==length){
+                        //遍历完之后  提示
+                        $(function (o) {
+                            // $.messager.alert('提示',"交易价低于限价，请向上级批准！");
+                            // 不用 setTimeout 也可以，show  4秒后会自动消失
+                            $.messager.show({
+                                title:'提示',
+                                msg:'交易价低于限价，请向上级批准！.',
+                                showType:'show'
+                            });
+
+
+                        });
+                    }
+                    // return true;7-22....
+                    // document.getElementsByName("dtlList.customField3").textbox('setValue',"交易价低于限价");
+                    // document.getElementsByName("dtlList.customField3").values("交易价低于限价")
+                    //return false;
+                }
+
+            }
+        }
+        return true;
+    },
+
+    submitForm:function (obj){//点击按钮提交
+        if(this.validateForm()==false) return false;
+        var bodyId="#"+this.opts.appKey+"Body";
+        var formId="#"+this.opts.appKey+"Form";
+        var url=$(formId).attr("action")+'?timeStamp='+(new Date()).getTime();
+        var index=$.ts.EasyUI.submitRowsToList("dtlList.id",$("#omOrderDtlListGrid").parent(),{effectRowFields:["qty","material.number"]});
+        if(index==0){
+            $.messager.alert('提示',"产品记录不能为空！");
+            return false;
+        }
+        $.ts.EasyUI.submitRowsToList("fileList.id",$("#fileListGrid") );
+
+        $.ts.EasyUI.ajaxSubmitForm(url,formId,function(resultData){
+            $.ts.EasyUI.closeDialog(obj,"1",resultData);
+        } );
+        return false;
+    }
+}
+
+
+//	6-29
+function ajaxgetcustomization(row){
+    var custId=$("#bean\\.customer\\.id").val();//6-27
+    var proNumber=row.find("#dtlList\\.material\\.number").val();
+
+    var flag="0";//定制
+    $.ajax({
+        url:tsContextPath+"/main/OmOrderService/json/getcustomization.do",
+        type: "post",
+        async:false,          //同步请求
+        data:{custId:custId,proNumber:proNumber},
+        dataType:"json",
+        success:function(data){
+            flag=data.flag;// 非标准返回 1
+        }
+    });
+
+    return flag;
+}
+//6-29判断是否被25整除
+function isInteger(obj,aaa) {
+    // return obj%25=== 0
+    return obj%aaa=== 0
+}
+// isInteger(3) // true
+// isInteger(3.3) // false　
+
+//7-14   获取联系人列表
+//select  record
+function setcustcontact(record){
+    $("#bean\\.custContactPhone").textbox("setValue",record.mobile);
+    $("#bean\\.customField3").val(record.number);//7-19
+    //$("#bean\\.customField7").textbox('setValue',record.number);//加8-18  合同地址
+}
+
+function ajaxgetcontactorder(){
+    var custId=$("#bean\\.customer\\.id").val();
+    $.ajax({
+        url:tsContextPath+"/main/ordermanageService/json/getcontact.do",
+        type: "post",
+        async:false,          //同步请求
+        data:{custId:custId},
+        dataType:"json",
+        success:function(data){
+            globalcontacts=data;
+        }
+    });
+}
+//7-20 省份列表
+function setbeanprovice(record){
+    $('#beanprovince1').combobox("setValue",record.name);
+}
+
+function ajaxgetareaset(){
+    $.ajax({
+        url:tsContextPath+"/main/ordermanageService/json/getareaset.do",
+        type: "post",
+        async:false,          //同步请求
+        dataType:"json",
+        success:function(data){
+            globalprovices=data;
+        }
+    });
+}
+
+// var validate = $("#form").validate({
+
+//  $("#form").validate({
+//     errorContainer : "div.error",
+//     errorLabelContainer : $("div.error"),
+//     highlight : function(element, errorClass, validClass) { // element出错时触发
+//         element.focus();
+//     },
+//     rules : {
+//        "dtlList.customField1" : {
+//             required : true,
+//             customcheck:"/[^\u4E00-\u9FA5]/g"
+//         },
+//     },
+//     messages : {
+//         "dtlList.customField1" : {
+//             required : "请输入是否！",
+//             customcheck:"是否是赠品必须填入汉字!"
+//         },
+//     }
+// });

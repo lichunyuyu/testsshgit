@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Districts>
+    <District city="北京市">东城区</District>
+    <District city="北京市">西城区</District>
+    <District city="北京市">崇文区</District>
+    <District city="北京市">宣武区</District>
+    <District city="北京市">朝阳区</District>
+    <District city="北京市">丰台区</District>
+    <District city="北京市">石景山区</District>
+    <District city="北京市">海淀区</District>
+    <District city="北京市">门头沟区</District>
+    <District city="北京市">房山区</District>
+    <District city="北京市">通州区</District>
+    <District city="北京市">顺义区</District>
+    <District city="北京市">昌平区</District>
+    <District city="北京市">大兴区</District>
+    <District city="北京市">怀柔区</District>
+    <District city="北京市">平谷区</District>
+    <District city="北京市">密云县</District>
+    <District city="北京市">延庆县</District>
+    <District city="北京市">和平区</District>
+    <District city="北京市">河东区</District>
+    <District city="南阳市">淅川县</District>
+    <District city="南阳市">镇平县</District>
+    <District city="商丘市">虞城县</District>
+    <District city="商丘市">梁园区</District>
+</Districts>

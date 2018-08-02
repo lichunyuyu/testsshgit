@@ -1,0 +1,1210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?mso-application progid="Word.Document"?>
+<pkg:package xmlns:pkg="http://schemas.microsoft.com/office/2006/xmlPackage">
+  <pkg:part pkg:name="/_rels/.rels" pkg:contentType="application/vnd.openxmlformats-package.relationships+xml" pkg:padding="512">
+    <pkg:xmlData>
+      <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+        <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/extended-properties" Target="docProps/app.xml"/>
+        <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/>
+        <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+      </Relationships>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/_rels/document.xml.rels" pkg:contentType="application/vnd.openxmlformats-package.relationships+xml" pkg:padding="256">
+    <pkg:xmlData>
+      <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+        <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/webSettings" Target="webSettings.xml"/>
+        <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
+        <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
+        <Relationship Id="rId6" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="theme/theme1.xml"/>
+        <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/>
+        <Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/image1.jpg"/>
+      </Relationships>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/document.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml">
+    <pkg:xmlData>
+      <w:document xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:cx="http://schemas.microsoft.com/office/drawing/2014/chartex" xmlns:cx1="http://schemas.microsoft.com/office/drawing/2015/9/8/chartex" xmlns:cx2="http://schemas.microsoft.com/office/drawing/2015/10/21/chartex" xmlns:cx3="http://schemas.microsoft.com/office/drawing/2016/5/9/chartex" xmlns:cx4="http://schemas.microsoft.com/office/drawing/2016/5/10/chartex" xmlns:cx5="http://schemas.microsoft.com/office/drawing/2016/5/11/chartex" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:wpi="http://schemas.microsoft.com/office/word/2010/wordprocessingInk" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" mc:Ignorable="w14 w15 w16se wp14">
+        <w:body>
+          <w:p w:rsidR="00C678C0" w:rsidRDefault="00BB39EE" w:rsidP="00BB39EE">
+            <w:pPr>
+              <w:jc w:val="center"/>
+            </w:pPr>
+            <w:bookmarkStart w:id="0" w:name="_GoBack"/>
+            <w:bookmarkEnd w:id="0"/>
+            <w:r>
+              <w:t>FreeM</w:t>
+            </w:r>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+              </w:rPr>
+              <w:t>aker导出word文档</w:t>
+            </w:r>
+          </w:p>
+          <w:p w:rsidR="00BB39EE" w:rsidRDefault="00BB39EE" w:rsidP="00BB39EE">
+            <w:pPr>
+              <w:jc w:val="left"/>
+              <w:rPr>
+                <w:u w:val="single"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+              </w:rPr>
+              <w:t>制定人：</w:t>
+            </w:r>
+            <w:r>
+              <w:rPr>
+                <w:u w:val="single"/>
+              </w:rPr>
+              <w:t xml:space="preserve"></w:t>
+            </w:r>
+          </w:p>
+          <w:p w:rsidR="00BB39EE" w:rsidRDefault="00BB39EE" w:rsidP="00BB39EE">
+            <w:pPr>
+              <w:jc w:val="left"/>
+              <w:rPr>
+                <w:u w:val="single"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+              </w:rPr>
+              <w:t>时间：</w:t>
+            </w:r>
+            <w:r>
+              <w:rPr>
+                <w:u w:val="single"/>
+              </w:rPr>
+              <w:t xml:space="preserve">Mon Feb 26 13:12:10 CST 2018</w:t>
+            </w:r>
+          </w:p>
+          <w:p w:rsidR="00BB39EE" w:rsidRDefault="00BB39EE" w:rsidP="00BB39EE">
+            <w:pPr>
+              <w:jc w:val="left"/>
+              <w:rPr>
+                <w:u w:val="single"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+              </w:rPr>
+              <w:t>备注：</w:t>
+            </w:r>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+                <w:u w:val="single"/>
+              </w:rPr>
+              <w:t xml:space="preserve"></w:t>
+            </w:r>
+          </w:p>
+          <w:p w:rsidR="00BB39EE" w:rsidRPr="00BB39EE" w:rsidRDefault="00BB39EE" w:rsidP="00BB39EE">
+            <w:pPr>
+              <w:jc w:val="left"/>
+              <w:rPr>
+                <w:u w:val="single"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:rFonts w:hint="eastAsia"/>
+                <w:noProof/>
+                <w:u w:val="single"/>
+              </w:rPr>
+              <w:drawing>
+                <wp:inline distT="0" distB="0" distL="0" distR="0">
+                  <wp:extent cx="3103418" cy="2507615"/>
+                  <wp:effectExtent l="0" t="0" r="1905" b="6985"/>
+                  <wp:docPr id="1" name="图片 1"/>
+                  <wp:cNvGraphicFramePr>
+                    <a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>
+                  </wp:cNvGraphicFramePr>
+                  <a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+                    <a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                      <pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">
+                        <pic:nvPicPr>
+                          <pic:cNvPr id="1" name="零食.jpg"/>
+                          <pic:cNvPicPr/>
+                        </pic:nvPicPr>
+                        <pic:blipFill>
+                          <a:blip r:embed="rId4">
+                            <a:extLst>
+                              <a:ext uri="{28A0092B-C50C-407E-A947-70E740481C1C}">
+                                <a14:useLocalDpi xmlns:a14="http://schemas.microsoft.com/office/drawing/2010/main" val="0"/>
+                              </a:ext>
+                            </a:extLst>
+                          </a:blip>
+                          <a:stretch>
+                            <a:fillRect/>
+                          </a:stretch>
+                        </pic:blipFill>
+                        <pic:spPr>
+                          <a:xfrm>
+                            <a:off x="0" y="0"/>
+                            <a:ext cx="3112802" cy="2515197"/>
+                          </a:xfrm>
+                          <a:prstGeom prst="rect">
+                            <a:avLst/>
+                          </a:prstGeom>
+                        </pic:spPr>
+                      </pic:pic>
+                    </a:graphicData>
+                  </a:graphic>
+                </wp:inline>
+              </w:drawing>
+            </w:r>
+          </w:p>
+          <w:sectPr w:rsidR="00BB39EE" w:rsidRPr="00BB39EE">
+            <w:pgSz w:w="11906" w:h="16838"/>
+            <w:pgMar w:top="1440" w:right="1800" w:bottom="1440" w:left="1800" w:header="851" w:footer="992" w:gutter="0"/>
+            <w:cols w:space="425"/>
+            <w:docGrid w:type="lines" w:linePitch="312"/>
+          </w:sectPr>
+        </w:body>
+      </w:document>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/media/image1.jpg" pkg:contentType="image/jpeg" pkg:compression="store">
+      <pkg:binaryData>/9j/4AAQSkZJRgABAgAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEzAOYDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwChR2oo
+rQQUnaiigQtJRRQACiikoEBppp1NpAFIaWkNABSUtJQAUUUhoGFB60GkPWgYH+dBzg0Gj1oAWkzT
+c0maBXHE03NITSZoEOzSE03NLQAZpCaPSigYZooooCxeoooNMYhpaO9JQID/ACo7UUGgBvelxRQa
+BBTaU0GgBKKKKQCUlKaQ0ABpKU000DDvQetJnqaTcBnJoACaM00uucZGT2puaAHE8U0mkLgVGZB2
+oCxLmkzURlpPM96YybNGah3njmlD0AS5pM1HvoD0ASZopm6igDToPWiigA70dqTvRQACg0vakPeg
+Qh6UGg0h70CCkNKaSkAGkJpTRQAlJS0lACGo5547eJpJnVEUZLMcAUTzx20DzSuFjRSzMewrzbXN
+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
+FFERSMSSWSXDSyO7ersT/OiiirRB/9k=</pkg:binaryData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/theme/theme1.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.theme+xml">
+    <pkg:xmlData>
+      <a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" name="Office 主题​​">
+        <a:themeElements>
+          <a:clrScheme name="Office">
+            <a:dk1>
+              <a:sysClr val="windowText" lastClr="000000"/>
+            </a:dk1>
+            <a:lt1>
+              <a:sysClr val="window" lastClr="FFFFFF"/>
+            </a:lt1>
+            <a:dk2>
+              <a:srgbClr val="44546A"/>
+            </a:dk2>
+            <a:lt2>
+              <a:srgbClr val="E7E6E6"/>
+            </a:lt2>
+            <a:accent1>
+              <a:srgbClr val="5B9BD5"/>
+            </a:accent1>
+            <a:accent2>
+              <a:srgbClr val="ED7D31"/>
+            </a:accent2>
+            <a:accent3>
+              <a:srgbClr val="A5A5A5"/>
+            </a:accent3>
+            <a:accent4>
+              <a:srgbClr val="FFC000"/>
+            </a:accent4>
+            <a:accent5>
+              <a:srgbClr val="4472C4"/>
+            </a:accent5>
+            <a:accent6>
+              <a:srgbClr val="70AD47"/>
+            </a:accent6>
+            <a:hlink>
+              <a:srgbClr val="0563C1"/>
+            </a:hlink>
+            <a:folHlink>
+              <a:srgbClr val="954F72"/>
+            </a:folHlink>
+          </a:clrScheme>
+          <a:fontScheme name="Office">
+            <a:majorFont>
+              <a:latin typeface="等线 Light" panose="020F0302020204030204"/>
+              <a:ea typeface=""/>
+              <a:cs typeface=""/>
+              <a:font script="Jpan" typeface="游ゴシック Light"/>
+              <a:font script="Hang" typeface="맑은 고딕"/>
+              <a:font script="Hans" typeface="等线 Light"/>
+              <a:font script="Hant" typeface="新細明體"/>
+              <a:font script="Arab" typeface="Times New Roman"/>
+              <a:font script="Hebr" typeface="Times New Roman"/>
+              <a:font script="Thai" typeface="Angsana New"/>
+              <a:font script="Ethi" typeface="Nyala"/>
+              <a:font script="Beng" typeface="Vrinda"/>
+              <a:font script="Gujr" typeface="Shruti"/>
+              <a:font script="Khmr" typeface="MoolBoran"/>
+              <a:font script="Knda" typeface="Tunga"/>
+              <a:font script="Guru" typeface="Raavi"/>
+              <a:font script="Cans" typeface="Euphemia"/>
+              <a:font script="Cher" typeface="Plantagenet Cherokee"/>
+              <a:font script="Yiii" typeface="Microsoft Yi Baiti"/>
+              <a:font script="Tibt" typeface="Microsoft Himalaya"/>
+              <a:font script="Thaa" typeface="MV Boli"/>
+              <a:font script="Deva" typeface="Mangal"/>
+              <a:font script="Telu" typeface="Gautami"/>
+              <a:font script="Taml" typeface="Latha"/>
+              <a:font script="Syrc" typeface="Estrangelo Edessa"/>
+              <a:font script="Orya" typeface="Kalinga"/>
+              <a:font script="Mlym" typeface="Kartika"/>
+              <a:font script="Laoo" typeface="DokChampa"/>
+              <a:font script="Sinh" typeface="Iskoola Pota"/>
+              <a:font script="Mong" typeface="Mongolian Baiti"/>
+              <a:font script="Viet" typeface="Times New Roman"/>
+              <a:font script="Uigh" typeface="Microsoft Uighur"/>
+              <a:font script="Geor" typeface="Sylfaen"/>
+              <a:font script="Armn" typeface="Arial"/>
+              <a:font script="Bugi" typeface="Leelawadee UI"/>
+              <a:font script="Bopo" typeface="Microsoft JhengHei"/>
+              <a:font script="Java" typeface="Javanese Text"/>
+              <a:font script="Lisu" typeface="Segoe UI"/>
+              <a:font script="Mymr" typeface="Myanmar Text"/>
+              <a:font script="Nkoo" typeface="Ebrima"/>
+              <a:font script="Olck" typeface="Nirmala UI"/>
+              <a:font script="Osma" typeface="Ebrima"/>
+              <a:font script="Phag" typeface="Phagspa"/>
+              <a:font script="Syrn" typeface="Estrangelo Edessa"/>
+              <a:font script="Syrj" typeface="Estrangelo Edessa"/>
+              <a:font script="Syre" typeface="Estrangelo Edessa"/>
+              <a:font script="Sora" typeface="Nirmala UI"/>
+              <a:font script="Tale" typeface="Microsoft Tai Le"/>
+              <a:font script="Talu" typeface="Microsoft New Tai Lue"/>
+              <a:font script="Tfng" typeface="Ebrima"/>
+            </a:majorFont>
+            <a:minorFont>
+              <a:latin typeface="等线" panose="020F0502020204030204"/>
+              <a:ea typeface=""/>
+              <a:cs typeface=""/>
+              <a:font script="Jpan" typeface="游明朝"/>
+              <a:font script="Hang" typeface="맑은 고딕"/>
+              <a:font script="Hans" typeface="等线"/>
+              <a:font script="Hant" typeface="新細明體"/>
+              <a:font script="Arab" typeface="Arial"/>
+              <a:font script="Hebr" typeface="Arial"/>
+              <a:font script="Thai" typeface="Cordia New"/>
+              <a:font script="Ethi" typeface="Nyala"/>
+              <a:font script="Beng" typeface="Vrinda"/>
+              <a:font script="Gujr" typeface="Shruti"/>
+              <a:font script="Khmr" typeface="DaunPenh"/>
+              <a:font script="Knda" typeface="Tunga"/>
+              <a:font script="Guru" typeface="Raavi"/>
+              <a:font script="Cans" typeface="Euphemia"/>
+              <a:font script="Cher" typeface="Plantagenet Cherokee"/>
+              <a:font script="Yiii" typeface="Microsoft Yi Baiti"/>
+              <a:font script="Tibt" typeface="Microsoft Himalaya"/>
+              <a:font script="Thaa" typeface="MV Boli"/>
+              <a:font script="Deva" typeface="Mangal"/>
+              <a:font script="Telu" typeface="Gautami"/>
+              <a:font script="Taml" typeface="Latha"/>
+              <a:font script="Syrc" typeface="Estrangelo Edessa"/>
+              <a:font script="Orya" typeface="Kalinga"/>
+              <a:font script="Mlym" typeface="Kartika"/>
+              <a:font script="Laoo" typeface="DokChampa"/>
+              <a:font script="Sinh" typeface="Iskoola Pota"/>
+              <a:font script="Mong" typeface="Mongolian Baiti"/>
+              <a:font script="Viet" typeface="Arial"/>
+              <a:font script="Uigh" typeface="Microsoft Uighur"/>
+              <a:font script="Geor" typeface="Sylfaen"/>
+              <a:font script="Armn" typeface="Arial"/>
+              <a:font script="Bugi" typeface="Leelawadee UI"/>
+              <a:font script="Bopo" typeface="Microsoft JhengHei"/>
+              <a:font script="Java" typeface="Javanese Text"/>
+              <a:font script="Lisu" typeface="Segoe UI"/>
+              <a:font script="Mymr" typeface="Myanmar Text"/>
+              <a:font script="Nkoo" typeface="Ebrima"/>
+              <a:font script="Olck" typeface="Nirmala UI"/>
+              <a:font script="Osma" typeface="Ebrima"/>
+              <a:font script="Phag" typeface="Phagspa"/>
+              <a:font script="Syrn" typeface="Estrangelo Edessa"/>
+              <a:font script="Syrj" typeface="Estrangelo Edessa"/>
+              <a:font script="Syre" typeface="Estrangelo Edessa"/>
+              <a:font script="Sora" typeface="Nirmala UI"/>
+              <a:font script="Tale" typeface="Microsoft Tai Le"/>
+              <a:font script="Talu" typeface="Microsoft New Tai Lue"/>
+              <a:font script="Tfng" typeface="Ebrima"/>
+            </a:minorFont>
+          </a:fontScheme>
+          <a:fmtScheme name="Office">
+            <a:fillStyleLst>
+              <a:solidFill>
+                <a:schemeClr val="phClr"/>
+              </a:solidFill>
+              <a:gradFill rotWithShape="1">
+                <a:gsLst>
+                  <a:gs pos="0">
+                    <a:schemeClr val="phClr">
+                      <a:lumMod val="110000"/>
+                      <a:satMod val="105000"/>
+                      <a:tint val="67000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                  <a:gs pos="50000">
+                    <a:schemeClr val="phClr">
+                      <a:lumMod val="105000"/>
+                      <a:satMod val="103000"/>
+                      <a:tint val="73000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                  <a:gs pos="100000">
+                    <a:schemeClr val="phClr">
+                      <a:lumMod val="105000"/>
+                      <a:satMod val="109000"/>
+                      <a:tint val="81000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                </a:gsLst>
+                <a:lin ang="5400000" scaled="0"/>
+              </a:gradFill>
+              <a:gradFill rotWithShape="1">
+                <a:gsLst>
+                  <a:gs pos="0">
+                    <a:schemeClr val="phClr">
+                      <a:satMod val="103000"/>
+                      <a:lumMod val="102000"/>
+                      <a:tint val="94000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                  <a:gs pos="50000">
+                    <a:schemeClr val="phClr">
+                      <a:satMod val="110000"/>
+                      <a:lumMod val="100000"/>
+                      <a:shade val="100000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                  <a:gs pos="100000">
+                    <a:schemeClr val="phClr">
+                      <a:lumMod val="99000"/>
+                      <a:satMod val="120000"/>
+                      <a:shade val="78000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                </a:gsLst>
+                <a:lin ang="5400000" scaled="0"/>
+              </a:gradFill>
+            </a:fillStyleLst>
+            <a:lnStyleLst>
+              <a:ln w="6350" cap="flat" cmpd="sng" algn="ctr">
+                <a:solidFill>
+                  <a:schemeClr val="phClr"/>
+                </a:solidFill>
+                <a:prstDash val="solid"/>
+                <a:miter lim="800000"/>
+              </a:ln>
+              <a:ln w="12700" cap="flat" cmpd="sng" algn="ctr">
+                <a:solidFill>
+                  <a:schemeClr val="phClr"/>
+                </a:solidFill>
+                <a:prstDash val="solid"/>
+                <a:miter lim="800000"/>
+              </a:ln>
+              <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+                <a:solidFill>
+                  <a:schemeClr val="phClr"/>
+                </a:solidFill>
+                <a:prstDash val="solid"/>
+                <a:miter lim="800000"/>
+              </a:ln>
+            </a:lnStyleLst>
+            <a:effectStyleLst>
+              <a:effectStyle>
+                <a:effectLst/>
+              </a:effectStyle>
+              <a:effectStyle>
+                <a:effectLst/>
+              </a:effectStyle>
+              <a:effectStyle>
+                <a:effectLst>
+                  <a:outerShdw blurRad="57150" dist="19050" dir="5400000" algn="ctr" rotWithShape="0">
+                    <a:srgbClr val="000000">
+                      <a:alpha val="63000"/>
+                    </a:srgbClr>
+                  </a:outerShdw>
+                </a:effectLst>
+              </a:effectStyle>
+            </a:effectStyleLst>
+            <a:bgFillStyleLst>
+              <a:solidFill>
+                <a:schemeClr val="phClr"/>
+              </a:solidFill>
+              <a:solidFill>
+                <a:schemeClr val="phClr">
+                  <a:tint val="95000"/>
+                  <a:satMod val="170000"/>
+                </a:schemeClr>
+              </a:solidFill>
+              <a:gradFill rotWithShape="1">
+                <a:gsLst>
+                  <a:gs pos="0">
+                    <a:schemeClr val="phClr">
+                      <a:tint val="93000"/>
+                      <a:satMod val="150000"/>
+                      <a:shade val="98000"/>
+                      <a:lumMod val="102000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                  <a:gs pos="50000">
+                    <a:schemeClr val="phClr">
+                      <a:tint val="98000"/>
+                      <a:satMod val="130000"/>
+                      <a:shade val="90000"/>
+                      <a:lumMod val="103000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                  <a:gs pos="100000">
+                    <a:schemeClr val="phClr">
+                      <a:shade val="63000"/>
+                      <a:satMod val="120000"/>
+                    </a:schemeClr>
+                  </a:gs>
+                </a:gsLst>
+                <a:lin ang="5400000" scaled="0"/>
+              </a:gradFill>
+            </a:bgFillStyleLst>
+          </a:fmtScheme>
+        </a:themeElements>
+        <a:objectDefaults/>
+        <a:extraClrSchemeLst/>
+        <a:extLst>
+          <a:ext uri="{05A4C25C-085E-4340-85A3-A5531E510DB2}">
+            <thm15:themeFamily xmlns:thm15="http://schemas.microsoft.com/office/thememl/2012/main" name="Office Theme" id="{62F939B6-93AF-4DB8-9C6B-D6C7DFDC589F}" vid="{4A3C46E8-61CC-4603-A589-7422A47A8E4A}"/>
+          </a:ext>
+        </a:extLst>
+      </a:theme>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/settings.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml">
+    <pkg:xmlData>
+      <w:settings xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" xmlns:sl="http://schemas.openxmlformats.org/schemaLibrary/2006/main" mc:Ignorable="w14 w15 w16se">
+        <w:zoom w:percent="110"/>
+        <w:bordersDoNotSurroundHeader/>
+        <w:bordersDoNotSurroundFooter/>
+        <w:proofState w:grammar="clean"/>
+        <w:defaultTabStop w:val="420"/>
+        <w:drawingGridVerticalSpacing w:val="156"/>
+        <w:displayHorizontalDrawingGridEvery w:val="0"/>
+        <w:displayVerticalDrawingGridEvery w:val="2"/>
+        <w:characterSpacingControl w:val="compressPunctuation"/>
+        <w:compat>
+          <w:spaceForUL/>
+          <w:balanceSingleByteDoubleByteWidth/>
+          <w:doNotLeaveBackslashAlone/>
+          <w:ulTrailSpace/>
+          <w:doNotExpandShiftReturn/>
+          <w:adjustLineHeightInTable/>
+          <w:useFELayout/>
+          <w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/>
+          <w:compatSetting w:name="overrideTableStyleFontSizeAndJustification" w:uri="http://schemas.microsoft.com/office/word" w:val="1"/>
+          <w:compatSetting w:name="enableOpenTypeFeatures" w:uri="http://schemas.microsoft.com/office/word" w:val="1"/>
+          <w:compatSetting w:name="doNotFlipMirrorIndents" w:uri="http://schemas.microsoft.com/office/word" w:val="1"/>
+          <w:compatSetting w:name="differentiateMultirowTableHeaders" w:uri="http://schemas.microsoft.com/office/word" w:val="1"/>
+        </w:compat>
+        <w:rsids>
+          <w:rsidRoot w:val="000B6873"/>
+          <w:rsid w:val="00000664"/>
+          <w:rsid w:val="000B6873"/>
+          <w:rsid w:val="00306A23"/>
+          <w:rsid w:val="003F4F6F"/>
+          <w:rsid w:val="00850751"/>
+          <w:rsid w:val="00BB39EE"/>
+          <w:rsid w:val="00BD5188"/>
+          <w:rsid w:val="00ED2F89"/>
+        </w:rsids>
+        <m:mathPr>
+          <m:mathFont m:val="Cambria Math"/>
+          <m:brkBin m:val="before"/>
+          <m:brkBinSub m:val="--"/>
+          <m:smallFrac m:val="0"/>
+          <m:dispDef/>
+          <m:lMargin m:val="0"/>
+          <m:rMargin m:val="0"/>
+          <m:defJc m:val="centerGroup"/>
+          <m:wrapIndent m:val="1440"/>
+          <m:intLim m:val="subSup"/>
+          <m:naryLim m:val="undOvr"/>
+        </m:mathPr>
+        <w:themeFontLang w:val="en-US" w:eastAsia="zh-CN"/>
+        <w:clrSchemeMapping w:bg1="light1" w:t1="dark1" w:bg2="light2" w:t2="dark2" w:accent1="accent1" w:accent2="accent2" w:accent3="accent3" w:accent4="accent4" w:accent5="accent5" w:accent6="accent6" w:hyperlink="hyperlink" w:followedHyperlink="followedHyperlink"/>
+        <w:shapeDefaults>
+          <o:shapedefaults v:ext="edit" spidmax="1026"/>
+          <o:shapelayout v:ext="edit">
+            <o:idmap v:ext="edit" data="1"/>
+          </o:shapelayout>
+        </w:shapeDefaults>
+        <w:decimalSymbol w:val="."/>
+        <w:listSeparator w:val=","/>
+        <w15:chartTrackingRefBased/>
+        <w15:docId w15:val="{FC81998D-D385-4C50-A9A2-6A26EEAF592A}"/>
+      </w:settings>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/webSettings.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.webSettings+xml">
+    <pkg:xmlData>
+      <w:webSettings xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" mc:Ignorable="w14 w15 w16se">
+        <w:optimizeForBrowser/>
+        <w:allowPNG/>
+      </w:webSettings>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/docProps/core.xml" pkg:contentType="application/vnd.openxmlformats-package.core-properties+xml" pkg:padding="256">
+    <pkg:xmlData>
+      <cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <dc:title/>
+        <dc:subject/>
+        <dc:creator>vtstar</dc:creator>
+        <cp:keywords/>
+        <dc:description/>
+        <cp:lastModifiedBy>vtstar</cp:lastModifiedBy>
+        <cp:revision>2</cp:revision>
+        <dcterms:created xsi:type="dcterms:W3CDTF">2018-02-26T03:09:00Z</dcterms:created>
+        <dcterms:modified xsi:type="dcterms:W3CDTF">2018-02-26T03:09:00Z</dcterms:modified>
+      </cp:coreProperties>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/styles.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml">
+    <pkg:xmlData>
+      <w:styles xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" mc:Ignorable="w14 w15 w16se">
+        <w:docDefaults>
+          <w:rPrDefault>
+            <w:rPr>
+              <w:rFonts w:asciiTheme="minorHAnsi" w:eastAsiaTheme="minorEastAsia" w:hAnsiTheme="minorHAnsi" w:cstheme="minorBidi"/>
+              <w:kern w:val="2"/>
+              <w:sz w:val="21"/>
+              <w:szCs w:val="22"/>
+              <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar-SA"/>
+            </w:rPr>
+          </w:rPrDefault>
+          <w:pPrDefault/>
+        </w:docDefaults>
+        <w:latentStyles w:defLockedState="0" w:defUIPriority="99" w:defSemiHidden="0" w:defUnhideWhenUsed="0" w:defQFormat="0" w:count="374">
+          <w:lsdException w:name="Normal" w:uiPriority="0" w:qFormat="1"/>
+          <w:lsdException w:name="heading 1" w:uiPriority="9" w:qFormat="1"/>
+          <w:lsdException w:name="heading 2" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="heading 3" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="heading 4" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="heading 5" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="heading 6" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="heading 7" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="heading 8" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="heading 9" w:semiHidden="1" w:uiPriority="9" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="index 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 6" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 7" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 8" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index 9" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 1" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 2" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 3" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 4" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 5" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 6" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 7" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 8" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toc 9" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Normal Indent" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="footnote text" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="annotation text" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="header" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="footer" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="index heading" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="caption" w:semiHidden="1" w:uiPriority="35" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="table of figures" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="envelope address" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="envelope return" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="footnote reference" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="annotation reference" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="line number" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="page number" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="endnote reference" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="endnote text" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="table of authorities" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="macro" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="toa heading" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Bullet" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Number" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Bullet 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Bullet 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Bullet 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Bullet 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Number 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Number 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Number 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Number 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Title" w:uiPriority="10" w:qFormat="1"/>
+          <w:lsdException w:name="Closing" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Signature" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Default Paragraph Font" w:semiHidden="1" w:uiPriority="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text Indent" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Continue" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Continue 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Continue 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Continue 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="List Continue 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Message Header" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Subtitle" w:uiPriority="11" w:qFormat="1"/>
+          <w:lsdException w:name="Salutation" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Date" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text First Indent" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text First Indent 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Note Heading" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text Indent 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Body Text Indent 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Block Text" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Hyperlink" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="FollowedHyperlink" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Strong" w:uiPriority="22" w:qFormat="1"/>
+          <w:lsdException w:name="Emphasis" w:uiPriority="20" w:qFormat="1"/>
+          <w:lsdException w:name="Document Map" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Plain Text" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="E-mail Signature" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Top of Form" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Bottom of Form" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Normal (Web)" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Acronym" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Address" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Cite" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Code" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Definition" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Keyboard" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Preformatted" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Sample" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Typewriter" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="HTML Variable" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Normal Table" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="annotation subject" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="No List" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Outline List 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Outline List 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Outline List 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Simple 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Simple 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Simple 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Classic 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Classic 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Classic 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Classic 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Colorful 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Colorful 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Colorful 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Columns 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Columns 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Columns 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Columns 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Columns 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 6" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 7" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid 8" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 4" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 5" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 6" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 7" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table List 8" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table 3D effects 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table 3D effects 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table 3D effects 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Contemporary" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Elegant" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Professional" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Subtle 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Subtle 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Web 1" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Web 2" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Web 3" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Balloon Text" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Table Grid" w:uiPriority="39"/>
+          <w:lsdException w:name="Table Theme" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Placeholder Text" w:semiHidden="1"/>
+          <w:lsdException w:name="No Spacing" w:uiPriority="1" w:qFormat="1"/>
+          <w:lsdException w:name="Light Shading" w:uiPriority="60"/>
+          <w:lsdException w:name="Light List" w:uiPriority="61"/>
+          <w:lsdException w:name="Light Grid" w:uiPriority="62"/>
+          <w:lsdException w:name="Medium Shading 1" w:uiPriority="63"/>
+          <w:lsdException w:name="Medium Shading 2" w:uiPriority="64"/>
+          <w:lsdException w:name="Medium List 1" w:uiPriority="65"/>
+          <w:lsdException w:name="Medium List 2" w:uiPriority="66"/>
+          <w:lsdException w:name="Medium Grid 1" w:uiPriority="67"/>
+          <w:lsdException w:name="Medium Grid 2" w:uiPriority="68"/>
+          <w:lsdException w:name="Medium Grid 3" w:uiPriority="69"/>
+          <w:lsdException w:name="Dark List" w:uiPriority="70"/>
+          <w:lsdException w:name="Colorful Shading" w:uiPriority="71"/>
+          <w:lsdException w:name="Colorful List" w:uiPriority="72"/>
+          <w:lsdException w:name="Colorful Grid" w:uiPriority="73"/>
+          <w:lsdException w:name="Light Shading Accent 1" w:uiPriority="60"/>
+          <w:lsdException w:name="Light List Accent 1" w:uiPriority="61"/>
+          <w:lsdException w:name="Light Grid Accent 1" w:uiPriority="62"/>
+          <w:lsdException w:name="Medium Shading 1 Accent 1" w:uiPriority="63"/>
+          <w:lsdException w:name="Medium Shading 2 Accent 1" w:uiPriority="64"/>
+          <w:lsdException w:name="Medium List 1 Accent 1" w:uiPriority="65"/>
+          <w:lsdException w:name="Revision" w:semiHidden="1"/>
+          <w:lsdException w:name="List Paragraph" w:uiPriority="34" w:qFormat="1"/>
+          <w:lsdException w:name="Quote" w:uiPriority="29" w:qFormat="1"/>
+          <w:lsdException w:name="Intense Quote" w:uiPriority="30" w:qFormat="1"/>
+          <w:lsdException w:name="Medium List 2 Accent 1" w:uiPriority="66"/>
+          <w:lsdException w:name="Medium Grid 1 Accent 1" w:uiPriority="67"/>
+          <w:lsdException w:name="Medium Grid 2 Accent 1" w:uiPriority="68"/>
+          <w:lsdException w:name="Medium Grid 3 Accent 1" w:uiPriority="69"/>
+          <w:lsdException w:name="Dark List Accent 1" w:uiPriority="70"/>
+          <w:lsdException w:name="Colorful Shading Accent 1" w:uiPriority="71"/>
+          <w:lsdException w:name="Colorful List Accent 1" w:uiPriority="72"/>
+          <w:lsdException w:name="Colorful Grid Accent 1" w:uiPriority="73"/>
+          <w:lsdException w:name="Light Shading Accent 2" w:uiPriority="60"/>
+          <w:lsdException w:name="Light List Accent 2" w:uiPriority="61"/>
+          <w:lsdException w:name="Light Grid Accent 2" w:uiPriority="62"/>
+          <w:lsdException w:name="Medium Shading 1 Accent 2" w:uiPriority="63"/>
+          <w:lsdException w:name="Medium Shading 2 Accent 2" w:uiPriority="64"/>
+          <w:lsdException w:name="Medium List 1 Accent 2" w:uiPriority="65"/>
+          <w:lsdException w:name="Medium List 2 Accent 2" w:uiPriority="66"/>
+          <w:lsdException w:name="Medium Grid 1 Accent 2" w:uiPriority="67"/>
+          <w:lsdException w:name="Medium Grid 2 Accent 2" w:uiPriority="68"/>
+          <w:lsdException w:name="Medium Grid 3 Accent 2" w:uiPriority="69"/>
+          <w:lsdException w:name="Dark List Accent 2" w:uiPriority="70"/>
+          <w:lsdException w:name="Colorful Shading Accent 2" w:uiPriority="71"/>
+          <w:lsdException w:name="Colorful List Accent 2" w:uiPriority="72"/>
+          <w:lsdException w:name="Colorful Grid Accent 2" w:uiPriority="73"/>
+          <w:lsdException w:name="Light Shading Accent 3" w:uiPriority="60"/>
+          <w:lsdException w:name="Light List Accent 3" w:uiPriority="61"/>
+          <w:lsdException w:name="Light Grid Accent 3" w:uiPriority="62"/>
+          <w:lsdException w:name="Medium Shading 1 Accent 3" w:uiPriority="63"/>
+          <w:lsdException w:name="Medium Shading 2 Accent 3" w:uiPriority="64"/>
+          <w:lsdException w:name="Medium List 1 Accent 3" w:uiPriority="65"/>
+          <w:lsdException w:name="Medium List 2 Accent 3" w:uiPriority="66"/>
+          <w:lsdException w:name="Medium Grid 1 Accent 3" w:uiPriority="67"/>
+          <w:lsdException w:name="Medium Grid 2 Accent 3" w:uiPriority="68"/>
+          <w:lsdException w:name="Medium Grid 3 Accent 3" w:uiPriority="69"/>
+          <w:lsdException w:name="Dark List Accent 3" w:uiPriority="70"/>
+          <w:lsdException w:name="Colorful Shading Accent 3" w:uiPriority="71"/>
+          <w:lsdException w:name="Colorful List Accent 3" w:uiPriority="72"/>
+          <w:lsdException w:name="Colorful Grid Accent 3" w:uiPriority="73"/>
+          <w:lsdException w:name="Light Shading Accent 4" w:uiPriority="60"/>
+          <w:lsdException w:name="Light List Accent 4" w:uiPriority="61"/>
+          <w:lsdException w:name="Light Grid Accent 4" w:uiPriority="62"/>
+          <w:lsdException w:name="Medium Shading 1 Accent 4" w:uiPriority="63"/>
+          <w:lsdException w:name="Medium Shading 2 Accent 4" w:uiPriority="64"/>
+          <w:lsdException w:name="Medium List 1 Accent 4" w:uiPriority="65"/>
+          <w:lsdException w:name="Medium List 2 Accent 4" w:uiPriority="66"/>
+          <w:lsdException w:name="Medium Grid 1 Accent 4" w:uiPriority="67"/>
+          <w:lsdException w:name="Medium Grid 2 Accent 4" w:uiPriority="68"/>
+          <w:lsdException w:name="Medium Grid 3 Accent 4" w:uiPriority="69"/>
+          <w:lsdException w:name="Dark List Accent 4" w:uiPriority="70"/>
+          <w:lsdException w:name="Colorful Shading Accent 4" w:uiPriority="71"/>
+          <w:lsdException w:name="Colorful List Accent 4" w:uiPriority="72"/>
+          <w:lsdException w:name="Colorful Grid Accent 4" w:uiPriority="73"/>
+          <w:lsdException w:name="Light Shading Accent 5" w:uiPriority="60"/>
+          <w:lsdException w:name="Light List Accent 5" w:uiPriority="61"/>
+          <w:lsdException w:name="Light Grid Accent 5" w:uiPriority="62"/>
+          <w:lsdException w:name="Medium Shading 1 Accent 5" w:uiPriority="63"/>
+          <w:lsdException w:name="Medium Shading 2 Accent 5" w:uiPriority="64"/>
+          <w:lsdException w:name="Medium List 1 Accent 5" w:uiPriority="65"/>
+          <w:lsdException w:name="Medium List 2 Accent 5" w:uiPriority="66"/>
+          <w:lsdException w:name="Medium Grid 1 Accent 5" w:uiPriority="67"/>
+          <w:lsdException w:name="Medium Grid 2 Accent 5" w:uiPriority="68"/>
+          <w:lsdException w:name="Medium Grid 3 Accent 5" w:uiPriority="69"/>
+          <w:lsdException w:name="Dark List Accent 5" w:uiPriority="70"/>
+          <w:lsdException w:name="Colorful Shading Accent 5" w:uiPriority="71"/>
+          <w:lsdException w:name="Colorful List Accent 5" w:uiPriority="72"/>
+          <w:lsdException w:name="Colorful Grid Accent 5" w:uiPriority="73"/>
+          <w:lsdException w:name="Light Shading Accent 6" w:uiPriority="60"/>
+          <w:lsdException w:name="Light List Accent 6" w:uiPriority="61"/>
+          <w:lsdException w:name="Light Grid Accent 6" w:uiPriority="62"/>
+          <w:lsdException w:name="Medium Shading 1 Accent 6" w:uiPriority="63"/>
+          <w:lsdException w:name="Medium Shading 2 Accent 6" w:uiPriority="64"/>
+          <w:lsdException w:name="Medium List 1 Accent 6" w:uiPriority="65"/>
+          <w:lsdException w:name="Medium List 2 Accent 6" w:uiPriority="66"/>
+          <w:lsdException w:name="Medium Grid 1 Accent 6" w:uiPriority="67"/>
+          <w:lsdException w:name="Medium Grid 2 Accent 6" w:uiPriority="68"/>
+          <w:lsdException w:name="Medium Grid 3 Accent 6" w:uiPriority="69"/>
+          <w:lsdException w:name="Dark List Accent 6" w:uiPriority="70"/>
+          <w:lsdException w:name="Colorful Shading Accent 6" w:uiPriority="71"/>
+          <w:lsdException w:name="Colorful List Accent 6" w:uiPriority="72"/>
+          <w:lsdException w:name="Colorful Grid Accent 6" w:uiPriority="73"/>
+          <w:lsdException w:name="Subtle Emphasis" w:uiPriority="19" w:qFormat="1"/>
+          <w:lsdException w:name="Intense Emphasis" w:uiPriority="21" w:qFormat="1"/>
+          <w:lsdException w:name="Subtle Reference" w:uiPriority="31" w:qFormat="1"/>
+          <w:lsdException w:name="Intense Reference" w:uiPriority="32" w:qFormat="1"/>
+          <w:lsdException w:name="Book Title" w:uiPriority="33" w:qFormat="1"/>
+          <w:lsdException w:name="Bibliography" w:semiHidden="1" w:uiPriority="37" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="TOC Heading" w:semiHidden="1" w:uiPriority="39" w:unhideWhenUsed="1" w:qFormat="1"/>
+          <w:lsdException w:name="Plain Table 1" w:uiPriority="41"/>
+          <w:lsdException w:name="Plain Table 2" w:uiPriority="42"/>
+          <w:lsdException w:name="Plain Table 3" w:uiPriority="43"/>
+          <w:lsdException w:name="Plain Table 4" w:uiPriority="44"/>
+          <w:lsdException w:name="Plain Table 5" w:uiPriority="45"/>
+          <w:lsdException w:name="Grid Table Light" w:uiPriority="40"/>
+          <w:lsdException w:name="Grid Table 1 Light" w:uiPriority="46"/>
+          <w:lsdException w:name="Grid Table 2" w:uiPriority="47"/>
+          <w:lsdException w:name="Grid Table 3" w:uiPriority="48"/>
+          <w:lsdException w:name="Grid Table 4" w:uiPriority="49"/>
+          <w:lsdException w:name="Grid Table 5 Dark" w:uiPriority="50"/>
+          <w:lsdException w:name="Grid Table 6 Colorful" w:uiPriority="51"/>
+          <w:lsdException w:name="Grid Table 7 Colorful" w:uiPriority="52"/>
+          <w:lsdException w:name="Grid Table 1 Light Accent 1" w:uiPriority="46"/>
+          <w:lsdException w:name="Grid Table 2 Accent 1" w:uiPriority="47"/>
+          <w:lsdException w:name="Grid Table 3 Accent 1" w:uiPriority="48"/>
+          <w:lsdException w:name="Grid Table 4 Accent 1" w:uiPriority="49"/>
+          <w:lsdException w:name="Grid Table 5 Dark Accent 1" w:uiPriority="50"/>
+          <w:lsdException w:name="Grid Table 6 Colorful Accent 1" w:uiPriority="51"/>
+          <w:lsdException w:name="Grid Table 7 Colorful Accent 1" w:uiPriority="52"/>
+          <w:lsdException w:name="Grid Table 1 Light Accent 2" w:uiPriority="46"/>
+          <w:lsdException w:name="Grid Table 2 Accent 2" w:uiPriority="47"/>
+          <w:lsdException w:name="Grid Table 3 Accent 2" w:uiPriority="48"/>
+          <w:lsdException w:name="Grid Table 4 Accent 2" w:uiPriority="49"/>
+          <w:lsdException w:name="Grid Table 5 Dark Accent 2" w:uiPriority="50"/>
+          <w:lsdException w:name="Grid Table 6 Colorful Accent 2" w:uiPriority="51"/>
+          <w:lsdException w:name="Grid Table 7 Colorful Accent 2" w:uiPriority="52"/>
+          <w:lsdException w:name="Grid Table 1 Light Accent 3" w:uiPriority="46"/>
+          <w:lsdException w:name="Grid Table 2 Accent 3" w:uiPriority="47"/>
+          <w:lsdException w:name="Grid Table 3 Accent 3" w:uiPriority="48"/>
+          <w:lsdException w:name="Grid Table 4 Accent 3" w:uiPriority="49"/>
+          <w:lsdException w:name="Grid Table 5 Dark Accent 3" w:uiPriority="50"/>
+          <w:lsdException w:name="Grid Table 6 Colorful Accent 3" w:uiPriority="51"/>
+          <w:lsdException w:name="Grid Table 7 Colorful Accent 3" w:uiPriority="52"/>
+          <w:lsdException w:name="Grid Table 1 Light Accent 4" w:uiPriority="46"/>
+          <w:lsdException w:name="Grid Table 2 Accent 4" w:uiPriority="47"/>
+          <w:lsdException w:name="Grid Table 3 Accent 4" w:uiPriority="48"/>
+          <w:lsdException w:name="Grid Table 4 Accent 4" w:uiPriority="49"/>
+          <w:lsdException w:name="Grid Table 5 Dark Accent 4" w:uiPriority="50"/>
+          <w:lsdException w:name="Grid Table 6 Colorful Accent 4" w:uiPriority="51"/>
+          <w:lsdException w:name="Grid Table 7 Colorful Accent 4" w:uiPriority="52"/>
+          <w:lsdException w:name="Grid Table 1 Light Accent 5" w:uiPriority="46"/>
+          <w:lsdException w:name="Grid Table 2 Accent 5" w:uiPriority="47"/>
+          <w:lsdException w:name="Grid Table 3 Accent 5" w:uiPriority="48"/>
+          <w:lsdException w:name="Grid Table 4 Accent 5" w:uiPriority="49"/>
+          <w:lsdException w:name="Grid Table 5 Dark Accent 5" w:uiPriority="50"/>
+          <w:lsdException w:name="Grid Table 6 Colorful Accent 5" w:uiPriority="51"/>
+          <w:lsdException w:name="Grid Table 7 Colorful Accent 5" w:uiPriority="52"/>
+          <w:lsdException w:name="Grid Table 1 Light Accent 6" w:uiPriority="46"/>
+          <w:lsdException w:name="Grid Table 2 Accent 6" w:uiPriority="47"/>
+          <w:lsdException w:name="Grid Table 3 Accent 6" w:uiPriority="48"/>
+          <w:lsdException w:name="Grid Table 4 Accent 6" w:uiPriority="49"/>
+          <w:lsdException w:name="Grid Table 5 Dark Accent 6" w:uiPriority="50"/>
+          <w:lsdException w:name="Grid Table 6 Colorful Accent 6" w:uiPriority="51"/>
+          <w:lsdException w:name="Grid Table 7 Colorful Accent 6" w:uiPriority="52"/>
+          <w:lsdException w:name="List Table 1 Light" w:uiPriority="46"/>
+          <w:lsdException w:name="List Table 2" w:uiPriority="47"/>
+          <w:lsdException w:name="List Table 3" w:uiPriority="48"/>
+          <w:lsdException w:name="List Table 4" w:uiPriority="49"/>
+          <w:lsdException w:name="List Table 5 Dark" w:uiPriority="50"/>
+          <w:lsdException w:name="List Table 6 Colorful" w:uiPriority="51"/>
+          <w:lsdException w:name="List Table 7 Colorful" w:uiPriority="52"/>
+          <w:lsdException w:name="List Table 1 Light Accent 1" w:uiPriority="46"/>
+          <w:lsdException w:name="List Table 2 Accent 1" w:uiPriority="47"/>
+          <w:lsdException w:name="List Table 3 Accent 1" w:uiPriority="48"/>
+          <w:lsdException w:name="List Table 4 Accent 1" w:uiPriority="49"/>
+          <w:lsdException w:name="List Table 5 Dark Accent 1" w:uiPriority="50"/>
+          <w:lsdException w:name="List Table 6 Colorful Accent 1" w:uiPriority="51"/>
+          <w:lsdException w:name="List Table 7 Colorful Accent 1" w:uiPriority="52"/>
+          <w:lsdException w:name="List Table 1 Light Accent 2" w:uiPriority="46"/>
+          <w:lsdException w:name="List Table 2 Accent 2" w:uiPriority="47"/>
+          <w:lsdException w:name="List Table 3 Accent 2" w:uiPriority="48"/>
+          <w:lsdException w:name="List Table 4 Accent 2" w:uiPriority="49"/>
+          <w:lsdException w:name="List Table 5 Dark Accent 2" w:uiPriority="50"/>
+          <w:lsdException w:name="List Table 6 Colorful Accent 2" w:uiPriority="51"/>
+          <w:lsdException w:name="List Table 7 Colorful Accent 2" w:uiPriority="52"/>
+          <w:lsdException w:name="List Table 1 Light Accent 3" w:uiPriority="46"/>
+          <w:lsdException w:name="List Table 2 Accent 3" w:uiPriority="47"/>
+          <w:lsdException w:name="List Table 3 Accent 3" w:uiPriority="48"/>
+          <w:lsdException w:name="List Table 4 Accent 3" w:uiPriority="49"/>
+          <w:lsdException w:name="List Table 5 Dark Accent 3" w:uiPriority="50"/>
+          <w:lsdException w:name="List Table 6 Colorful Accent 3" w:uiPriority="51"/>
+          <w:lsdException w:name="List Table 7 Colorful Accent 3" w:uiPriority="52"/>
+          <w:lsdException w:name="List Table 1 Light Accent 4" w:uiPriority="46"/>
+          <w:lsdException w:name="List Table 2 Accent 4" w:uiPriority="47"/>
+          <w:lsdException w:name="List Table 3 Accent 4" w:uiPriority="48"/>
+          <w:lsdException w:name="List Table 4 Accent 4" w:uiPriority="49"/>
+          <w:lsdException w:name="List Table 5 Dark Accent 4" w:uiPriority="50"/>
+          <w:lsdException w:name="List Table 6 Colorful Accent 4" w:uiPriority="51"/>
+          <w:lsdException w:name="List Table 7 Colorful Accent 4" w:uiPriority="52"/>
+          <w:lsdException w:name="List Table 1 Light Accent 5" w:uiPriority="46"/>
+          <w:lsdException w:name="List Table 2 Accent 5" w:uiPriority="47"/>
+          <w:lsdException w:name="List Table 3 Accent 5" w:uiPriority="48"/>
+          <w:lsdException w:name="List Table 4 Accent 5" w:uiPriority="49"/>
+          <w:lsdException w:name="List Table 5 Dark Accent 5" w:uiPriority="50"/>
+          <w:lsdException w:name="List Table 6 Colorful Accent 5" w:uiPriority="51"/>
+          <w:lsdException w:name="List Table 7 Colorful Accent 5" w:uiPriority="52"/>
+          <w:lsdException w:name="List Table 1 Light Accent 6" w:uiPriority="46"/>
+          <w:lsdException w:name="List Table 2 Accent 6" w:uiPriority="47"/>
+          <w:lsdException w:name="List Table 3 Accent 6" w:uiPriority="48"/>
+          <w:lsdException w:name="List Table 4 Accent 6" w:uiPriority="49"/>
+          <w:lsdException w:name="List Table 5 Dark Accent 6" w:uiPriority="50"/>
+          <w:lsdException w:name="List Table 6 Colorful Accent 6" w:uiPriority="51"/>
+          <w:lsdException w:name="List Table 7 Colorful Accent 6" w:uiPriority="52"/>
+          <w:lsdException w:name="Mention" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Smart Hyperlink" w:semiHidden="1" w:unhideWhenUsed="1"/>
+          <w:lsdException w:name="Hashtag" w:semiHidden="1" w:unhideWhenUsed="1"/>
+        </w:latentStyles>
+        <w:style w:type="paragraph" w:default="1" w:styleId="a">
+          <w:name w:val="Normal"/>
+          <w:qFormat/>
+          <w:pPr>
+            <w:widowControl w:val="0"/>
+            <w:jc w:val="both"/>
+          </w:pPr>
+        </w:style>
+        <w:style w:type="character" w:default="1" w:styleId="a0">
+          <w:name w:val="Default Paragraph Font"/>
+          <w:uiPriority w:val="1"/>
+          <w:semiHidden/>
+          <w:unhideWhenUsed/>
+        </w:style>
+        <w:style w:type="table" w:default="1" w:styleId="a1">
+          <w:name w:val="Normal Table"/>
+          <w:uiPriority w:val="99"/>
+          <w:semiHidden/>
+          <w:unhideWhenUsed/>
+          <w:tblPr>
+            <w:tblInd w:w="0" w:type="dxa"/>
+            <w:tblCellMar>
+              <w:top w:w="0" w:type="dxa"/>
+              <w:left w:w="108" w:type="dxa"/>
+              <w:bottom w:w="0" w:type="dxa"/>
+              <w:right w:w="108" w:type="dxa"/>
+            </w:tblCellMar>
+          </w:tblPr>
+        </w:style>
+        <w:style w:type="numbering" w:default="1" w:styleId="a2">
+          <w:name w:val="No List"/>
+          <w:uiPriority w:val="99"/>
+          <w:semiHidden/>
+          <w:unhideWhenUsed/>
+        </w:style>
+      </w:styles>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/word/fontTable.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml">
+    <pkg:xmlData>
+      <w:fonts xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml" xmlns:w15="http://schemas.microsoft.com/office/word/2012/wordml" xmlns:w16se="http://schemas.microsoft.com/office/word/2015/wordml/symex" mc:Ignorable="w14 w15 w16se">
+        <w:font w:name="等线">
+          <w:altName w:val="DengXian"/>
+          <w:panose1 w:val="02010600030101010101"/>
+          <w:charset w:val="86"/>
+          <w:family w:val="auto"/>
+          <w:pitch w:val="variable"/>
+          <w:sig w:usb0="A00002BF" w:usb1="38CF7CFA" w:usb2="00000016" w:usb3="00000000" w:csb0="0004000F" w:csb1="00000000"/>
+        </w:font>
+        <w:font w:name="Times New Roman">
+          <w:panose1 w:val="02020603050405020304"/>
+          <w:charset w:val="00"/>
+          <w:family w:val="roman"/>
+          <w:pitch w:val="variable"/>
+          <w:sig w:usb0="E0002EFF" w:usb1="C000785B" w:usb2="00000009" w:usb3="00000000" w:csb0="000001FF" w:csb1="00000000"/>
+        </w:font>
+        <w:font w:name="等线 Light">
+          <w:panose1 w:val="02010600030101010101"/>
+          <w:charset w:val="86"/>
+          <w:family w:val="auto"/>
+          <w:pitch w:val="variable"/>
+          <w:sig w:usb0="A00002BF" w:usb1="38CF7CFA" w:usb2="00000016" w:usb3="00000000" w:csb0="0004000F" w:csb1="00000000"/>
+        </w:font>
+      </w:fonts>
+    </pkg:xmlData>
+  </pkg:part>
+  <pkg:part pkg:name="/docProps/app.xml" pkg:contentType="application/vnd.openxmlformats-officedocument.extended-properties+xml" pkg:padding="256">
+    <pkg:xmlData>
+      <Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties" xmlns:vt="http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes">
+        <Template>Normal.dotm</Template>
+        <TotalTime>0</TotalTime>
+        <Pages>1</Pages>
+        <Words>11</Words>
+        <Characters>63</Characters>
+        <Application>Microsoft Office Word</Application>
+        <DocSecurity>0</DocSecurity>
+        <Lines>1</Lines>
+        <Paragraphs>1</Paragraphs>
+        <ScaleCrop>false</ScaleCrop>
+        <Company/>
+        <LinksUpToDate>false</LinksUpToDate>
+        <CharactersWithSpaces>73</CharactersWithSpaces>
+        <SharedDoc>false</SharedDoc>
+        <HyperlinksChanged>false</HyperlinksChanged>
+        <AppVersion>16.0000</AppVersion>
+      </Properties>
+    </pkg:xmlData>
+  </pkg:part>
+</pkg:package>

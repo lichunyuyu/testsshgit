@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+
+<script>
+    function exec (command) {
+
+        console.log("exec--")
+        window.oldOnError = window.onerror;
+        window._command = command;
+        window.onerror = function (err) {
+            if (err.indexOf('utomation') != -1) {
+                alert('请更改你的IE的安全级别：开始->设置->控制面板->Internet选项->安全->自定义级别->对没有标记为安全的ActiveX控件进行初始化和脚本运行->启用');
+                return true;
+            }
+            else return false;
+        };
+        var wsh = new ActiveXObject('WScript.Shell');
+        if (wsh)
+            wsh.Run(command);
+        window.onerror = window.oldOnError;
+    }
+</script>
+<input type="button" value="Click" onClick="exec('explorer.exe')">
+wenjian（文件名称） :
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<SCRIPT language="JavaScript">
+    function Run(strPath) {
+        console.log("run--")
+        //exe.value=strPath;
+        try {
+            console.log("22--")
+            var objShell = new ActiveXObject("WScript.shell");
+            console.log("objShell="+objShell);
+            console.log("strPath="+strPath);
+            objShell.Run(strPath);
+            //objShell.run(strPath);
+            console.log("hha=");
+            objShell = null;
+        }
+        catch (e){alert('找不到文件"'+strPath+'"(或它的组件之一)。请确定路径和文件名是否正确，而且所需的库文件均可用。')
+        }
+    }
+</SCRIPT>
+请输入要运行的程序：<br/><input name=exe type=text size=20
+                      value="regedit"><BUTTON class=button
+                                              onclick="Run(exe.value)">确定</BUTTON><BUTTON class=button
+                                                                                          onclick=exe.value="";>重新输入</BUTTON><br/>
+<BUTTON class=button onclick="Run('notepad')">网站上任意连接</BUTTON><br/>
+<BUTTON class=button onclick="Run('cmd')">cmd</BUTTON><br/>
+<BUTTON class=button onclick="Run('Regedit')">Regedit</BUTTON><br/>
+<BUTTON class=button onclick="Run('Msconfig')">Msconfig</BUTTON><br/>
+<!-- file:///D:/SwingProjectTests/SpringProjectsTesto/SpringMVCDemo1/SSH/src/com/one/swing/jframe/littleFunctions/index.html  -->
+<!--<BUTTON class=button onclick="Run('file:///D:/SwingProjectTests/SpringProjectsTesto/jarrInstallCopy/Output/calculatorSetup.exe')">文件名称</BUTTON><br/>-->
+<!--<BUTTON class=button onclick="Run('http://192.168.0.101/uploadFile/calculatorSetup.rar')">文件名称</BUTTON><br/>-->
+<BUTTON class=button onclick="Run('uploadFile')">文件名称run-uploadFile</BUTTON><br/>
+<BUTTON class=button onclick="Run('calculatorSetup.rar')">文件名称run-calculatorSetup</BUTTON><br/>
+<a href="http://192.168.0.101/uploadFile">文件名称href下载</a><br/>
+<a href="http://192.168.0.101/uploadFile/calculatorSetup.rar">文件名称href-rar-下载</a><br/>
+<BUTTON class=button onclick="Run('IEXPLORE.EXE')">IE</BUTTON><br/>
+<BUTTON class=button onclick="Run('..')">..</BUTTON><br/>
+<BUTTON class=button onclick="Run('%windir%')">%windir%</BUTTON><br/>
+<BUTTON class=button onclick="Run('%temp%')">%temp%</BUTTON><br/>
+
+</body>
+</html>

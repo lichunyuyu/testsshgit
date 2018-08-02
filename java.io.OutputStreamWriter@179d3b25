@@ -1,0 +1,167 @@
+����ԭʼ���ݻ������������ݣ�ʹ�� File �� Blob ����ָ��Ҫ��ȡ���ļ������ݡ�
+
+����File��������������û���һ��<input>Ԫ����ѡ���ļ��󷵻ص�FileList����,Ҳ���������ϷŲ������ɵ� DataTransfer����,��������������һ��HTMLCanvasElement��ִ��mozGetAsFile()�����󷵻ؽ��.
+
+Note: �������� Web Worker �п��á�
+���캯��
+
+FileReader()
+����һ���¹����FileReader��
+�й���ϸ��Ϣ��ʾ��������������webӦ�ó�����ʹ���ļ���
+
+��Ҫ����һ��FileReader����,�ܼ�,����:
+
+let reader = new FileReader();
+��������
+
+void abort();
+void readAsArrayBuffer(in Blob blob);
+void readAsBinaryString(in Blob blob);
+void readAsDataURL(in Blob blob);
+void readAsText(in Blob blob, [optional] in DOMString encoding);
+״̬����
+
+������	ֵ	����
+EMPTY	0	��û�м����κ�����.
+LOADING	1	�������ڱ�����.
+DONE	2	�����ȫ���Ķ�ȡ����.
+����
+
+������	����	����
+error	DOMError	�ڶ�ȡ�ļ�ʱ�����Ĵ���. ֻ��.
+readyState	unsigned short	����FileReader����ĵ�ǰ״̬. ֵΪState constants�е�һ��. ֻ��
+result	jsval	��ȡ�����ļ�����.�������ֻ�ڶ�ȡ�������֮�����Ч,�������ݵĸ�ʽȡ���ڶ�ȡ���������ĸ����������. ֻ��.
+����
+
+abort()
+
+��ֹ�ö�ȡ����.�ڷ���ʱ,readyState���Ե�ֵΪDONE.
+
+void abort();
+����
+
+��.
+
+�׳����쳣
+
+DOM_FILE_ABORT_ERR
+����FileReader����û���ڽ��ж�ȡ����ʱ(Ҳ����readyState���Ե�ֵ��ΪLOADINGʱ),����abort()�������׳����쳣.
+Note: ʵ����Gecko 6.0.
+readAsArrayBuffer()
+
+��ʼ��ȡָ����Blob�����File�����е�����. ����ȡ�������ʱ,readyState���Ե�ֵ���ΪDONE,���������onloadend�¼��������,�����֮.ͬʱ,result�����н�����һ��ArrayBuffer�����Ա�ʾ����ȡ�ļ�������.
+
+void readAsArrayBuffer(
+  in Blob blob
+);
+����
+
+blob
+��Ҫ��ȡ��һ��ArrayBuffer�е�Blob�������File����.
+readAsBinaryString()
+
+��ʼ��ȡָ����Blob�����File�����е�����. ����ȡ�������ʱ,readyState���Ե�ֵ���ΪDONE,���������onloadend�¼��������,�����֮.ͬʱ,result�����н���������ȡ�ļ���ԭʼ����������.
+
+void readAsBinaryString(
+  in Blob blob
+);
+����
+
+blob
+��Ҫ��ȡ��Blob�������File����.
+readAsDataURL()
+
+��ʼ��ȡָ����Blob�����File�����е�����. ����ȡ�������ʱ,readyState���Ե�ֵ���ΪDONE,���������onloadend�¼��������,�����֮.ͬʱ,result�����н�����һ��data: URL��ʽ���ַ����Ա�ʾ����ȡ�ļ�������.
+
+void readAsDataURL(
+  in Blob blob
+);
+����
+
+file
+��Ҫ��ȡ��Blob�������File����.
+����
+
+�������������,����,����ʵ��ͼƬ�ı���Ԥ��(������ʾ):
+
+<!doctype html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<title>Image preview example</title>
+<script type="text/javascript">
+oFReader = new FileReader(), rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+
+oFReader.onload = function (oFREvent) {
+  document.getElementById("uploadPreview").src = oFREvent.target.result;
+};
+
+function loadImageFile() {
+  if (document.getElementById("uploadImage").files.length === 0) { return; }
+  var oFile = document.getElementById("uploadImage").files[0];
+  if (!rFilter.test(oFile.type)) { alert("You must select a valid image file!"); return; }
+  oFReader.readAsDataURL(oFile);
+}
+</script>
+</head>
+
+<body onload="loadImageFile();">
+  <form name="uploadForm">
+    <table>
+      <tbody>
+        <tr>
+          <td><img id="uploadPreview" style="width: 100px; height: 100px;" src="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%3F%3E%0A%3Csvg%20width%3D%22153%22%20height%3D%22153%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%20%3Cg%3E%0A%20%20%3Ctitle%3ENo%20image%3C/title%3E%0A%20%20%3Crect%20id%3D%22externRect%22%20height%3D%22150%22%20width%3D%22150%22%20y%3D%221.5%22%20x%3D%221.500024%22%20stroke-width%3D%223%22%20stroke%3D%22%23666666%22%20fill%3D%22%23e1e1e1%22/%3E%0A%20%20%3Ctext%20transform%3D%22matrix%286.66667%2C%200%2C%200%2C%206.66667%2C%20-960.5%2C%20-1099.33%29%22%20xml%3Aspace%3D%22preserve%22%20text-anchor%3D%22middle%22%20font-family%3D%22Fantasy%22%20font-size%3D%2214%22%20id%3D%22questionMark%22%20y%3D%22181.249569%22%20x%3D%22155.549819%22%20stroke-width%3D%220%22%20stroke%3D%22%23666666%22%20fill%3D%22%23000000%22%3E%3F%3C/text%3E%0A%20%3C/g%3E%0A%3C/svg%3E" alt="Image preview" /></td>
+          <td><input id="uploadImage" type="file" name="myPhoto" onchange="loadImageFile();" /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><input type="submit" value="Send" /></p>
+  </form>
+</body>
+</html>
+ע: IE10���µİ汾��֧��FileReader()���캯��.�������������˾������ݾɰ汾��IE:����IE��ͼƬ����Ԥ��.
+readAsText()
+
+��ʼ��ȡָ����Blob�����File�����е�����. ����ȡ�������ʱ,readyState���Ե�ֵ���ΪDONE,���������onloadend�¼��������,�����֮.ͬʱ,result�����н�����һ���ַ����Ա�ʾ����ȡ���ļ�����.
+
+void readAsText(
+  in Blob blob,
+  in DOMString encoding ��ѡ
+);
+����
+
+blob
+��Ҫ��ȡ��Blob�������File����.
+encoding ��ѡ
+һ���ַ���,��ʾ�˷���������ʹ�õı���.�����ָ��,Ĭ��ΪUTF-8.
+�¼��������
+
+onabort
+����ȡ��������ֹʱ����.
+onerror
+����ȡ������������ʱ����.
+onload
+����ȡ�����ɹ����ʱ����.
+onloadend
+����ȡ�������ʱ����,�����ǳɹ�����ʧ��.�ô��������onload����onerror֮�����.
+onloadstart
+����ȡ������Ҫ��ʼ֮ǰ����.
+onprogress
+�ڶ�ȡ���ݹ����������Ե���.
+�����������
+
+Desktop Mobile
+Feature	Firefox (Gecko)	Chrome	Internet Explorer*	Opera*	Safari
+Basic support	3.6 (1.9.2)	7	10	δʵ��	δʵ��
+*IE9��һ��File API Lab.Opera��11.10��ʼ����֧�ָ�API.
+
+���Gecko��ע������
+
+��Gecko 2.0 beta 7 (Firefox 4.0 beta 7)֮ǰ,�������������е�Blob������ֻ����һ��File����;�������µ�FileAPI�ݰ�,���ڵ����е�Blob�����ȿ�����Blob����Ҳ������һ��File����.
+��Gecko 13.0 (Firefox 13.0 / Thunderbird 13.0 / SeaMonkey 2.10)֮ǰ,FileReader.error���Ի᷵��һ��FileError����.�������µ�FileAPI�ݰ�,���ڵ�FileReader.error�᷵��һ��DOMError����.
+�������
+
+�����webӦ�ó�����ʹ���ļ�
+File
+Specification: File API: FileReaderWD

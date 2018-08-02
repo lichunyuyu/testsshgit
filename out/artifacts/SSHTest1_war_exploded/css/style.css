@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+body {
+    font-family: 100%/ 1.4 Verdana, Arial, Helvetica, sans-serif;
+    /*font-family 设置字型属性，取值可以是任何字型名称，缺省为浏览器内定字型，可以设多个以逗号(,)分开，有空格的英文字型可用单引号或双引号括起来。 */
+    /* background: #42413C; */
+    background-color: #CCC;
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    /* background-color: #CCC; */
+}
+
+.header {
+    height: 100px;
+    width: 800px;
+    padding: 5px;
+    margin: auto;
+    /* background-color: #6699FF; */
+}
+
+.content {
+    height: 400px;
+    width: 800px;
+    padding: 5px;
+    margin: auto;
+    /* background-color: #FF9900; */
+}
+
+.footer {
+    width: 800px;
+    height: 50px;
+    padding: 5px;
+    margin: auto;
+    /* background-color: #6699FF; */
+}
+
+div.div-left,div.div-right {
+    width: 45%;
+}
+
+.table{
+    background-color: beige;
+    width: 600px;
+    height:400px;
+    padding: 5px;
+}

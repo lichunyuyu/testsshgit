@@ -1,0 +1,49 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:c="http://java.sun.com/jsp/jstl/core" version="1.2">
+  <jsp:directive.page contentType="text/html" pageEncoding="gb2312"/>
+  <jsp:directive.page import="java.util.Date"/>
+  <html>
+  <head>
+    <title>my demo jspx</title>
+  </head>
+  <body>
+  ee
+  <jsp:scriptlet>
+    Date now = new Date();
+    out.println(now.toString());
+//    String type = "${type}";
+//    if(type == "android"){
+//      //页面跳转重载
+//      window.location.href="${downloadurl}";
+//  }
+
+    //    String downloadurl = "https://192.168.34.92/resource_drive/appDownload/ios/d.plist";// 这个是ios
+
+
+  </jsp:scriptlet>
+  </body>
+  </html>
+</jsp:root>
+
+
+
+<!--jsp代码-->
+<!--
+      demo.jsp<?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" />
+
+        <%@page contentType="text/html;charset=gb2312"  %>
+        <%@page import="java.util.*" %>
+        <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <html>
+        <head>
+        <title>my demo jsp</title>
+        </head>
+        <body>
+        <%
+        Date now=new Date();
+        out.println(now.toString());
+        %>
+        </body>
+        </html>
+-->

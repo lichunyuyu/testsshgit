@@ -1,0 +1,673 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.one.swing.jframe;
+
+
+import com.one.service.IUserManager;
+import com.one.swing.dao.UserDao;
+import com.one.swing.test.test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static javax.swing.GroupLayout.*;
+
+/**
+ *
+ * @author vtstar
+ */
+
+public class SSHMainJFrame extends JFrame  implements ActionListener {
+
+
+    @Autowired
+    private IUserManager userManager;
+    private String head[]=null;
+    private Object [][] data=null;
+
+    private int rowI = -1;
+
+    private UserDao userDao=new UserDao();
+
+
+    /** Creates new form SSHMainJFrame */
+    public SSHMainJFrame() {
+        System.out.println("111111");
+        //super();
+        //初始化组件
+        initComponents();//自带的 原始的。
+       // this._setTimer();   // 可以
+
+       
+//        setTitle("创建可以滚动的表格");
+//        setBounds(100,100,240,150);
+//         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        String[] columnNames = {"姓名","密码","年龄","操作"};// 定义表格列名数组
+//           // 定义表格数据数组
+//        String[][] tableValues = {{"A1","B1","C1","编辑 删除"},{"A2","B2","C2","编辑 删除"},
+//            {"A3","B3","C3","编辑 删除"}};
+//        // 创建指定列名和数据的表格
+//        JTable table = new JTable(tableValues,columnNames);
+//        // 创建显示表格的滚动面板
+//        JScrollPane scrollPane = new JScrollPane(table);
+//        // 将滚动面板添加到边界布局的中间
+//        getContentPane().add(scrollPane, BorderLayout.CENTER);
+    }
+
+    /**
+     * 时间
+     * 设置Timer  1000ms 实现一次动作  实际是一个线程
+     *
+     * @param time*/
+    private void _setTimer(JLabel time){
+        final JLabel varTime = time;
+//        jTextFieldTime = time;
+        Timer timeAction = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                long timeillis = System.currentTimeMillis();
+                //转换日期显示格式
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                varTime.setText(simpleDateFormat.format(new Date(timeillis)));
+            }
+        });
+        timeAction.start();
+    }
+    /**
+     * 时间
+     * 设置Timer  1000ms 实现一次动作  实际是一个线程
+      */
+    private void _setTimer(){
+        //final JTextField varTime = time;
+        Timer timeAction = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                long timeillis = System.currentTimeMillis();
+                //转换日期显示格式
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                //System.out.println("simpleDateFormat="+simpleDateFormat.format(new Date(timeillis)));
+                jTextFieldTime.setVisible(true);
+                jTextFieldTime.setFont(new java.awt.Font("宋体", 0, 18));
+                jTextFieldTime.setName("jLa=-=lbleTime");
+                jTextFieldTime.setText(simpleDateFormat.format(new Date(timeillis)));
+            }
+        });
+        timeAction.start();
+    }
+
+    /**
+     * 这里引出一个不容易发现的问题，如果继承DefaultTableCellRenderer 就能实现隔行显示不同的颜色。如果自己实现接口就不行，根本原因是 opaque( 不透明物) 作怪,所以需要自己手工设置. 当然还要在setDefaultRenderer(yourNeedShowCellColumnClass, new MyRenderer());
+     * */
+    public static void makeFace(JTable table) {
+        try
+        {
+            DefaultTableCellRenderer tcr = new DefaultTableCellRenderer()
+            {
+                @Override
+                public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+                                                               int row, int column)
+                {
+                    if(row%2 == 0) {
+                        setBackground(Color.white); //设置奇数行底色
+                    } else if(row%2 == 1) {
+                        setBackground(new Color(206, 231, 255));  //设置偶数行底色
+                    }
+                    return super.getTableCellRendererComponent(table, value,
+                            isSelected, hasFocus, row, column); }
+            };
+            for(int i = 0; i < table.getColumnCount(); i++) {
+                table.getColumn(table.getColumnName(i)).setCellRenderer(tcr);
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }  ;
+
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+       // List<User> userList = userManager.getAllUser();
+
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new JScrollPane();
+        jTable1 = new JTable();
+        //1-15 添加时间
+//        jTextFieldTime = new JTextField();
+        jTextFieldTime = new JLabel();
+        jTextFieldTime.setFont(new java.awt.Font("宋体", 0, 18));
+        jTextFieldTime.setText("time");  // 初始值
+        this._setTimer(jTextFieldTime); // 可以
+        //this._setTimer();   //  可以
+
+        //12-27添加复选框
+        JCheckBox jcbox = new JCheckBox();
+
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+
+        setTitle("用户列表");
+        // 设置了 但是 你看不到  因为JFrame的显示机制。在你直接调用这个方法后，你的确设置了背景颜色，而你看到的却不是直接的JFrame或者Frame，而是JFrame.getContentPane().而JFrame上的contentPane默认是Color.WHITE的，所以，无论你对JFrame或者Frame怎么设置背景颜色，你看到的都只是contentPane
+        //setBackground(new java.awt.Color(109, 197, 192));
+        getContentPane().setBackground(new java.awt.Color(109, 197, 192));//窗体背景色
+        //setUndecorated(true); // 去除边框
+        //jPanel1.setBackground(new java.awt.Color(75, 197, 76));// 面板背景色
+        setBounds(100, 100, 700, 300);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Dimension us=this.getSize();
+        Dimension them=Toolkit.getDefaultToolkit().getScreenSize();
+
+        int   x=(them.width-us.width)/2;
+        int   y=(them.height-us.height)/2;
+
+        this.setLocation(x, y);
+
+        jPanel1.setBorder(new EmptyBorder(5,5,5,5));
+        //setContentPane(jPanel1);//与下面不能同时放
+        //   JScrollPane 管理视口、可选的垂直和水平滚动条以及可选的行和列标题视口。
+        jScrollPane1.setBounds(0,0,700,250);
+        jTable1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 255, 255), 1, true));
+        jTable1.setFont(new java.awt.Font("宋体", 0, 18)); // NOI18N
+
+//        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+//                        new Object [][] {
+//                                {null,null,null, null}
+//                        },
+//                        new String [] {
+//                                "姓名", "密码", "年龄", "操作"
+//                        }
+//                ) {
+//                    Class[] types = new Class [] {
+//                            String.class, String.class, Integer.class, Object.class
+//                    };
+//                    @Override
+//                    public Class getColumnClass(int columnIndex) {
+//                        return types [columnIndex];
+//                    }
+//                });
+        /**
+         * 数据填充
+         *
+         * 由于MyTable类继承了AbstractTableModel，并且实现了getColmunCount()、getRowCount()、
+         * getValueAt()方法 由此可以通过通过MyTable18来产生TableModel的实体
+         * */
+        head = new String[]{
+                "姓名", "密码", "年龄", "操作","隐藏","是否在线"
+        };
+        DefaultTableModel tableModel = new DefaultTableModel(queryData(),head) {
+            // 点击时
+            @Override
+            public boolean isCellEditable(int row, int column)
+            {
+                System.out.println("222222");
+                return false;
+            }
+
+        };
+
+        jTable1.setModel(tableModel);
+        // 手动设置
+        makeFace(jTable1);
+        // 在使用了JScrollPane的JTable中，如何指定JTable的宽度，当大于JScrollPane的显示区域时，自动显示横滚动条，而不是压缩JTable中的每一列的宽度
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        jTable1.setBackground(new java.awt.Color(197, 197, 130)); // 设置背景色
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(Color.green); //设置自选中行的颜色
+
+        jTable1.setToolTipText("");
+        /**
+         * 鼠标监听
+         * */
+        jTable1.addMouseListener(new TestMouseAdapter() {
+            /** *//**
+             * 鼠标单击事件
+             * @param e 事件源参数
+             */
+            @Override
+            public void mouseSingleClicked(MouseEvent e){
+                rowI  = jTable1.rowAtPoint(e.getPoint());// 得到jTable1的行号
+                if (rowI > -1) {
+                    System.out.println("单击鼠标 " + (jTable1.getValueAt(rowI, 0)));
+                    JDialog dialog = new JDialog();
+                    dialog.setBackground(Color.white);
+                    dialog.setSize(200,100);
+                    dialog.setLocationRelativeTo(null);  //  居中  放在setSize() 后面
+                    dialog.setTitle("提示");
+                    dialog.add(new JLabel("哈哈"));
+                    dialog.setVisible(true);
+                    //                            父组件
+                    JOptionPane.showMessageDialog(jPanel1,"hahah");//  消息提示框  （会先出现， 确定后显示JDialog）
+                }
+            }
+/** *//**
+             * 鼠标双击事件
+             * @param e 事件源参数
+             */
+            @Override
+            public void mouseDoubleClicked(MouseEvent e){
+                //System.out.println("Doublc Clicked!");
+                rowI  = jTable1.rowAtPoint(e.getPoint());// 得到table的行号
+                if (rowI > -1) {
+                    System.out.println("双击鼠标 " + (jTable1.getValueAt(rowI, 0)));
+                }
+            }
+
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jButton1.setFont(new java.awt.Font("宋体", 1, 15)); // NOI18N
+        jButton1.setText("新建");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("宋体", 1, 15)); // NOI18N
+        jButton2.setText("编辑");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("宋体", 1, 15)); // NOI18N
+        jButton3.setText("删除");
+        jButton3.setToolTipText("");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setFont(new java.awt.Font("宋体", 1, 15)); // NOI18N
+        jButton4.setText("刷新");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("宋体", 0, 18)); // NOI18N
+        jButton5.setText("退出");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+//别人的 与 上面//setContentPane(jPanel1);//与下面不能同时放    对应
+//        GroupLayout gl_contentPane = new GroupLayout(jPanel1);
+//        gl_contentPane.setHorizontalGroup(
+//                gl_contentPane.createParallelGroup(Alignment.LEADING)
+//                        .addComponent(jScrollPane1, DEFAULT_SIZE, 684, Short.MAX_VALUE)
+//        );
+//        gl_contentPane.setVerticalGroup(
+//                gl_contentPane.createParallelGroup(Alignment.LEADING)
+//                        .addGroup(gl_contentPane.createSequentialGroup()
+//                                .addComponent(jScrollPane1, PREFERRED_SIZE, 195, PREFERRED_SIZE)
+//                                .addGap(66))
+//        );
+//        jPanel1.setLayout(gl_contentPane);
+
+        //  为指定的 Container 创建 GroupLayout
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(Alignment.LEADING)
+                    //  退出按钮     放在  table  上
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton5))
+
+                //创建GroupLayout的水平连续组，，越先加入的ParallelGroup，优先级级别越高。     即 先放谁
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(84, 84, 84)   // //添加间隔
+                .addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+                    .addComponent(jScrollPane1, PREFERRED_SIZE, 488, PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, PREFERRED_SIZE, 92, PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(jButton2, PREFERRED_SIZE, 88, PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton3, PREFERRED_SIZE, 88, PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton4, PREFERRED_SIZE, 79, PREFERRED_SIZE))
+                                // 添加 显示 时间的
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(75, 75, 75)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(50, 50, 50)    //  靠左一点      PREFERRED_SIZE, 300,  长度显示 全
+                                        .addComponent(jTextFieldTime, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        )
+
+                //.addContainerGap(128, Short.MAX_VALUE)) //新加右上角按钮 5
+                            //也可以   这里的位置  是在  table 的右边
+//                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+//                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+
+                   // .addGap(23, 23, 23)
+                   // .addGap(50, 50, 50)    //  数字越大，距离右边 越远
+                    .addGap(0, 104, Short.MAX_VALUE)
+
+                        )
+                   ))
+        );
+        jPanel1Layout.setVerticalGroup(
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                       //创建GroupLayout的垂直连续组，，越先加入的ParallelGroup，优先级级别越高。
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                // 放时间
+                                .addContainerGap()
+                                .addComponent(jTextFieldTime, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5)
+                                .addGap(16, 16, 16)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)    // table  位置  数值越大 越靠右
+
+
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(30, 30, 30)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                //  放在 按钮 5 上
+
+                                                //.addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+
+                                                    ))
+                                .addGap(29, 29, 29)
+
+
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(177, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        //  设置水平组
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, PREFERRED_SIZE, DEFAULT_SIZE, PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        //  设置垂直组
+        layout.setVerticalGroup(
+            layout.createParallelGroup(Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, PREFERRED_SIZE, DEFAULT_SIZE, PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * 编辑按钮
+     */
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        //获取选中行的值
+        //actionPerformed(evt);
+        //得到选中的某一列
+        int row = actionPerformed2(evt);
+        System.out.println("row="+row);
+        String id = (String)jTable1.getValueAt(row, 4);
+        //直接返回 Map  吧
+        Map map = new HashMap();
+        map.put("userName",(String)jTable1.getValueAt(row, 0));
+        map.put("password",(String)jTable1.getValueAt(row, 1));
+        map.put("age",(Integer)jTable1.getValueAt(row, 2));
+        map.put("mailbox",(String)jTable1.getValueAt(row, 3));
+        map.put("id",id);
+        map.put("isOnline",jTable1.getValueAt(row, 5));
+        //跳转到编辑页面
+        EditUserJFrame editUserJFrame = new EditUserJFrame(map);
+        // -- open  close ....
+        editUserJFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                //super.windowClosing(e);// 也可以，只关闭当前窗体  -- 只要 2 ？也可以
+                editUserJFrame.dispose();//关闭当前窗体(1)
+            }
+        });
+        //只关闭当前窗体(2)
+        editUserJFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //显示窗体
+        editUserJFrame.setVisible(true);
+        //关闭原窗体
+        super.dispose();
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    /**
+     * 删除按钮
+     */
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    /**
+     * 新建按钮
+     */
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //显示注册窗口
+        RegisterJFrame registerJFrame = new RegisterJFrame();
+        // -- open  close ....
+        registerJFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                //super.windowClosing(e);// 也可以，只关闭当前窗体  -- 只要 2 ？也可以
+                registerJFrame.dispose();//关闭当前窗体(1)
+            }
+        });
+        //只关闭当前窗体(2)
+        registerJFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //显示窗体
+        registerJFrame.setVisible(true);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+    /**
+     * 刷新按钮
+     */
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        test test = new test();
+        test._testAutoFit();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    /**
+     * 退出按钮
+     * */
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+
+        //关闭主窗口  会 new 一个 相同的 窗体
+//        SSHMainJFrame sshMainJFrame = new SSHMainJFrame();
+//        sshMainJFrame.addWindowListener(new WindowAdapter() {
+//            @Override
+//            public void windowClosing(WindowEvent e) {
+//                super.windowClosing(e);// 也可以，只关闭当前窗体  -- 只要 2 ？也可以
+//                //sshMainJFrame.dispose();//关闭当前窗体(1) hui dou  guan bi
+//                //System.exit(0);
+//            }
+//        });
+//        sshMainJFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        sshMainJFrame.setVisible(true);
+
+        //显示登录窗口
+        LoginJFrame loginJFrame = new LoginJFrame();
+        // -- open  close ....
+        loginJFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                //super.windowClosing(e);// 也可以，只关闭当前窗体  -- 只要 2 ？也可以
+                loginJFrame.dispose();//关闭当前窗体(1)
+            }
+        });
+        //只关闭当前窗体(2)
+        loginJFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //显示窗体
+        loginJFrame.setVisible(true);
+        // 只  关闭  原窗体
+        super.dispose();
+
+    }
+
+    /**
+     * 获取列表的方法
+    */
+    public Object[][] queryData(){
+        System.out.println("QUERYdATE=");
+        //List<User> userList = new ArrayList<User>();
+         //userList = userDao.queryAllUser2();
+        List<Map> userList = userDao._queryAll();
+        data = new Object[userList.size()][head.length];
+        System.out.println("head.length="+head.length);
+        for(int i=0;i< userList.size();i++){
+            for(int j=0;j<head.length;j++){
+//                data[i][0] = userList.get(i).getUserName();
+//                data[i][1] = userList.get(i).getPassword();
+//                data[i][2] = userList.get(i).getAge();
+                data[i][0] = userList.get(i).get("userName");
+                data[i][1] = userList.get(i).get("password");
+                data[i][2] = userList.get(i).get("age");
+                data[i][3] = ".addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 195, GroupLayout.PREFERRED_SIZE)";
+                data[i][4] = userList.get(i).get("id");
+                data[i][5] = userList.get(i).get("isOnline");
+            }
+        }
+        return data;
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SSHMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SSHMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SSHMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SSHMainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+  // TODO 自动生成的方法存根
+        //SSHMainJFrame frame = new SSHMainJFrame();
+        
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new SSHMainJFrame().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JPanel jPanel1;
+    private JScrollPane jScrollPane1;
+    private JTable jTable1;
+    private javax.swing.JButton jButton5;
+    //添加 显示时间的 JTextField
+    private JLabel jTextFieldTime;
+    //添加复选框
+    private DefaultTableModel defaultTableModel = null;
+
+    //12-27 implements ActionListener
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        int row = jTable1.getSelectedRow();
+        System.out.println(jTable1.getValueAt(row, 0));
+        System.out.println(jTable1.getValueAt(row, 4));
+    }
+    public int actionPerformed2(ActionEvent e) {
+        int row = jTable1.getSelectedRow();
+        System.out.println(jTable1.getValueAt(row, 0));
+        return row;
+    }
+    // End of variables declaration//GEN-END:variables
+
+}
+
+
+
+/**
+ * https://www.cnblogs.com/lionden/archive/2012/12/11/grouplayout.html
+ * (转)Java 的swing.GroupLayout布局管理器的使用方法和实例
+ 　　GroupLayout 是一个 LayoutManager，它将组件按层次分组，以决定它们在 Container 中的位置。GroupLayout 主要供生成器使用，但也可以手工编码。分组由 Group 类的实例来完成。GroupLayout 支持两种组。串行组 (sequential group) 按顺序一个接一个地放置其子元素。并行组 (parallel group) 能够以四种方式对齐其子元素。
+
+ 　　每个组可以包含任意数量的元素，其中元素有 Group、Component 或间隙 (gap)。间隙可被视为一个具有最小大小、首选大小和最大大小的不可见组件。此外，GroupLayout 还支持其值取自 LayoutStyle 的首选间隙。
+
+ 　　GroupLayout是一个很重要的是额布局管理器，在jdk 1.6才加入，配合其它的管理器可以实现很好的界面。 。。
+
+ 　　GroupLayout必须要设置它的GroupLayout.setHorizontalGroup和GroupLayout.setVerticalGroup。
+
+ 　　GroupLayout.setHorizontalGroup是指按照水平来确定，下面例子“账号”和“密码”是一个级别的，其它的组件也是一个级别的。详情请看代码
+
+ 　　GroupLayout.setVerticalGroup。是按照垂直来确定的。他们的级别是按照Group去设置组件的优先级别，级别越高就显示越上面。
+
+ 　　GroupLayout.setHorizontalGroup(SequentialGroup(ParallelGroup(component)));
+
+ 　　大概就是按照这个顺序去添加,当然不是就这么简单设置，多个component添加到ParallelGroup，然后多个ParallelGroup添加到SequentialGroup里面，然后就设置到GroupLayout
+ * */

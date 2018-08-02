@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Cities>
+    <City Province="北京市">北京市</City>
+    <City Province="天津市">天津市</City>
+    <City Province="河北省">石家庄市</City>
+    <City Province="河北省">唐山市</City>
+    <City Province="河北省">秦皇岛市</City>
+    <City Province="河北省">邯郸市</City>
+    <City Province="河北省">邢台市</City>
+    <City Province="河北省">保定市</City>
+    <City Province="河北省">张家口市</City>
+    <City Province="河北省">承德市</City>
+    <City Province="河北省">沧州市</City>
+    <City Province="河北省">廊坊市</City>
+    <City Province="河北省">衡水市</City>
+    <City Province="山西省">太原市</City>
+    <City Province="山西省">大同市</City>
+    <City Province="山西省">阳泉市</City>
+    <City Province="山西省">长治市</City>
+    <City Province="山西省">晋城市</City>
+    <City Province="山西省">朔州市</City>
+    <City Province="河南省">南阳市</City>
+    <City Province="河南省">洛阳市</City>
+    <City Province="河南省">商丘市</City>
+    <City Province="河南省">郑州市</City>
+    <City Province="河南省">新乡市</City>
+    <City Province="河南省">信阳市</City>
+</Cities>
