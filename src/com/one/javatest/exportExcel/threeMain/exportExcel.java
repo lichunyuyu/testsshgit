@@ -1,6 +1,9 @@
 package com.one.javatest.exportExcel.threeMain;
 
+import org.apache.poi.hssf.record.ExtendedFormatRecord;
 import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 import java.awt.*;
@@ -79,7 +82,8 @@ public class exportExcel {
         int[] xys = { x1, y1, x2, y2, x3, y3 };
         drawLine(sheet, row1, 0, 0, 144, 77, xys);
         cell5.setCellValue(text);
-        cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
+        //cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);  // 3.10
+        cellStyle.setVerticalAlignment(VerticalAlignment.TOP);  // 3.17 版本
         cell5.setCellStyle(cellStyle);
 
 
@@ -144,17 +148,31 @@ public class exportExcel {
 
     public static HSSFCellStyle getCellFormat(HSSFWorkbook wb) {
         HSSFCellStyle cellStyle = wb.createCellStyle();
-        if (cellStyle.getBorderBottom() != HSSFCellStyle.BORDER_THIN) {
-            cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+        // poi-3.10 版本
+//        if (cellStyle.getBorderBottom() != HSSFCellStyle.BORDER_THIN) {
+//            cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+//        }
+//        if (cellStyle.getBorderLeft() != HSSFCellStyle.BORDER_THIN) {
+//            cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+//        }
+//        if (cellStyle.getBorderTop() != HSSFCellStyle.BORDER_THIN) {
+//            cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
+//        }
+//        if (cellStyle.getBorderRight() != HSSFCellStyle.BORDER_THIN) {
+//            cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
+//        }
+        // poi -3.17 版本
+        if (cellStyle.getBorderBottom() != ExtendedFormatRecord.THIN) {
+            cellStyle.setBorderBottom(BorderStyle.THIN);
         }
-        if (cellStyle.getBorderLeft() != HSSFCellStyle.BORDER_THIN) {
-            cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
+        if (cellStyle.getBorderLeft() != ExtendedFormatRecord.THIN) {
+            cellStyle.setBorderLeft(BorderStyle.THIN);
         }
-        if (cellStyle.getBorderTop() != HSSFCellStyle.BORDER_THIN) {
-            cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);
+        if (cellStyle.getBorderTop() != ExtendedFormatRecord.THIN) {
+            cellStyle.setBorderTop(BorderStyle.THIN);
         }
-        if (cellStyle.getBorderRight() != HSSFCellStyle.BORDER_THIN) {
-            cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
+        if (cellStyle.getBorderRight()!= ExtendedFormatRecord.THIN) {
+            cellStyle.setBorderRight(BorderStyle.THIN);
         }
         cellStyle.setBottomBorderColor(createPette(wb));
         cellStyle.setLeftBorderColor(createPette(wb));

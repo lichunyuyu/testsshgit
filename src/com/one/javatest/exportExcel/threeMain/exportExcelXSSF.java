@@ -1,8 +1,11 @@
 package com.one.javatest.exportExcel.threeMain;
 
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.record.ExtendedFormatRecord;
+import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.*;
@@ -14,6 +17,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.apache.poi.ss.usermodel.FillPatternType.SOLID_FOREGROUND;
 
 /**
  * Created by vtstar on 2018/6/13.
@@ -31,75 +36,100 @@ public class exportExcelXSSF {
          * 设置样式
          * */
         CellStyle style = wb.createCellStyle();
-        style.setAlignment(XSSFCellStyle.ALIGN_CENTER);//居中
-        style.setBorderBottom(CellStyle.BORDER_DOUBLE);// 下  双
+        //style.setAlignment(XSSFCellStyle.ALIGN_CENTER);//居中      3.10   ok
+        style.setAlignment(HorizontalAlignment.CENTER); // 居中   3.17   ok
+        //style.setBorderBottom(CellStyle.BORDER_DOUBLE);// 下  双   3.10 版本
+        style.setBorderBottom(BorderStyle.DOUBLE);// 下  双  3.17
         style.setBottomBorderColor(IndexedColors.BLACK.getIndex());
-        style.setBorderTop(CellStyle.BORDER_THICK);// 上 最粗
+        //style.setBorderTop(CellStyle.BORDER_THICK);// 上 最粗
+        style.setBorderTop(BorderStyle.THICK);// 上 最粗
         style.setTopBorderColor(IndexedColors.BLACK.getIndex());
         // solid 填充色 foreground  前景色
-        style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);  //设置前景填充样式
+        //style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);  //设置前景填充样式
+        style.setFillPattern(SOLID_FOREGROUND);  //设置前景填充样式
         style.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);// 设置前景填充色
 
         CellStyle style2 = wb.createCellStyle();
-        style2.setBorderRight(CellStyle.BORDER_THIN);// 右 细
+        //style2.setBorderRight(CellStyle.BORDER_THIN);// 右 细
+        style2.setBorderRight(BorderStyle.THIN);// 右 细
         style2.setRightBorderColor(IndexedColors.RED.getIndex());
 
         CellStyle style3 = wb.createCellStyle();
-        style3.setBorderLeft(CellStyle.BORDER_DASH_DOT);
+        //style3.setBorderLeft(CellStyle.BORDER_DASH_DOT);
+        style3.setBorderLeft(BorderStyle.DASH_DOT);
         style3.setLeftBorderColor(IndexedColors.GREEN.getIndex());// 红左
 
         CellStyle style6 = wb.createCellStyle();
-        style6.setBorderTop(CellStyle.BORDER_DASH_DOT_DOT);
+        //style6.setBorderTop(CellStyle.BORDER_DASH_DOT_DOT);
+        style6.setBorderTop(BorderStyle.DASH_DOT_DOT);
         style6.setTopBorderColor(IndexedColors.YELLOW.getIndex());
 
         CellStyle style7 = wb.createCellStyle();
-        style7.setBorderBottom(CellStyle.BORDER_DOTTED);
+        //style7.setBorderBottom(CellStyle.BORDER_DOTTED);
+        style7.setBorderBottom(BorderStyle.DOTTED);
         style7.setBottomBorderColor(IndexedColors.BLACK.getIndex());
 
         CellStyle style8 = wb.createCellStyle();
-        style8.setBorderRight(CellStyle.BORDER_HAIR);
+        //style8.setBorderRight(CellStyle.BORDER_HAIR);
+        style8.setBorderRight(BorderStyle.HAIR);
         style8.setRightBorderColor(IndexedColors.RED.getIndex());
 
         CellStyle style9 = wb.createCellStyle();
-        style9.setBorderLeft(CellStyle.BORDER_MEDIUM);  // 中粗
+        //style9.setBorderLeft(CellStyle.BORDER_MEDIUM);  // 中粗
+        style9.setBorderLeft(BorderStyle.MEDIUM);  // 中粗
         style9.setBottomBorderColor(IndexedColors.GREEN.getIndex());
 
         CellStyle style4 = wb.createCellStyle();
-        style4.setBorderTop(CellStyle.BIG_SPOTS);
+        //style4.setBorderTop(CellStyle.BIG_SPOTS);
+        style4.setBorderTop(BorderStyle.valueOf(ExtendedFormatRecord.BIG_SPOTS));  //  3.17  这之后 用  ExtendedFormatRecord
         style4.setTopBorderColor(IndexedColors.YELLOW.getIndex());
 
         CellStyle style5 = wb.createCellStyle();
-        style5.setBorderBottom(CellStyle.THICK_BACKWARD_DIAG);
+        //style5.setBorderBottom(CellStyle.THICK_BACKWARD_DIAG);
+        style5.setBorderBottom(BorderStyle.valueOf(ExtendedFormatRecord.THICK_BACKWARD_DIAG));
         style5.setBottomBorderColor(IndexedColors.BLACK.getIndex());
 
         CellStyle style10 = wb.createCellStyle();
-        style10.setBorderRight(CellStyle.THIN_BACKWARD_DIAG);
+        //style10.setBorderRight(CellStyle.THIN_BACKWARD_DIAG);
+        style10.setBorderRight(BorderStyle.valueOf(ExtendedFormatRecord.THIN_BACKWARD_DIAG));
         style10.setRightBorderColor(IndexedColors.BLUE.getIndex());
 
         CellStyle style11 = wb.createCellStyle();
-        style11.setBorderLeft(CellStyle.THICK_FORWARD_DIAG);
+        //style11.setBorderLeft(CellStyle.THICK_FORWARD_DIAG);
+        style11.setBorderLeft(BorderStyle.valueOf(ExtendedFormatRecord.THICK_FORWARD_DIAG));
         style11.setLeftBorderColor(IndexedColors.GREEN.getIndex());
 
         CellStyle style12 = wb.createCellStyle();
-        style12.setBorderTop(CellStyle.THICK_HORZ_BANDS);
+        //style12.setBorderTop(CellStyle.THICK_HORZ_BANDS);
+        style12.setBorderTop(BorderStyle.valueOf(ExtendedFormatRecord.THICK_HORZ_BANDS));
         style12.setTopBorderColor(IndexedColors.YELLOW.getIndex());
 
 
         CellStyle style13 = wb.createCellStyle();
-        style13.setBorderBottom(CellStyle.THICK_VERT_BANDS);
+        //style13.setBorderBottom(CellStyle.THICK_VERT_BANDS);
+        style13.setBorderBottom(BorderStyle.valueOf(ExtendedFormatRecord.THICK_VERT_BANDS));
         style13.setBottomBorderColor(IndexedColors.BLACK.getIndex());
 
         CellStyle style14 = wb.createCellStyle();
-        style14.setBorderRight(CellStyle.THIN_HORZ_BANDS);
+        //style14.setBorderRight(CellStyle.THIN_HORZ_BANDS);
+        style14.setBorderRight(BorderStyle.valueOf(ExtendedFormatRecord.THIN_HORZ_BANDS));
         style14.setBottomBorderColor(IndexedColors.BLUE.getIndex());
 
         CellStyle style15 = wb.createCellStyle();
-        style15.setBorderLeft(CellStyle.THIN_VERT_BANDS);
+        //style15.setBorderLeft(CellStyle.THIN_VERT_BANDS);
+        style15.setBorderLeft(BorderStyle.valueOf(ExtendedFormatRecord.THIN_VERT_BANDS));
         style15.setRightBorderColor(IndexedColors.GREEN.getIndex());
 
 //        CellStyle style16 = wb.createCellStyle();
 //        style16.setBorderTop(CellStyle.THIN_FORWARD_DIAG);
 //        style16.setTopBorderColor(IndexedColors.YELLOW.getIndex());
+
+        CellStyle style17 = wb.createCellStyle(); // 下划线
+        XSSFFont font17 = wb.createFont();
+        font17.setUnderline(HSSFFont.U_SINGLE);
+        font17.setFontName("宋体");
+        font17.setFontHeightInPoints((short)10);
+        style17.setFont(font17);
 
         // 建立新的sheet对象（Excel的表单）
         XSSFSheet sheet = wb.createSheet("test表");
@@ -118,6 +148,7 @@ public class exportExcelXSSF {
         row2.createCell(1).setCellValue("班级");
         row2.createCell(2).setCellValue("笔试成绩");
         row2.createCell(3).setCellValue("机试成绩");
+        row2.createCell(4).setCellValue("测试下划线");
         // 在sheet中创建第n 行
         int i = 1;
         Map map = selectData();
@@ -178,7 +209,12 @@ public class exportExcelXSSF {
 //            if(j==7){
 //                rown.getCell(3).setCellStyle(style16);
 //            }
-
+            // □结块 □变色 □分层 □__
+            XSSFCell cell4 = rown.createCell(4);
+            cell4.setCellType(XSSFCell.CELL_TYPE_STRING);
+            cell4.setCellValue("结块");
+            //0çŹ­,â–ˇç»“ĺť— â–ˇĺŹ�č‰˛ç»“ĺť—
+            rown.getCell(4).setCellStyle(style17);
         }
 
         //设置自动列宽

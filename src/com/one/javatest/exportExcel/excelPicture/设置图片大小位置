@@ -1,0 +1,176 @@
+Sheet . getColumnWidthInPixels(int columnIndex)
+获取实际的列宽（以像素为单位）
+org.apache.poi.ss.usermodel;
+
+ 1. poi -3.10 -beta
+   中 的 Sheet 找不到 getColumnWidthInPixels 方法。
+
+2. https://mvnrepository.com/artifact/org.apache.poi/poi/4.0.0
+  下载 poi -4.0.0
+  Sheet 可以找到 getColumnWidthInPixels
+
+3. 下载 poi-ooxml -4.0.0
+     XSSFSheet 可以找到 getColumnWidthInPixels
+-----------------------------------
+注     double scaledWidth = scaleX == 1.7976931348623157E308D?imgSize.getWidth():anchorSize.getWidth() / 9525.0D * scaleX;
+
+       即 ： double c = a == b ? a : a*b
+            如果 a == b  那么 c = a ;
+            否则          c = a * b
+ -----------------------------------------------------------------------
+ 计算 宽、高 范围
+ XSSFPicture . getPreferredSize(double scaleX, double scaleY)
+ ImageUtils.setPreferredSize(this, scaleX, scaleY);
+ ...
+ 首先 在Excel 中 将图片设置成 需要 的 大小
+ 如 ExcelImageTest 中 需 宽5.19cm 高 3.8cm 的图片 ，  （ 宽 3.83  高 2     4    6 ）
+ 起始位置设在 cell = 2 B-C  row = 2  2-3
+ 设置好后 得到 横向 cell > 5  纵向 row > 9
+ --
+ 打印
+ cellWidth=56.01359939575195,cellHeight=20.0
+ row.getHeight()=300,row.getHeightInPoints()=15.0
+ sheet.getColumnWidth(1)=2048
+ a=1.0247511429225022,b=1.5474999999999999,a/b=0.6621978306445896
+
+ ----Excle文件已生成---------
+
+   (这里w = 56   (cellWidth)  是不一定的 ，与单元格的宽、高有关。 如fap中检测报告附件的单元格不同 w=62左右 等等)
+   double scaledWidth = scaleX == 1.7976931348623157E308D?imgSize.getWidth():anchorSize.getWidth() / 9525.0D * scaleX;
+   double scaledHeight = scaleY == 1.7976931348623157E308D?imgSize.getHeight():anchorSize.getHeight() / 9525.0D * scaleY;
+   --
+    double scaledWidth = scaleX == 1.7976931348623157E308D?imgSize.getWidth():1600704 / 9525.0D * scaleX;
+    double scaledHeight = scaleY == 1.7976931348623157E308D?imgSize.getHeight():952550 / 9525.0D * scaleY;
+    --
+    double scaledWidth = scaleX == 1.7976931348623157E308D?imgSize.getWidth():168 * scaleX;
+    double scaledHeight = scaleY == 1.7976931348623157E308D?imgSize.getHeight():100 * scaleY;
+    --
+    w = 56   (cellWidth)
+    short col2 = anchor.getCol1(); // 2
+    int var29 = col2 + 1;
+     while(w < scaledWidth) {
+                w += (double)sheet.getColumnWidthInPixels(var29++);
+            }
+      .... ..   计算 ： row > 5 以5算  逆推  var29 =5  w = 168   var29=6  w=224 此时跳出while ，
+                      即  224 > scaledWidth > 168
+                      由 上  scaledWidth = 168 * scaleX = 168 * a
+                      即 224 > 168 * a  >168       1.33 > a > 1
+                      double a = standardWidth / cellWidth;
+                      a = standardWidth / 56
+                      74.48 > standardWidth > 56
+      ...  ..  最终  standardWidth = 57.4     时  宽 5.19
+
+       h = 0.0D;
+       int var27 = anchor.getRow1(); // 2
+       int dy2 = 0;
+       h = getRowHeightInPixels(sheet, var27++); // 20
+      while(h < scaledHeight) {
+                 h += getRowHeightInPixels(sheet, var27++);
+             }
+     .... ..   计算 ： row > 9 以9算  逆推(这里没有加1)  var29 =8  h = 140   var29=9  h=160 此时跳出while ，
+                             即  224 > scaledHeight > 168
+                             由 上  scaledHeight = 100 * scaleY = 100 * b
+                             即 160 > 100 * b  >140       1.6 > b > 1.4
+                             double b = standardHeight / cellHeight;
+                             b = standardHeight / 20
+                             32 > standardHeight > 28
+     ...   ..  最终  standardHeight = 30.95     时  高 3.8
+
+----------------------
+error :Caused by: java.lang.ClassNotFoundException: org.apache.commons.collections4.ListValuedMap
+        是缺少有关 collections4 的jar
+    解决 :  下载 commons-collections4-4.2.jar  包
+            https://mvnrepository.com/artifact/org.apache.commons/commons-collections4/4.2
+         ----
+        需要poi的jar 相匹配。（只引入了 poi-4.0.0.jar 、 poi-ooxml-4.0.0.jar ;
+                                还需要引入 poi-ooxml-schemas-4.0.0.jar 、poi-scratchpad-4.0.0.jar 、 poi-excelant-4.0.0.jar
+                                同时  poi-3.10相关的jar ，否则 总是自动引入3.10版的）
+        下载地址：https://mvnrepository.com/artifact/org.apache.poi/poi-excelant/4.0.0
+
+        --
+        4.0.0 但是 HSSFCellStyle.VERTICAL_TOP  ....  Cell.CELL_TYPE_STRING   .. XSSFCell.CELL_TYPE_STRING ..  报错，找不到
+        3.17.0  .....
+        --
+        后 引入 3.17 版本 ，代码做修改 ，操作如下 .
+
+       参考 ：
+             关于poi3.17版本的一些格式设置操作问  https://blog.csdn.net/Keith_Walker/article/details/80481789
+
+--------------------
+引入 3.17jar之后 ；
+error : fap中关于ReportServiceImpl.class导出Excel方法中关于bom的合并单元格  不能处理 shiftRows()....
+故 去掉bom中的合并单元格 ，ok 。
+
+ --------------------------------------------
+ Apache POI  3.17 已发布，这是最后一个支持 Java 6 的版本。下个发行版将是 4.0.0 ，最低支持 Java 8 ,预计今年 12 月发布。
+
+ Apache POI 是用 Java 编写的开源跨平台的 Java API，提供 API 给 Java 程式对 Microsoft Office 格式档案读和写的功能。简而言之，你可以使用 Java 读取和写入 MS Excel 文件，也可以读取和写入 MS Word 和 MS PowerPoint 文件。
+
+ 该版本值得注意的更新内容：
+
+ - Various modules: add sanity checks and fix infinite loops / OOMs caused by fuzzed data
+ - OPC: fix linebreak handling on XML signature calculation (#61182)
+ - SS Common: fix number formatting (github-43/52, #60422)
+ - SXSSF: fix XML processing - unicode surrogates and line breaks (#61048, #61246)
+
+ -------------------------------------------------------------------------------------------------------
+ 类 中 引入的是 3.1.0
+ 故 借用 4.0 jar 中的 getColumnWidthInPixels的方法  （已从新引入jar ）
+  float widthIn256 = (float)sheet.getColumnWidth(1);
+  float ColumnWidthInPixels =  (float)((double)widthIn256 / 256.0D * 7.001699924468994D);
+
+----------------------------
+
+-------------------------------------------------------------------------------
+https://blog.csdn.net/Keith_Walker/article/details/80481789
+关于poi3.17版本的一些格式设置操作问
+2018年05月28日 14:27:22 Keith_Walker 阅读数：1332 标签： POI3.17 java  更多
+个人分类： POI
+最近在使用poi操作excel的时候遇到了一些问题，分享一下其中一些坑的点。
+
+网上很多版本对于poi中样式中样式设置都是poi之前的操作，在poi3.17版本中并不能直接使用，自己给自己挖了一个大坑；
+
+举个例子，在poi导出设置单元格样式的居中问题时候，网上大部分的操作代码如下：
+
+XSSFCellStyle cellStyle = wb.createCellStyle();
+cellStyle.setAlignment(XSSFCellStyle.ALIGN_CENTER); // 居中
+cellStyle.setVerticalAlignment(XSSFCellStyle.VERTICAL_CENTER);//垂直
+但是使用 poi3.17版本的时候，系统会报没有 ALIGN_CENTER,VERTICAL_CENTER 这个参数，一开始以为是poi 3.17导的不完全，然后我就把所有的包都重新打了一遍，然后完全没有解决，网上百度解决方法，几乎找不动其他的方式，poi3.17的操作手册也并没有找到，最后终于在一位博主的分享中（感谢阿炳的博客园https://www.cnblogs.com/acm-bingzi/p/poi1.html。原文链接），找到了解决方案，实际实现代码如下：
+
+
+XSSFCellStyle cellStyle = wb.createCellStyle();
+cellStylestyle.setAlignment(HorizontalAlignment.CENTER);// 居中
+cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);;//垂直
+同时在设置边框时候，也有相应的同样问题，HSSFCellStyle 中同样报错没有其中的值
+
+cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN); //下边框
+cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);//左边框
+cellStyle.setBorderTop(HSSFCellStyle.BORDER_THIN);//上边框
+cellStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);//右边框
+
+最后修改方案如下，接用BordyStyle中的值来修改；
+
+cellStyle.setBorderBottom(BorderStyle.THIN); //下边框
+cellStyle.setBorderLeft(BorderStyle.THIN);//左边框
+cellStyle.setBorderTop(BorderStyle.THIN);//上边框
+cellStyle.setBorderRight(BorderStyle.THIN);//右边框
+
+-------------------
+其中 ：3.17   BorderStyle 中没有 BIG_SPOTS   THICK_BACKWARD_DIAG    THIN_BACKWARD_DIAG  THICK_FORWARD_DIAG   THICK_HORZ_BANDS   THICK_VERT_BANDS   THIN_HORZ_BANDS   THIN_VERT_BANDS
+              但 ExtendedFormatRecord extends StandardRecord 类  ExtendedFormatRecord 有
+              故 ： 修改 如下 BorderStyle.valueOf(ExtendedFormatRecord.BIG_SPOTS)
+ 原 ： style4.setBorderTop(CellStyle.BIG_SPOTS);  // 3.10
+ 现 ： style4.setBorderTop(BorderStyle.valueOf(ExtendedFormatRecord.BIG_SPOTS));  // 3.17
+
+ 原 ： cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);  // 3.10
+ 现 ： cellStyle.setVerticalAlignment(VerticalAlignment.forInt(ExtendedFormatRecord.VERTICAL_TOP));  // 3.17
+
+ 原 ： （short）
+ //        if (cellStyle.getBorderBottom() != HSSFCellStyle.BORDER_THIN) {
+ //            cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);
+ //        }
+ 现 :
+    if (cellStyle.getBorderBottom() != ExtendedFormatRecord.THIN) {
+             cellStyle.setBorderBottom(BorderStyle.THIN);
+         }
+ -------------------

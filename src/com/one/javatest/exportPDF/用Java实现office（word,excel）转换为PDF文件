@@ -1,0 +1,40 @@
+用Java实现office文件转换为PDF。研究了一下主要有以下几种方式：
+
+1.使用openoffice，这个可以再linux系统中使用。但是这个据说对于样式复杂的office文件，转换的效果并不好。（但是linux下仍然推荐使用这个）
+
+2.使用POI技术+itext技术。这个样式设计比较繁琐，并且样式效果也不是太好。
+
+3.jacob技术，也是本文要讲解的技术。这个的实现思路是通过Java代码控制Windows系统上的office软件，进行转换。（仅限Windows服务器）
+
+前期的准备工作：
+
+1.下载jacob的相关jar包。里面主要包含jacob.jar和jacob-1.18-x64.dll，jacob-1.18-x86.dll三个文件。先将jar包引入到工程中，然后启动工程会报错，根据提示的错误信息，将指定的dll文件，加到当前jdk/jre/bin目录下即可。查看当前jdk安装路径的方法：通过配置的环境变量去查看所在目录。(注意引入的文件名要与报错的信息保持一致)
+
+下载地址： http://sourceforge.net/project/jacob-project（该地址可能不能用了，自行寻找吧）
+
+2.excel转PDF的话，一般要安装savapdf的插件。去下载SaveAsPDFandXPS.exe并一步步安装。
+
+3.Excel转PDF，还容易报缺少打印机的错误。去Windows的本地服务里开启print spooler服务
+
+4.excel转PDF，还容易出现PDF显示不全的问题。解决的方法是，打开Excel，然后分页预览，将两条蓝色的边线，分别拉倒两侧，（当前文件有多宽，就设置多宽）然后保存。参考https://jingyan.baidu.com/article/48b558e3266ab17f38c09ac0.html
+
+5.准备其他需要的jar包。有poi-ooxml-3.9.jar，poi-3.9.jar，ooxml-schemas-1.1.jar，dom4j-2.0.0-RC1.jar
+
+准备工作做完了，就上代码了：
+
+----
+报错 ：
+ 报错  Exception in thread "main" java.lang.NoClassDefFoundError: Could not initialize class com.jacob.com.ComThread
+
+ https://sourceforge.net/projects/jacob-project/postdownload    下载 jacob-1.19 .zip
+将 C:\Program Files\Java\jdk1.8.0_131\jre\bin     放入 jacob-1.19-x64.dll 文件
+  C:\Windows\System32                放入 jacob-1.19-x64.dll 文件
+ https://sourceforge.net/projects/jacob-project/files/jacob-project/1.19/jacob-1.19.zip/download
+
+ok
+
+---------------------
+作者：龙YGL龙
+来源：CSDN
+原文：https://blog.csdn.net/qq_29281307/article/details/78792784?utm_source=copy
+版权声明：本文为博主原创文章，转载请附上博文链接！

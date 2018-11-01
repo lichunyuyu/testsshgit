@@ -1,0 +1,14 @@
+ 1. 引入jar 包 ：路径  https://javaee.github.io/javamail/
+    这里 下载的  JavaMail 1.6.2最终版本
+    https://github.com/javaee/javamail/releases
+
+  2. 提示  503  设置授权码
+    javax.mail.AuthenticationFailedException: 535 Error: authentication failed, system busy
+    登陆认证失败，开启smtp或者pop3协议
+    https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+
+     这里是 QQ邮箱推出的，用于登录第三方客户端的专用密码：
+     在QQ邮箱设置 - 账户 -
+
+  3. 错误 提示： com.sun.mail.smtp.SMTPSendFailedException: [EOF]
+          原因：特殊字符 例如空格问题
