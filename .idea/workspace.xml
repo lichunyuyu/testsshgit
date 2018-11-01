@@ -5,223 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1861cb5c-609a-4dc4-8d76-a8002a689a07" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/itext-asian-5.2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/itextpdf-5.5.13.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/images/单波.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/images/单波2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/images/单波3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/images/印章.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/images/印章原始.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/images/透明签名.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/resources/ReportServicePhy.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/resources/测试Excel.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/resource/testcopySheet.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/image/2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/image/提莫.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ExternalReport---wj.doc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ExternalReport---wj2.doc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ExternalReport---wj3.doc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ExternalReport---wj4.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ReportInfo-hl.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ReportInfo-hl2.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ReportInfo-wthl.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ReportInfo-wuli.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/resources/ReportInfo-wuli2.xlsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/images/印章原始 (1).jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/images/印章原始 (2).jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/images/印章原始.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/images/印章透明4-23 (1).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/images/印章透明4-23 (2).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/images/印章透明4-23.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/images/图片14%.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/resource/freeMaker/freeMakerTest空格.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-collections4-4.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/itextpdf-5.4.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jacob.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javax.mail.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/poi-3.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/poi-excelant-3.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/poi-ooxml-3.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/poi-ooxml-schemas-3.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/poi-scratchpad-3.17.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/itext_asian_5_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/itext_asian_5_2_0__2_.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/itextpdf_5_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/itextpdf_5_4_1__2_.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/itextpdf_5_5_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jacob.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/poi_3_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/poi_excelant_3_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/poi_ooxml_3_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/poi_ooxml_schemas_3_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/poi_scratchpad_3_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/ExcelImageTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/ExcelImageTest2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/ExportExcelFap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/TestResizeImage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/poi4Jar/Picture4.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/excelPicture/设置图片大小位置" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/fourCopySheet/ExcelTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/fourCopySheet/ExportExcelCopy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/fourCopySheet/PoiUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/exportPdf.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/oneMain/Office2pdf.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPDF/用Java实现office（word,excel）转换为PDF文件" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/BSCAdjustFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/Image.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/Image1.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/ImageChangeL.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/ImageTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportPictureRGB/ImageUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/mailSend/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/mailSend/firstMail/MailSenderInfo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/mailSend/firstMail/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/mailSend/firstMail/MyAuthenticator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/mailSend/firstMail/SimpleMailSender.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/mailSend/resources/test.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/one/javatest/mailSend/邮件发送笔记" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/笔记" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/json-lib-0.9.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/lib/commons-io-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/lib/javax.ejb.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/lib/javax.servlet.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/lib/javax.servlet.jsp.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/lib/junit-4.11.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/lib/servlet.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529632808566-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529632879682-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529633054257-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529636301621-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529636343091-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529636595685-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529636784492-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/1529636820298-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/~$1528873115957-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/~$1529636595685-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/~$1529636784492-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/outFiles/~$1529997263654-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529632808566-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529632879682-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529633054257-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529636301621-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529636343091-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529636595685-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529636784492-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/outFiles/1529636820298-test.xlsx" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/WEB-INF/lib/json-lib-0.9.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/WEB-INF/lib/poi-3.10-beta2-20130904.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/WEB-INF/lib/poi-excelant-3.10-beta2-20130904.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/WEB-INF/lib/poi-ooxml-3.10-beta2-20130904.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/WEB-INF/lib/poi-ooxml-schemas-3.10-beta2-20130904.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/WEB-INF/lib/poi-scratchpad-3.10-beta2-20130904.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/imooc/util/Main.class" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/imooc/util/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/fourMain/template/test.docx" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/fourMain/template/test.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template/test.docx" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template/test.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template/test.zip" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template/test.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template2/test.docx" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template2/test.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template2/test.zip" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/template2/test.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/upload/data.doc" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/upload/data.doc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/upload/data.docx" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/exportWord/threeMain/resources/upload/data.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/csdn.jpg" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/csdn.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/imooc/servlet/CodeServlet.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/imooc/servlet/CodeServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/imooc/util/Main.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/imooc/util/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatServerClientSocket/client/Client.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatServerClientSocket/client/Client.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatServerClientSocket/server/Server.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatServerClientSocket/server/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/client/Client.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/client/Client.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/Server.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/ThreadReader.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/ThreadReader.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/ThreadSocket.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/ThreadSocket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/ThreadWriter.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/chatSocket/server/ThreadWriter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/controller/VoteController.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/controller/VoteController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/bytep/DoubleBar.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/bytep/DoubleBar.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/bytep/Main.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/bytep/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/oneMain/main.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/oneMain/main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/oneMain/main2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/oneMain/main2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/oneMain/mainPictureOK.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/oneMain/mainPictureOK.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/test4/Picture.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/test4/Picture.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/exportExcel.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/exportExcel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/exportExcelLine.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/exportExcelLine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/exportExcelXSSF.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportExcel/threeMain/exportExcelXSSF.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/FiveMain/exportWord.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/FiveMain/exportWord.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/fourMain/testmain.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/fourMain/testmain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/fourMain/testmain2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/fourMain/testmain2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/hc/example/XMlToDoc.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/hc/example/XMlToDoc.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/hc/example/XMlToDoc2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/hc/example/XMlToDoc2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template/test.docx" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template/test.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template/test.zip" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template/test.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template2/test.docx" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template2/test.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template2/test.zip" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/template2/test.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/upload/data.doc" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/upload/data.doc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/upload/data.docx" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/threeMain/resources/upload/data.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/twoMain/DocumentHandler.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/twoMain/DocumentHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/twoMain/DocumentHandler2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/twoMain/DocumentHandler2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/fileAbout/fileReader/FileRead.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/fileAbout/fileReader/FileRead.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/fileAbout/fileReader/WriterUtf8.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/fileAbout/fileReader/WriterUtf8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/test/RepoetPartConnectImpl.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/test/RepoetPartConnectImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/test/httpClientAuth/JavaNetURLRestFulClient.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/test/httpClientAuth/JavaNetURLRestFulClient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/test/httpconnectUrl/HttpClientUtil.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/test/httpconnectUrl/HttpClientUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testOne/FileLoad.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testOne/FileLoad.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testOne/Main.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testOne/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testOne/TxtTrans.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testOne/TxtTrans.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testTwo/Main.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testTwo/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testTwo/TranslateJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/transferWords/testTwo/TranslateJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/smallApplet/ScApplet.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/smallApplet/ScApplet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/smallJApplet/MyApplet.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/smallJApplet/MyApplet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/smallJApplet/MyApplet2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/smallJApplet/MyApplet2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/dao/BaseDao.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/dao/BaseDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/dao/CustomerDao.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/dao/CustomerDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/dao/UserDao.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/dao/UserDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/entity/simpleEntityImpl.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/entity/simpleEntityImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/exampleSwing/DropTargetTest.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/exampleSwing/DropTargetTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/exampleSwing/JPanelTest.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/exampleSwing/JPanelTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/exampleSwing/JScrollPaneTest.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/exampleSwing/JScrollPaneTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/CustRegisterJFrame$4.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/CustRegisterJFrame$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/CustRegisterJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/CustRegisterJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/EditUserJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/EditUserJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/LoginJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/LoginJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/LoginWarnJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/LoginWarnJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/LoginWarnPassJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/LoginWarnPassJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/RegisterJFrame$4.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/RegisterJFrame$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/RegisterJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/RegisterJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/SSHMainJFrame$2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/SSHMainJFrame$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/SSHMainJFrame$5.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/SSHMainJFrame$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/SSHMainJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/SSHMainJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/littleFunctions/CaculatorJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/littleFunctions/CaculatorJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/littleFunctions/CalculatorTestJframe.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/littleFunctions/CalculatorTestJframe.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/provinceClass/JComboboxOfChina.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/provinceClass/JComboboxOfChina.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/provinceClass/TestJComboboxOfChina.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swing/jframe/provinceClass/TestJComboboxOfChina.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/jframe/JFreeChartTest2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/jframe/JFreeChartTest2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/jframe/JFreeChartTest3.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/jframe/JFreeChartTest3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/test/Main.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/test/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/test/Thread1.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/test/Thread1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/test/Thread2.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/swingChartTest/test/Thread2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/forms/JIFrame1.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/forms/JIFrame1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/Login.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/MainWindowJFrame$jTabbedPane1.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/MainWindowJFrame$jTabbedPane1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/MainWindowJFrame$jTree1.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/MainWindowJFrame$jTree1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/MainWindowJFrame.class" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/testTreeWindow/mainFrame/MainWindowJFrame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template/test.docx" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template/test.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template/test.zip" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template/test.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template2/test.docx" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template2/test.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template2/test.zip" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/template2/test.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/upload/data.doc" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/upload/data.doc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/upload/data.docx" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/threeMain/resources/upload/data.docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/SSHTest1_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/SSHTest1_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SSHTest1.iml" afterPath="$PROJECT_DIR$/SSHTest1.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/fileAbout/fileReader/testFile.txt" afterPath="$PROJECT_DIR$/out/artifacts/SSHTest1_war_exploded/WEB-INF/classes/com/one/javatest/fileAbout/fileReader/testFile.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/resource/freeMaker/freeMakerTest2.ftl" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/exportWord/resource/freeMaker/freeMakerTest2.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/fileAbout/fileReader/testFile.txt" afterPath="$PROJECT_DIR$/out/production/SSHTest1/com/one/javatest/fileAbout/fileReader/testFile.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/bytep/Main.java" afterPath="$PROJECT_DIR$/src/com/one/javatest/bytep/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/exportExcel.java" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/exportExcel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/exportExcelLine.java" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/exportExcelLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/exportExcelXSSF.java" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportExcel/threeMain/exportExcelXSSF.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/exportWord/resource/freeMaker/freeMakerTest2.ftl" afterPath="$PROJECT_DIR$/src/com/one/javatest/exportWord/resource/freeMaker/freeMakerTest2.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/one/javatest/fileAbout/fileReader/testFile.txt" afterPath="$PROJECT_DIR$/src/com/one/javatest/fileAbout/fileReader/testFile.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -2413,8 +2197,16 @@
       <workItem from="1540521576360" duration="14396000" />
       <workItem from="1540796317972" duration="5411000" />
       <workItem from="1540891750426" duration="2800000" />
-      <workItem from="1541044706601" duration="507000" />
+      <workItem from="1541044706601" duration="753000" />
     </task>
+    <task id="LOCAL-00001" summary="主要是导出Excel\Word\pdf等操作   poi-3.10更换为poi-3.17jar">
+      <created>1541045363726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541045363726</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -2450,7 +2242,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="855010000" />
+    <option name="totallyTimeSpent" value="855256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2463,7 +2255,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2679201" sideWeight="0.55894965" order="13" side_tool="false" content_ui="tabs" />
@@ -2474,7 +2266,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17391305" sideWeight="0.5664523" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.028938906" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1786134" sideWeight="0.45332617" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23854288" sideWeight="0.7006438" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23854288" sideWeight="0.7006438" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22091657" sideWeight="0.46087888" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16803761" sideWeight="0.46034297" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23847803" sideWeight="0.32006127" order="7" side_tool="true" content_ui="tabs" />
@@ -2552,6 +2344,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="主要是导出Excel\Word\pdf等操作   poi-3.10更换为poi-3.17jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="主要是导出Excel\Word\pdf等操作   poi-3.10更换为poi-3.17jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
